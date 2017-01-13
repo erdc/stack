@@ -23,43 +23,107 @@ parameters:
   PATH: |
     /usr/bin:/bin:/usr/sbin:/sbin
   PROLOGUE: |
-    source /etc/profile.d/modules.sh;echo "loading modules";module load gcc/4.4.6;module load openmpi/1.6.4/gcc/4.4.6;echo "setting default compilers";export CPP=/usr/bin/cpp;
+    source /etc/profile.d/modules.sh;echo "loading modules";module load gcc/6.1.0;module load openmpi/1.10.2/gcc/6.1.0;echo "setting default compilers";export CPP=/usr/bin/cpp;
   DYNAMIC_EXE_LINKER_FLAGS: -dynamic
 
 packages:
+  clawpack:
   launcher:
   cmake:
+  openjpeg:
+    version: '2.1'
+  openssl:
+    use: host-openssl
   python:
     host: false
+    link: shared
     build_with: |
-      openssl,bzip2,sqlite
+      bzip2, sqlite, openssl
   blas:
     use: openblas
-  lapack:    
+  lapack:
+    use: openblas-lapack
   daetk:
   mpi:
     use: host-mpi
   mpi4py:
   nose:
+  coverage:
   hdf5:
-  ipython:
-  matplotlib:
+  pygments:
+  parmetis:
+  pillow:
   petsc:
+    version: 3.7.5
     build_with: |
-      parmetis
+      parmetis, cmake, openblas
     download: |
-      ptscotch, superlu, superlu_dist, spooles, hypre, blacs, scalapack, mumps
+      superlu, superlu_dist, hypre, blacs, scalapack, mumps
     coptflags: -O2
     link: shared
-    debug: false
+    debug: false 
   petsc4py:
+    version: 3.7.0
     with_conf: true
   pytables:
-  sphinx:
   superlu:
   sympy:
   tetgen:
   triangle:
   memory_profiler:
+  boost:
+    toolset: gcc
+    address_model: 64
+    build_with: |
+      python
+  cgal:
+  pycgal:
+  netcdf4:
+  netcdf4f:
+  python-netcdf4:
+  netcdf4cpp:
+  jasper:
+  grib_api:
+  pyproj:
+  pygrib:
+  scipy:
   h5py:
+    use: host-mpi
+  pydap:
+  rdp:
   ode:
+  pip:
+  pexpect:
+  pcs_api:
+  zoltan:
+    use: host-mpi
+    build_with: |
+      parmetis
+#  chrono:
+  pytest:
+  pytest-xdist:
+  doxygen:
+  gmsh:
+    use: host-mpi
+  scorec:
+    use: host-mpi
+  matplotlib:
+  sphinx:
+  sphinx-bootstrap-theme:
+  pyzmq:
+  vapory:
+  tornado:
+  ipython:
+  terminado:
+  geojson:
+  shapely:
+  matlab:
+    use: host-matlab
+  ipdb:
+  jupyterlab:
+  jupyter:
+  ipyparallel:
+  buildbot-worker:
+  julia:
+  pyjulia:
+#  vtk:

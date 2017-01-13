@@ -1,6 +1,6 @@
 PLAT         = _linux
 DSuperLUroot = $(BUILD)
-DSUPERLULIB  = $(DSuperLUroot)/lib/libsuperlu_dist.a
+DSUPERLULIB  = $(DSuperLUroot)/lib/libsuperlu.a
 BLASDEF      = -DUSE_VENDOR_BLAS
 BLASLIB      = $(BLAS_LDFLAGS) $(LAPACK_LDFLAGS)
 INCS         = -I$(PARMETIS_DIR)/include

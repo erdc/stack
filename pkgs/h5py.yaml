@@ -17,3 +17,4 @@ build_stages:
        export HDF5_VERSION='1.8.16'
        export CC=${MPICC}
        export SETUPTOOLS_PACKAGE_EXTRA_OPTIONS="configure --mpi"
+       export INCLUDE_PATH=${INCLUDE_PATH}
