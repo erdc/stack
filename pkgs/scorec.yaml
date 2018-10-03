@@ -1,13 +1,17 @@
 extends: [cmake_package]
 dependencies:
-  build: [mpi, parmetis, zoltan]
+  build: [mpi, parmetis, zoltan, bzip2]
 
+#changing git->zip b/c of ssl issues on hpcmp platforms
+#sources:
+#  - url: https://github.com/scorec/core.git
+#    key: git:fc94c3d4b013d7535e43549577b2c5f619d43d4b
 sources:
-- key: git:1d2f5438d3dff3f1120649577bb2a05f9ac8c556
-  url: https://github.com/SCOREC/core.git
+- key: zip:ttofytsvsn7wiy5mw3utbdbmobbw7zr7
+  url: https://github.com/SCOREC/core/archive/fc94c3d4b013d7535e43549577b2c5f619d43d4b.zip
 
 defaults:
-  relocatable: false
+  relocatable: true
 
 build_stages:
 
@@ -19,16 +23,19 @@ build_stages:
     cd _build
 
 - name: configure
+  debug: true
   extra: [
-  '-DCMAKE_C_COMPILER=${MPICC}',
-  '-DCMAKE_CXX_COMPILER=${MPICXX}',
-  '-DENABLE_ZOLTAN=ON',
-  '-DMETIS_LIBRARY=${PARMETIS_DIR}/lib/libmetis.so',
-  '-DPARMETIS_LIBRARY=${PARMETIS_DIR}/lib/libparmetis.so',
-  '-DPARMETIS_INCLUDE_DIR=${PARMETIS_DIR}/include',
-  '-DZOLTAN_LIBRARY=${ZOLTAN_DIR}/lib/libzoltan.a',
-  '-DZOLTAN_INCLUDE_DIR=${ZOLTAN_DIR}/include',
-  '-DBUILD_SHARED_LIBS=True',
-  '-DSIM_MPI=mpich2',
+  '-DBUILD_SHARED_LIBS:BOOL=ON',
+  '-DCMAKE_C_COMPILER:STRING=${MPICC}',
+  '-DCMAKE_CXX_COMPILER:STRING=${MPICXX}',
+  '-DENABLE_ZOLTAN:BOOL=ON',
+  '-DSCOREC_CXX_OPTIMIZE=ON',
+  '-DMDS_ID_TYPE="int"',
+  '-DPCU_COMPRESS=ON',
+  '-DENABLE_FPP=ON',
+  '-DENABLE_SIMMETRIX:BOOL=OFF',
+  '-DZOLTAN_PREFIX:PATH=${ZOLTAN_DIR}',
+  '-DPARMETIS_PREFIX:PATH=${PARMETIS_DIR}',
+  '-DCMAKE_BUILD_TYPE=Release',
+  '-DSCOREC_CXX_WARNINGS=OFF'
   ]
-

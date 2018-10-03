@@ -1,12 +1,9 @@
 extends: [setuptools_package]
 
-when pyver == '2.7':
-    # dateutil 2.0 doesn't work in Python 2.7, so we need to keep using
-    # dateutil 1.5 for Python 2.7:
-    sources:
-    - key: tar.gz:ycfmu7mf7d4o5vq6qozueo4csjrmlfvj
-      url: http://labix.org/download/python-dateutil/python-dateutil-1.5.tar.gz
-when pyver != '2.7':
-    sources:
-    - key: tar.gz:rkvrfuhjisztwxrupphrsy4btwfnsjoa
-      url: https://labix.org/download/python-dateutil/python-dateutil-2.0.tar.gz
+dependencies:
+  build: []
+  run: []
+
+sources:
+- key: tar.gz:reodrmvaf5n3dpr6i6jym3en6soh2gn2
+  url: https://pypi.python.org/packages/54/bb/f1db86504f7a49e1d9b9301531181b00a1c7325dc85a29160ee3eaa73a54/python-dateutil-2.6.1.tar.gz

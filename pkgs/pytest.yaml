@@ -1,8 +1,9 @@
 extends: [setuptools_package]
 
 dependencies:
-  run: [py]
+  build: [py,funcsigs,pluggy,attrs]
+  run: [py,funcsigs,pluggy,attrs]
 
 sources:
-- key: tar.gz:5u4kg4s3rzchqvk57w2utjbbtsr3uv4v
-  url: https://pypi.python.org/packages/source/p/pytest/pytest-2.8.6.tar.gz
+- key: tar.gz:txolq6oizscz2jkaebfvhgibd6cc4xui
+  url: https://pypi.python.org/packages/84/11/a6fe751118861b4d6587e07633f2e055733fc3678f7e5d7ae30303d90b7e/pytest-3.4.1.tar.gz
