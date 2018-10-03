@@ -68,7 +68,7 @@ packages:
   pybind11:
   gmsh: #used for mesh generation
   scorec: #used for MeshAdapt
-  #matplotlib: # used in testing suite 
+  matplotlib: # used in testing suite 
   #pcs_api: #personal cloud storage api
   #pyzmq:
   #scandir:
