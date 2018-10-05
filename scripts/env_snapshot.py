@@ -34,7 +34,7 @@ except:
     pass
 
 #compilers
-PROLOGUE+="export CC=gcc; export CXX=g++; export F77=gfortran; export F90=gfortran; export FC=gfortran; "
+PROLOGUE+="export CC=gcc; export CXX=g++; export F77=gfortran; export F90=gfortran; export FC=gfortran; TERM=xterm; "
 print("  PATH: |\n    {0}".format(PATH))
 print("  PROLOGUE: |\n    {0}".format(PROLOGUE))
 
