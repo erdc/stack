@@ -31,7 +31,11 @@ def preConfigureCrayXE6(ctx, conf_lines):
 
 def preConfigureCrayXC30(ctx, conf_lines):
     conf_lines += ['LDFLAGS=' + ctx.parameters['DYNAMIC_EXE_LINKER_FLAGS'],
-               '--known-mpi-shared-libraries=1',
+                   '--with-cmake=/app/COST/cmake-3.0.0-gnu/bin/cmake',
+                   '--with-cmake-exe=/app/COST/cmake-3.0.0-gnu/bin/cmake',
+                   '--with-cmake-dir=/app/COST/cmake-3.0.0-gnu',
+              '--known-has-attribute-aligned=1',
+                '--known-mpi-shared-libraries=1',
                '--with-batch',
                '--known-sdot-returns-double=0',
                '--known-snrm2-returns-double=0',
@@ -58,9 +62,9 @@ def preConfigureCrayXC30(ctx, conf_lines):
 
 def preConfigureCrayXC40(ctx, conf_lines):
     conf_lines += ['LDFLAGS=' + ctx.parameters['DYNAMIC_EXE_LINKER_FLAGS'],
-                   '--with-cmake-exe=/app/unsupported/COST/cmake/3.2.3/gnu/bin/cmake',
-                   '--with-cmake=/app/unsupported/COST/cmake/3.2.3/gnu/bin/cmake',
-                   '--with-cmake-dir=/app/unsupported/COST/cmake/3.2.3/gnu',
+                   '--with-cmake-exe=${CMAKE_DIR}/bin/cmake',
+                   '--with-cmake=${CMAKE_DIR}/bin/cmake',
+                   '--with-cmake-dir=${CMAKE_DIR}',
                '--known-has-attribute-aligned=1',
                '--known-mpi-shared-libraries=1',
                '--with-batch',
@@ -89,6 +93,7 @@ def preConfigureCrayXC40(ctx, conf_lines):
 
 def preConfigureSGIICEX(ctx, conf_lines):
     conf_lines += ['LDFLAGS=' + ctx.parameters['DYNAMIC_EXE_LINKER_FLAGS'],
+               '--known-has-attribute-aligned=1',
                '--known-mpi-shared-libraries=1',
                '--with-pic',
                '--with-batch',
@@ -146,9 +151,8 @@ def configure(ctx, stage_args):
     # temporaries.  Here, we force PETSc to use our ./_tmp directory
     # as its temporary directory.  This configuration change may be of
     # general use for the other build systems.
-    conf_lines = ['TMPDIR=${WORKDIR}',
-                  'PATH=/app/unsupported/COST/cmake/3.2.3/gnu/bin:${PATH} ./configure --prefix="${ARTIFACT}"']
-
+    conf_lines = ['if [ -d ${WORKDIR} ]; then TMPDIR=${WORKDIR}; else mkdir ${PWD}/_tmp; TMPDIR=${PWD}/_tmp; fi',
+                  'PATH=${CMAKE_DIR}/bin:${PATH} ./configure --prefix="${ARTIFACT}"']
     if ctx.parameters.get('machine','') == 'CrayXE6':
         preConfigureCrayXE6(ctx, conf_lines)
     elif ctx.parameters.get('machine','') == 'CrayXC30':
