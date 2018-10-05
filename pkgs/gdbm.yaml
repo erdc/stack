@@ -7,3 +7,16 @@ sources:
 - key: tar.gz:xcbczndwtywxlhecrqdpdftbje3mrdau
   url: ftp://ftp.gnu.org/gnu/gdbm/gdbm-1.18.tar.gz
 
+build_stages:
+- name: setEnv
+  before: configure
+  handler: bash
+  bash: |
+    env
+    export WORK=/tmp
+
+- name: configure
+  after: setEnv
+  extra: ['--with-cflags=-fPIC',
+          '--with-gnumake',
+          '--with-cxxflags=-fPIC']
