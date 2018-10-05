@@ -5,8 +5,8 @@ dependencies:
   run: [blas, cython]
 
 sources:
-- key: tar.gz:3w6nugkpjhqm6btd7katds45pi5yo3iu
-  url: https://github.com/numpy/numpy/releases/download/v1.14.2/numpy-1.14.2.tar.gz
+- key: tar.gz:nipjmvudgl6ys5ftkwscfm4xfchccr2g
+  url: https://github.com/numpy/numpy/releases/download/v1.15.2/numpy-1.15.2.tar.g
 
 build_stages:
   - when: platform == 'linux'
@@ -61,8 +61,11 @@ build_stages:
     name: create-site.cfg
     after: prologue
     before: install
+    files:
+      - 'version_match.patch'
     handler: bash
     bash: |
+      patch -p0 < _hashdist/version_match.patch
       cat > site.cfg << EOF
       [DEFAULT]
       library_dirs = ${CRAY_LIBSCI_PREFIX_DIR}/lib
