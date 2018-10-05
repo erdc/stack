@@ -1,0 +1,11 @@
+--- numpy/distutils/fcompiler/gnu.py	2018-09-22 16:08:18.000000000 -0500
++++ numpy/distutils/fcompiler/gnu.py	2018-10-05 13:13:27.000000000 -0500
+@@ -48,7 +48,7 @@
+         # (usually "x.y", "x.y.z" or "x.y.z-q") for ``-dumpversion``; older
+         # gfortrans may still return long version strings (``-dumpversion`` was
+         # an alias for ``--version``)
+-        if len(version_string) <= 20:
++        if len(version_string) <= 30:
+             # Try to find a valid version string
+             m = re.search(r'([0-9.]+)', version_string)
+             if m:
