@@ -12,7 +12,7 @@ build_stages:
   before: configure
   handler: bash
   bash: |
-    env
+    export CFLAGS="-D_GNU_SOURCE"
     export WORK=/tmp
 
 - name: configure
