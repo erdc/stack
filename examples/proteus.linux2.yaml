@@ -14,12 +14,12 @@ extends:
 # profile.
 
 packages:
+  future:
   recordtype:
   cmake:
   openjpeg: #dependency of chrono
     version: '2.1'
   openssl:
-    use: host-openssl
   python:
     host: false
     link: shared
@@ -69,7 +69,7 @@ packages:
   gmsh: #used for mesh generation
   scorec: #used for MeshAdapt
   matplotlib: # used in testing suite 
-  pcs_api: #personal cloud storage api
+  #pcs_api: #personal cloud storage api
   #pyzmq:
   #scandir:
   #
@@ -78,7 +78,6 @@ packages:
   #doxygen: #for building documentation
   #sphinx: #for building website
   #sphinx-bootstrap-theme:
-
   #clawpack:
   #pydap:
   #julia:
@@ -101,9 +100,9 @@ packages:
   #jupyterlab:
   #jupyter:
   #ipyparallel:
-  backports-abc:
-  backports-shutil-get-terminal-size:
-  configparser:
+  #backports-abc:
+  #backports-shutil-get-terminal-size:
+  #configparser:
   #rtree:
   #ipython-d3plot:
   #ipython-gridwidget:
