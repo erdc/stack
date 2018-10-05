@@ -87,7 +87,6 @@ def configure(ctx, stage_args):
     # general use for the other build systems.
     conf_lines = ['mkdir ${PWD}/_tmp && TMPDIR=${PWD}/_tmp',
                   './configure --prefix="${ARTIFACT}"']
-
     if ctx.parameters.get('machine','') == 'CrayXE6':
         preConfigureCrayXE6(ctx, conf_lines)
     elif ctx.parameters.get('machine','') == 'SGIICEX':
