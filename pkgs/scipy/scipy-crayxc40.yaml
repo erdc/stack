@@ -1,13 +1,13 @@
 when: machine == 'CrayXC40'
 
-extends: [distutils_package]
+extends: [setuptools_package]
 dependencies:
   build: [blas, lapack, numpy]
   run: [blas, lapack, numpy]
 
 sources:
-  - url: http://downloads.sourceforge.net/scipy/scipy-0.13.3.tar.gz
-    key: tar.gz:vhrty7xamdbvzvog5y5mtzpjxo4zegox
+- key: tar.gz:q7vb6ena5hwarqte3rsfkhkqd6rqokeu
+  url: https://github.com/scipy/scipy/releases/download/v1.0.0/scipy-1.0.0.tar.gz
 
 build_stages:
   - name: create-site.cfg
@@ -30,7 +30,7 @@ build_stages:
     before: install
     handler: bash
     bash: |
-      export LDFLAGS="-shared -Wl,-rpath=${PYTHON_DIR}/lib -Wl,-rpath=${CRAY_LIBSCI_PREFIX_DIR}/lib $(${PYTHON_DIR}/bin/python-config --ldflags)"
+      export LDFLAGS="-shared -Wl,-rpath=${PYTHON_DIR}/lib -Wl,-rpath=${CRAY_LIBSCI_PREFIX_DIR}/lib"
       export ATLAS=None
       export LAPACK=sci_gnu
       export BLAS=sci_gnu
