@@ -85,3 +85,6 @@ packages:
 #  scipy:
   h5py:
   pip:
+  pytest:
+  pytest-xdist:
+  pytest-cov:
