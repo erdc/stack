@@ -38,8 +38,11 @@ build_stages:
     name: create-site.cfg
     after: prologue
     before: install
+    files:
+      - 'version_match.patch'
     handler: bash
     bash: |
+      patch -p0 < _hashdist/version_match.patch
       cat > site.cfg << EOF
       [mkl]
       library_dirs = /p/home/apps/intel/parallel_studio_2016/compilers_and_libraries_2016.0.109/linux/mkl/lib/intel64_lin
