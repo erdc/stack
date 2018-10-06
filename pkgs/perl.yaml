@@ -7,8 +7,8 @@ dependencies:
   build: [berkeleydb-5, gdbm, {{build_with}}]
 
 sources:
-- key: tar.gz:j2gcrllozsezal44wltw6kavxmnifb66
-  url: http://www.cpan.org/src/5.0/perl-5.24.0.tar.gz
+- key: tar.gz:p2jj6zguzmhj2ekz2ssz7setstrh7ipx
+  url: http://www.cpan.org/src/5.0/perl-5.28.0.tar.gz
 
 build_stages:
 - name: configure
