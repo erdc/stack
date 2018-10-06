@@ -57,6 +57,8 @@ packages:
   pygments:
   parmetis:
     without_check: true
+  perl:
+    use: host-perl
   petsc:
     version: 3.7.6
     build_with: |
