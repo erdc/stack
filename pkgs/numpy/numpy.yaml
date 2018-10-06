@@ -34,11 +34,14 @@ build_stages:
       export LAPACK=None
       export BLAS=None
 
-  - when: platform == 'SGIICEX'
+  - when: machine == 'SGIICEX'
     name: create-site.cfg
     before: install
+    files:
+      - 'version_match.patch'
     handler: bash
     bash: |
+      patch -p0 < _hashdist/version_match.patch
       cat > site.cfg << EOF
       [ALL]
       extra_link_args = -shared
