@@ -38,6 +38,9 @@ build_stages:
              address-model=${address_model} \
              -j ${HASHDIST_CPU_COUNT} \
              --user-config=user-config.jam \
+             --without-coroutine \
+             --without-mpi \
+             --without-python \
              --build-dir=_build\
              link=shared \
              install \
