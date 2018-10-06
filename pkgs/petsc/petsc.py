@@ -151,8 +151,8 @@ def configure(ctx, stage_args):
     # temporaries.  Here, we force PETSc to use our ./_tmp directory
     # as its temporary directory.  This configuration change may be of
     # general use for the other build systems.
-    conf_lines = ['if [ -d ${WORKDIR} ]; then TMPDIR=${WORKDIR}; else mkdir ${PWD}/_tmp; TMPDIR=${PWD}/_tmp; fi;',
-                  'PATH=${CMAKE_DIR}/bin:${PATH} ./configure --prefix="${ARTIFACT}"']
+    conf_lines = ['TMPDIR=${PWD}/_tmp',
+                  'PATH=${CMAKE_DIR}/bin:${PATH} ./configure --verbose --prefix="${ARTIFACT}"']
     if ctx.parameters.get('machine','') == 'CrayXE6':
         preConfigureCrayXE6(ctx, conf_lines)
     elif ctx.parameters.get('machine','') == 'CrayXC30':
