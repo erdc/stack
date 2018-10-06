@@ -30,7 +30,6 @@ parameters:
 
 packages:
   recordtype:
-  clawpack:
   launcher:
   cmake:
   openssl:
@@ -76,12 +75,7 @@ packages:
     address_model: 64
     build_with: |
       python
-#  cgal:
-  netcdf4:
-  netcdf4f:
-  python-netcdf4:
-  netcdf4cpp:
-  scipy:
+#  scipy:
   h5py:
   pip:
   pexpect:
@@ -92,5 +86,5 @@ packages:
   pytest:
   pytest-xdist:
   doxygen:
-  gmsh:
+#  gmsh:
   scorec:
