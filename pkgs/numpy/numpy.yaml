@@ -34,7 +34,7 @@ build_stages:
       export LAPACK=None
       export BLAS=None
 
-  - when: platform == 'SGIICEX'
+  - when: machine == 'SGIICEX'
     name: create-site.cfg
     before: install
     files:
