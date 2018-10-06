@@ -6,7 +6,7 @@ dependencies:
 
 sources:
 - key: tar.gz:nipjmvudgl6ys5ftkwscfm4xfchccr2g
-  url: https://github.com/numpy/numpy/releases/download/v1.15.2/numpy-1.15.2.tar.g
+  url: https://github.com/numpy/numpy/releases/download/v1.15.2/numpy-1.15.2.tar.gz
 
 build_stages:
   - when: platform == 'linux'
