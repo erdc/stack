@@ -33,8 +33,6 @@ packages:
     use: host-pkg-config
   launcher:
   cmake:
-  openjpeg:
-    version: '2.1'
   openssl:
     use: host-openssl
   python:
@@ -51,17 +49,16 @@ packages:
     use: host-mpi
   mpi4py:
   nose:
-  coverage:
   hdf5:
-  pygments:
   parmetis:
     without_check: true
+  superlu:
   petsc:
     version: 3.7.6
     build_with: |
       parmetis, cmake, blas
     download: |
-      superlu, hypre, blacs, scalapack, mumps, zoltan
+      blacs, scalapack, mumps, ptscotch, zoltan
     coptflags: -O2
     link: shared
     debug: false
@@ -69,7 +66,6 @@ packages:
     version: 3.7.0
     with_conf: true
   pytables:
-  sympy:
   tetgen:
   triangle:
   memory_profiler:
@@ -86,6 +82,5 @@ packages:
   chrono:
   pytest:
   pytest-xdist:
-  doxygen:
 #  gmsh:
   scorec:
