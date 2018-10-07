@@ -52,18 +52,20 @@ packages:
   parmetis:
     without_check: true
   superlu:
+  perl:
+    use: host-perl
   petsc:
-    version: 3.8.4
+    version: 3.7.6
     openblas: true
     build_with: |
-      git, parmetis, cmake, blas
+      parmetis, cmake, blas
     download: |
       hypre, blacs, scalapack, mumps, ptscotch, zoltan
     coptflags: -O2
     link: shared
     debug: false
   petsc4py:
-    version: 3.8.1
+    version: 3.7.0
     with_conf: true
   pytables:
   tetgen:
@@ -84,5 +86,5 @@ packages:
   chrono:
   pytest:
   pytest-xdist:
-  gmsh:
+#  gmsh:
   scorec:
