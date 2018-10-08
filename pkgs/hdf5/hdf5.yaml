@@ -24,6 +24,7 @@ build_stages:
           '--with-pthread',
           '--enable-unsupported',
           '--enable-shared',
+          '--disable-static',
           '--enable-production=yes',
           '--enable-parallel=yes',
           '--enable-largefile=yes',

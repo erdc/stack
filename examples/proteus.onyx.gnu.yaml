@@ -45,6 +45,8 @@ packages:
     use: host-pkg-config
   launcher:
   cmake:
+  openssl:
+    use: host-openssl
   python:
     host: false
     link: shared
