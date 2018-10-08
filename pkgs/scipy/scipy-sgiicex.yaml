@@ -1,6 +1,7 @@
 when: machine == 'SGIICEX'
 
 extends: [setuptools_package, libflags]
+
 dependencies:
   build: [blas, lapack, numpy]
   run: [blas, lapack, numpy]
