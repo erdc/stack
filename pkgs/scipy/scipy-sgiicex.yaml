@@ -1,34 +1,23 @@
 when: machine == 'SGIICEX'
 
-extends: [distutils_package]
+extends: [setuptools_package, libflags]
+
 dependencies:
   build: [blas, lapack, numpy]
   run: [blas, lapack, numpy]
 
 sources:
-  - url: http://downloads.sourceforge.net/scipy/scipy-0.13.3.tar.gz
-    key: tar.gz:vhrty7xamdbvzvog5y5mtzpjxo4zegox
+- key: tar.gz:q7vb6ena5hwarqte3rsfkhkqd6rqokeu
+  url: https://github.com/scipy/scipy/releases/download/v1.0.0/scipy-1.0.0.tar.gz
 
 build_stages:
-  - name: create-site.cfg
-    after: prologue
+  - name: set-lapack-paths
+    after: libflags
     before: install
     handler: bash
     bash: |
-      cat > site.cfg << EOF
-      [mkl]
-      library_dirs = /p/home/apps/intel/parallel_studio_2016/compilers_and_libraries_2016.0.109/linux/mkl/lib/intel64_lin
-      mkl_libs = mkl_rt
-      lapack_libs =
-      EOF
-
-  - name: set-LDFLAGS
-    after: prologue
-    before: install
-    handler: bash
-    bash: |
-      export LDFLAGS="-shared -Wl,-rpath=${PYTHON_DIR}/lib"
+      export LDFLAGS="$LDFLAGS -shared $LAPACK_LDFLAGS $BLAS_LDFLAGS"
       export ATLAS=None
-      export LAPACK=None
-      export BLAS=None
-
+      export OPENBLAS=$OPENBLAS_DIR
+      export LAPACK=$LAPACK_LDFLAGS
+      export BLAS=$BLAS_LDFLAGS

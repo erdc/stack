@@ -37,6 +37,9 @@ build_stages:
              toolset={{toolset}} \
              address-model=${address_model} \
              -j ${HASHDIST_CPU_COUNT} \
+             --without-context \
+             --without-coroutine \
+             --without-python \
              --user-config=user-config.jam \
              --without-coroutine \
              --without-mpi \
