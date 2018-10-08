@@ -6,7 +6,9 @@ PROLOGUE=''
 for k,v in os.environ.items():
     if os.environ['USER'] in v:
         ignored[k] = v
-    elif k in ['PATH','LD_LIBRARY_PATH']:
+    elif k in ['PATH','LD_LIBRARY_PATH','SHELL', 'PYTHONPATH', 'PYTHON_HOME','PYTHONBRANCH']:
+        ignored[k] = v
+    elif k == 'SHELL':
         ignored[k] = v
     else:
         PROLOGUE+='export {0}="{1}"; '.format(k,v)

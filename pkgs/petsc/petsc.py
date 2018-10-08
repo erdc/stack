@@ -30,7 +30,9 @@ def preConfigureCrayXE6(ctx, conf_lines):
                '--with-pthread=1']
 
 def preConfigureCrayXC30(ctx, conf_lines):
-    conf_lines += ['LDFLAGS=' + ctx.parameters['DYNAMIC_EXE_LINKER_FLAGS'],
+    conf_lines += ['PETSC_ARCH=crayxc30',
+                   'PETSC_DIR=${BUILD}',
+                   'LDFLAGS=' + ctx.parameters['DYNAMIC_EXE_LINKER_FLAGS'],
                    '--with-cmake=/app/COST/cmake-3.0.0-gnu/bin/cmake',
                    '--with-cmake-exe=/app/COST/cmake-3.0.0-gnu/bin/cmake',
                    '--with-cmake-dir=/app/COST/cmake-3.0.0-gnu',
@@ -61,7 +63,9 @@ def preConfigureCrayXC30(ctx, conf_lines):
                '--with-pthread=1']
 
 def preConfigureCrayXC40(ctx, conf_lines):
-    conf_lines += ['LDFLAGS=' + ctx.parameters['DYNAMIC_EXE_LINKER_FLAGS'],
+    conf_lines += ['PETSC_ARCH=crayxc40',
+                   'PETSC_DIR=${BUILD}',
+                   'LDFLAGS=' + ctx.parameters['DYNAMIC_EXE_LINKER_FLAGS'],
                    '--with-cmake-exe=${CMAKE_DIR}/bin/cmake',
                    '--with-cmake=${CMAKE_DIR}/bin/cmake',
                    '--with-cmake-dir=${CMAKE_DIR}',
