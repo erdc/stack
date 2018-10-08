@@ -58,7 +58,7 @@ packages:
     build_with: |
       parmetis, cmake, blas
     download: |
-      superlu, superlu_dist, hypre, blacs, scalapack, mumps
+      superlu, superlu_dist, hypre, blacs, scalapack, mumps, ptscotch, zoltan
     coptflags: -O2
     link: shared
     debug: false
@@ -77,9 +77,9 @@ packages:
 #  scipy:
   h5py:
   pip:
-  zoltan:
-    build_with: |
-      parmetis
+#  zoltan:
+#    build_with: |
+#      parmetis
   chrono:
   pytest:
   pytest-xdist:

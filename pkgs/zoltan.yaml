@@ -30,6 +30,7 @@ build_stages:
 - name: configure
   after: setEnv
   configure_path: ".."
-  extra: ['--with-parmetis',
+  extra: ['--with-pic',
+          '--with-parmetis',
           '--with-parmetis-libdir=${PARMETIS_DIR}/lib',
           '--with-parmetis-incdir=${PARMETIS_DIR}/include']
