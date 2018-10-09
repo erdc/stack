@@ -155,7 +155,7 @@ def configure(ctx, stage_args):
     # temporaries.  Here, we force PETSc to use our ./_tmp directory
     # as its temporary directory.  This configuration change may be of
     # general use for the other build systems.
-    conf_lines = ['TMPDIR=${BUILD}/_tmp',
+    conf_lines = ['TMPDIR=${BUILD}',
                   'PATH=${CMAKE_DIR}/bin:${PATH} ./configure --verbose --prefix="${ARTIFACT}"']
     if ctx.parameters.get('machine','') == 'CrayXE6':
         preConfigureCrayXE6(ctx, conf_lines)

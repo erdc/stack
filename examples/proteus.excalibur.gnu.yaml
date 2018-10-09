@@ -29,13 +29,10 @@ parameters:
 
 packages:
   recordtype:
-  clawpack:
   pkg-config:
     use: host-pkg-config
   launcher:
   cmake:
-  openjpeg:
-    version: '2.1'
   openssl:
     use: host-openssl
   python:
@@ -52,9 +49,7 @@ packages:
     use: host-mpi
   mpi4py:
   nose:
-  coverage:
   hdf5:
-  pygments:
   parmetis:
     without_check: true
   perl:
@@ -62,7 +57,7 @@ packages:
   petsc:
     version: 3.7.6
     build_with: |
-      git, parmetis, cmake, blas
+      parmetis, cmake, blas
     download: |
       superlu, superlu_dist, hypre, blacs, scalapack, mumps, ptscotch, zolton
     coptflags: -O2
@@ -72,7 +67,6 @@ packages:
     version: 3.7.0
     with_conf: true
   pytables:
-  sympy:
   tetgen:
   triangle:
   memory_profiler:
@@ -81,7 +75,6 @@ packages:
     address_model: 64
     build_with: |
       python
-  scipy:
   h5py:
   pip:
 #  zoltan:
