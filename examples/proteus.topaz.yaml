@@ -29,6 +29,7 @@ parameters:
   DYNAMIC_EXE_LINKER_FLAGS: -Bdynamic
 
 packages:
+  future:
   recordtype:
   launcher:
   cmake:
@@ -51,7 +52,6 @@ packages:
   hdf5:
   parmetis:
     without_check: true
-  superlu:
   perl:
     use: host-perl
   petsc:
@@ -60,7 +60,7 @@ packages:
     build_with: |
       parmetis, cmake, blas
     download: |
-      hypre, blacs, scalapack, mumps, ptscotch, zoltan
+      hypre, blacs, scalapack, mumps, ptscotch, zoltan, superlu
     coptflags: -O2
     link: shared
     debug: false
