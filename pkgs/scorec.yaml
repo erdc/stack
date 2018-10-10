@@ -1,6 +1,6 @@
 extends: [cmake_package]
 dependencies:
-  build: [mpi, parmetis, zoltan]
+  build: [mpi, parmetis] #, zoltan]
 
 sources:
   - url: https://github.com/SCOREC/core.git
@@ -23,7 +23,7 @@ build_stages:
   extra: [
   '-DCMAKE_C_COMPILER:STRING=${MPICC}',
   '-DCMAKE_CXX_COMPILER:STRING=${MPICXX}',
-  '-DENABLE_ZOLTAN:BOOL=ON',
+  '-DENABLE_ZOLTAN:BOOL=OFF', #ON',
   '-DENABLE_SIMMETRIX:BOOL=OFF',
   '-DZOLTAN_PREFIX:PATH=${ZOLTAN_DIR}',
   '-DPARMETIS_PREFIX:PATH=${PARMETIS_DIR}',

@@ -88,25 +88,23 @@ packages:
   pygrib:
   scipy:
   h5py:
-    use: host-mpi
+      #  use: host-mpi
   pydap:
   rdp:
   ode:
   pip:
   pexpect:
   pcs_api:
-  zoltan:
-    use: host-mpi
-    build_with: |
-      parmetis
-#  chrono:
+      #zoltan:
+      #  build_with: |
+      #      parmetis
+  chrono:
   pytest:
   pytest-xdist:
   doxygen:
   gmsh:
     use: host-mpi
   scorec:
-    use: host-mpi
   matplotlib:
   sphinx:
   sphinx-bootstrap-theme:
@@ -126,4 +124,9 @@ packages:
   buildbot-worker:
   julia:
   pyjulia:
+  pythreejs:
+  traitlets:
+  ipywidgets:
+  widgetsnbextension:
+  ncurses:
 #  vtk:

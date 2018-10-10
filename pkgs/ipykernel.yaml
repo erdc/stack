@@ -5,5 +5,7 @@ dependencies:
   run: []
 
 sources:
- - key: tar.gz:ljkpexyonshootbwfqr7tkk6cdtuy237
-   url: https://pypi.python.org/packages/2d/1b/eee47b5cd8b2fcdde587cad1e8d3f7eae7bdfa1d36a94ad316fc5fbee833/ipykernel-4.5.2.tar.gz
+- key: tar.gz:ljkpexyonshootbwfqr7tkk6cdtuy237
+  url: https://pypi.python.org/packages/2d/1b/eee47b5cd8b2fcdde587cad1e8d3f7eae7bdfa1d36a94ad316fc5fbee833/ipykernel-4.5.2.tar.gz
+#- key: tar.gz:fymcllfe4jmfwww3pfj6ufxfh5j2mikz
+#  url: https://pypi.python.org/packages/0c/41/67e16b243b78b49f4b1650d045b63be187c27d20a76f0f7b8e61e0fcb966/ipykernel-4.6.1.tar.gz#md5=1b320ff87a1a0b049e83df2de91b7f7c

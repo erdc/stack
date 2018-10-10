@@ -5,5 +5,7 @@ dependencies:
   run: []
 
 sources:
- - key: tar.gz:x3h3l2fpcz3gimt23cijkcjxhszw7knn
-   url: https://pypi.python.org/packages/4f/7d/3144e69d5ad91cedc4f36986972260ab23dbc12b290a3fb1fc83b1f01b99/pythreejs-0.2.3.tar.gz
+ - key: tar.gz:grbtxykro7z5ww56umskhrczohack7aj
+   url: https://pypi.python.org/packages/35/d5/baf76ce47b3bd4b72c140de8fcdeda123b3a9c6f88ca762fd65423733181/pythreejs-0.3.1.tar.gz
+ #- key: tar.gz:x3h3l2fpcz3gimt23cijkcjxhszw7knn
+ #   url: https://pypi.python.org/packages/4f/7d/3144e69d5ad91cedc4f36986972260ab23dbc12b290a3fb1fc83b1f01b99/pythreejs-0.2.3.tar.gz
