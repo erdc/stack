@@ -57,5 +57,5 @@ build_stages:
   bash: |
     mkdir ${ARTIFACT}/lib/
     mkdir ${ARTIFACT}/include/
-    cp lib/libsuperlu_4.3.a ${ARTIFACT}/lib/
+    cp lib/libsuperlu.a ${ARTIFACT}/lib/libsuperlu.a
     cp SRC/*.h ${ARTIFACT}/include/
