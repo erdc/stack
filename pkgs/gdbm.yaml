@@ -5,4 +5,4 @@ defaults:
 
 sources:
 - key: tar.gz:rwis6rhqlufrljff3fvhn6cs5ec5aun3
-  url: http://ftp.heanet.ie/mirrors/gnu/gdbm/gdbm-1.11.tar.gz
+  url: http://ftp.heanet.ie/mirrors/ftp.gnu.org/gnu/gdbm/gdbm-1.11.tar.gz

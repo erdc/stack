@@ -1,7 +1,7 @@
 extends: [autotools_package]
 
 sources:
-- url: http://releases.nixos.org/patchelf/patchelf-0.8/patchelf-0.8.tar.bz2
+- url: http://nixos.org/releases/patchelf/patchelf-0.8/patchelf-0.8.tar.bz2
   key: tar.bz2:zgpyjujegrzubq3ha4ej5shxauykxvlo
 
 defaults:
