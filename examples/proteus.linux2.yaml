@@ -37,7 +37,7 @@ packages:
   coverage:
   hdf5:
   petsc:
-    version: 3.7.6
+    version: 3.8.4
     openblas: true
     build_with: |
       parmetis, cmake, blas
@@ -47,7 +47,7 @@ packages:
     link: shared
     debug: false
   petsc4py:
-    version: 3.7.0
+    version: 3.8.1
     with_conf: true
   pytables:
   tetgen: #3D simplex mesh generator
@@ -67,7 +67,8 @@ packages:
   pytest-cov:
   pybind11:
   gmsh: #used for mesh generation
-  scorec: #used for MeshAdapt
+  zoltan:
+  scorec:
   matplotlib: # used in testing suite 
   #pcs_api: #personal cloud storage api
   #pyzmq:
