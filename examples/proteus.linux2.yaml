@@ -69,7 +69,7 @@ packages:
   gmsh: #used for mesh generation
   zoltan:
   scorec:
-  matplotlib: # used in testing suite 
+  #matplotlib: # used in testing suite 
   #pcs_api: #personal cloud storage api
   #pyzmq:
   #scandir:
