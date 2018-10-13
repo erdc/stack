@@ -1,8 +1,8 @@
 extends: [cmake_package]
 
 sources:
-- key: tar.gz:ydm74ehv6znhwwrwjt43tqya6qxln4wc
-  url: http://gmsh.info/src/gmsh-3.0.2-source.tgz
+- key: tar.gz:6pezgqebkolbxuf325relarrvpsqv2vl
+  url: http://gmsh.info/src/gmsh-4.0.2-source.tgz
 
 defaults:
   relocatable: false
@@ -16,12 +16,7 @@ build_stages:
   extra:
     - '-DCMAKE_CXX_COMPILER:FILEPATH=${MPICXX}'
     - '-DCMAKE_C_COMPILER:FILEPATH=${MPICC}'  
-    - '-DCMAKE_Fortran_COMPILER:FILEPATH=${MPIFC}'  
-    - '-DENABLE_PETSC:BOOL=OFF'
-    - '-DENABLE_PETSC4PY:BOOL=OFF'
-    - '-DENABLE_FLTK:BOOL=OFF'
+    - '-DENABLE_FLTK:BOOL=ON'
     - '-DENABLE_BUILD_SHARED:BOOL=ON'
-    - '-DENABLE_WRAP_PYTHON:BOOL=OFF'
-    - '-DCMAKE_SKIP_RPATH:BOOL=ON'
-    - '-DCMAKE_SKIP_INSTALL_RPATH:BOOL=ON'
-    - '-DBLAS_LAPACK_LIBRARIES:STRING=${LAPACK_LDFLAGS},${BLAS_LDFLAGS}'
+    - '-DENABLE_WRAP_PYTHON:BOOL=ON'
+    - '-DBLAS_LAPACK_LIBRARIES:STRING=${LAPACK_LDFLAGS};${BLAS_LDFLAGS}'

@@ -35,6 +35,6 @@ build_stages:
     make {{extra_flags}} PREFIX=${ARTIFACT} install
 
 when_build_dependency:
-- {set: 'BLAS_LDFLAGS', value: '-Wl,-rpath,${ARTIFACT}/lib -L${ARTIFACT}/lib -lopenblas'}
-- {set: 'LAPACK_LDFLAGS', value: '-Wl,-rpath,${ARTIFACT}/lib -L${ARTIFACT}/lib -lopenblas'}
+- {set: 'BLAS_LDFLAGS', value: '-lopenblas'}
+- {set: 'LAPACK_LDFLAGS', value: '-lopenblas'}
 - {set: 'OPENBLAS_DIR', value: '${ARTIFACT}'}
