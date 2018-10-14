@@ -30,7 +30,9 @@ build_stages:
 - name: configure
   after: setEnv
   configure_path: ".."
-  extra: ['--with-pic',
+  extra: ['--with-cflags="-fPIC"',
+          '--with-cxxflags="-fPIC"',
+          '--with-fcflags="-fPIC"',
           '--with-parmetis',
           '--with-parmetis-libdir=${PARMETIS_DIR}/lib',
           '--with-parmetis-incdir=${PARMETIS_DIR}/include']
