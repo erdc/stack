@@ -13,9 +13,11 @@ build_stages:
   after: setup_dirs
   handler: bash
   bash: |
-    CC=${MPICC} CXX=${MPICXX}  ${PYTHON} -c 'import setuptools; __file__="setup.py"; exec(open(__file__).read())' \
+    ls ${HDF5_DIR}/lib
+    HDF5_DIR=${HDF5_DIR} CC=${MPICC} CXX=${MPICXX}  ${PYTHON} -c 'import setuptools; __file__="setup.py"; exec(open(__file__).read())' \
        ${SETUPTOOLS_PACKAGE_EXTRA_OPTIONS} \
        install \
+       --hdf5=${HDF5_DIR} \
        --prefix=. --root=${ARTIFACT} \
        --single-version-externally-managed \
        --lflags="-Wl,-rpath,${HDF5_DIR}/lib -L${HDF5_DIR}/lib -lhdf5 \
