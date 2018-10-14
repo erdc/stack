@@ -15,7 +15,6 @@ build_stages:
   after: prologue
   handler: bash
   bash: |
-    export CC=cc CXX=CC FC=ftn F77=ftn F90=ftn
     ./bootstrap.sh --with-toolset={{toolset}} --prefix=${ARTIFACT}
 
 - name: set-address_model
@@ -37,7 +36,13 @@ build_stages:
              toolset={{toolset}} \
              address-model=${address_model} \
              -j ${HASHDIST_CPU_COUNT} \
+             --without-context \
+             --without-coroutine \
+             --without-python \
              --user-config=user-config.jam \
+             --without-coroutine \
+             --without-mpi \
+             --without-python \
              --build-dir=_build\
              link=shared \
              install \
