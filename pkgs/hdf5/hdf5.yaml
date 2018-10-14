@@ -40,9 +40,11 @@ build_stages:
 - name: configure
   extra: ['--with-zlib=${ZLIB_DIR}',
           '--with-szlib=${SZIP_DIR}',
+          '--with-pic',
           '--with-pthread',
           '--enable-unsupported',
           '--enable-shared',
+          '--enable-static',
           '--enable-production=yes',
           '--enable-parallel=yes',
           '--enable-largefile=yes',
