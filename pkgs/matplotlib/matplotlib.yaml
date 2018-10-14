@@ -9,6 +9,16 @@ sources:
   url: https://files.pythonhosted.org/packages/eb/a0/31b6ba00bc4dcbc06f0b80d1ad6119a9cc3081ecb04a00117f6c1ca3a084/matplotlib-2.2.3.tar.gz
 
 build_stages:
+- name: freetype
+  before: install
+  handler: bash
+  bash: |
+    echo "==============start with freetype setup=============="
+    export PKG_CONFIG_PATH=${FREETYPE_DIR}/lib/pkgconfig
+    pkg-config --define-variable=FREETYPE_DIR=${FREETYPE_DIR} --print-variables freetype2
+    echo "==============done with freetype setup=============="
+    echo "[test]" > setup.cfg
+    echo "local_freetype = True" >> setup.cfg
 
 # This patch did not go into v1.3.1 :(
 - when: platform == 'Cygwin'

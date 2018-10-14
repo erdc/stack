@@ -1,4 +1,4 @@
-when: machine == 'SGIICEX'
+when: machine == 'CrayXC40'
 
 extends: [setuptools_package, libflags]
 dependencies:
