@@ -17,6 +17,10 @@ build_stages:
   handler: bash
   bash: |
     export CC=${MPICC}
+#    export CRAY_CPU_TARGET=interlagos
+#    export HOSTTYPE=x86_64
+#    export MACHTYPE=x86_64-suse-linux
+#    export CPU=x86_64
 
 - when: machine == 'CrayXE6' or machine == 'CrayXC30' or machine == 'CrayXC40'
   name: make_exe_builds_static
