@@ -59,6 +59,7 @@ packages:
     build_with: |
       parmetis, cmake, blas
     download: |
+      superlu, hypre, blacs, scalapack, mumps, ptscotch, zoltan
       hypre, blacs, scalapack, mumps, ptscotch, zoltan, superlu
     coptflags: -O2
     link: shared
