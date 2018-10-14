@@ -29,6 +29,7 @@ parameters:
   DYNAMIC_EXE_LINKER_FLAGS: -Bdynamic
 
 packages:
+  future:
   recordtype:
   launcher:
   cmake:
@@ -59,6 +60,7 @@ packages:
       parmetis, cmake, blas
     download: |
       superlu, hypre, blacs, scalapack, mumps, ptscotch, zoltan
+      hypre, blacs, scalapack, mumps, ptscotch, zoltan, superlu
     coptflags: -O2
     link: shared
     debug: false
@@ -80,8 +82,7 @@ packages:
   pip:
   pexpect:
   zoltan:
-    build_with: |
-      parmetis
+    use: petsc-zoltan
   chrono:
   pytest:
   pytest-xdist:

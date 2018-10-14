@@ -1,0 +1,2 @@
+when_build_dependency:
+  - {set: 'ZOLTAN_DIR', value: '{{PETSC_DIR}}'}
