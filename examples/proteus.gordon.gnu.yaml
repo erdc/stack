@@ -77,6 +77,8 @@ packages:
       python
   #cgal:
   h5py:
+  zoltan:
+    use: petsc-zoltan
 #  zoltan:
 #    build_with: |
 #      parmetis
