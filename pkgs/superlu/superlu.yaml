@@ -4,8 +4,8 @@ dependencies:
   build: [blas]
 
 sources:
-- url: https://github.com/erdc-cm/superlu
-  key: git:51cd6c3f05d4701fa7163aee4e356e11ac81153e
+- key: zip:dkjtsmelllwlyt27fv36c6aem65hmwfo
+  url: https://github.com/erdc/superlu/archive/master.zip
 
 build_stages:
 - when: platform == 'Darwin'
