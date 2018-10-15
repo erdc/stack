@@ -1,2 +1,2 @@
 when_build_dependency:
-  - {set: 'BLAS_LDFLAGS', value: '-lacml'}
+  - {set: 'BLAS_LDFLAGS', value: '-lopenblas'}

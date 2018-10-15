@@ -52,7 +52,6 @@ packages:
   hdf5:
   parmetis:
     without_check: true
-  superlu:
   perl:
     use: host-perl
   petsc:

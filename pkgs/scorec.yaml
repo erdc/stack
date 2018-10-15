@@ -1,6 +1,6 @@
 extends: [cmake_package]
 dependencies:
-  build: [mpi, petsc, parmetis, bzip2, zoltan]
+  build: [mpi, zoltan, petsc, parmetis, bzip2]
 
 #changing git->zip b/c of ssl issues on hpcmp platforms
 #sources:
@@ -38,7 +38,7 @@ build_stages:
   '-DENABLE_FPP=ON',
   '-DENABLE_SIMMETRIX:BOOL=OFF',
   '-DZOLTAN_PREFIX:PATH=${PETSC_DIR}',
-  '-DPARMETIS_PREFIX:PATH=${ZOLTAN_DIR}',
+  '-DPARMETIS_PREFIX:PATH=${PARMETIS_DIR}',
   '-DCMAKE_BUILD_TYPE=Release',
   '-DSCOREC_CXX_WARNINGS=OFF'
   ]
