@@ -3,8 +3,8 @@ dependencies:
   build: [mpi, zlib, szip]
 
 sources:
-- key: tar.gz:uqzvqsprt6xirqte7ug7arv4ginhrrjw
-  url: https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.19/src/hdf5-1.8.19.tar.gz
+- key: tar.gz:q7mmqlv2lt3wnwl42bwakt2ghhaqjhck
+  url: https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.21/src/hdf5-1.8.21.tar.gz
 
 defaults:
   # /bin/h5pcc contains hard-coded path
@@ -17,10 +17,10 @@ build_stages:
   handler: bash
   bash: |
     export CC=${MPICC}
-    export CRAY_CPU_TARGET=interlagos
-    export HOSTTYPE=x86_64
-    export MACHTYPE=x86_64-suse-linux
-    export CPU=x86_64
+#    export CRAY_CPU_TARGET=interlagos
+#    export HOSTTYPE=x86_64
+#    export MACHTYPE=x86_64-suse-linux
+#    export CPU=x86_64
 
 - when: machine == 'CrayXE6' or machine == 'CrayXC30' or machine == 'CrayXC40'
   name: make_exe_builds_static
@@ -40,28 +40,16 @@ build_stages:
 - name: configure
   extra: ['--with-zlib=${ZLIB_DIR}',
           '--with-szlib=${SZIP_DIR}',
+          '--with-pic',
           '--with-pthread',
+          '--with-pic',
           '--enable-unsupported',
           '--enable-shared',
+          '--enable-static',
           '--enable-production=yes',
           '--enable-parallel=yes',
           '--enable-largefile=yes',
           '--with-default-api-version=v18']
-
-- when: machine == 'CrayXE6' or machine == 'CrayXC30' or machine == 'CrayXC40'
-  name: configure
-  extra: ['--enable-static-exec',
-          '--with-zlib=${ZLIB_DIR}',
-          '--with-szlib=${SZIP_DIR}',
-          '--with-pthread',
-          '--enable-unsupported',
-          '--enable-shared',
-          '--enable-production=yes',
-          '--enable-parallel=yes',
-          '--enable-largefile=yes',
-          '--with-default-api-version=v18',
-          '--with-pic']
-
 
 when_build_dependency:
 - set: HDF5_ROOT

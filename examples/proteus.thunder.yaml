@@ -81,8 +81,7 @@ packages:
   pip:
   pexpect:
   zoltan:
-    build_with: |
-      parmetis
+    use: petsc-zoltan
   chrono:
   pytest:
   pytest-xdist:
