@@ -33,8 +33,9 @@ parameters:
   DYNAMIC_EXE_LINKER_FLAGS: -dynamic
 
 packages:
+  future:
   recordtype:
-  clawpack:
+#  clawpack:
   pkg-config:
     use: host-pkg-config
   launcher:
@@ -56,20 +57,20 @@ packages:
     use: host-mpi
   mpi4py:
   nose:
-  coverage:
+#  coverage:
   hdf5:
     use: host-hdf5
-  pygments:
+#  pygments:
   parmetis:
     without_check: true
   pillow:
   petsc:
-    version: 3.7.5
-    fortran: true
+    version: 3.7.6
+#    fortran: true
     build_with: |
       parmetis, cmake, blas, lapack
     download: |
-      ptscotch, zoltan, superlu, superlu_dist, hypre, blacs, scalapack, mumps
+      ptscotch, zoltan, superlu, superlu_dist,hypre, blacs, scalapack, mumps
     coptflags: -O2
     link: shared
     debug: false
@@ -77,7 +78,7 @@ packages:
     version: 3.7.0
     with_conf: true
   pytables:
-  sympy:
+#  sympy:
   tetgen:
   triangle:
   memory_profiler:
@@ -87,52 +88,53 @@ packages:
     build_with: |
       python
 #  cgal:
-  netcdf4:
-  netcdf4f:
-  python-netcdf4:
-  netcdf4cpp:
-  jasper:
+#  netcdf4:
+#  netcdf4f:
+#  python-netcdf4:
+#  netcdf4cpp:
+#  jasper:
   #grib_api:
-  pyproj:
+#  pyproj:
   #pygrib:
   scipy:
   h5py:
-  pydap:
-  rdp:
-  ode:
+#  pydap:
+#  rdp:
+#  ode:
   pip:
-  pexpect:
-  pcs_api:
+#  pexpect:
+#  pcs_api:
   zoltan:
-    build_with: |
-      parmetis
+    use: petsc-zoltan
+#    build_with: |
+#      parmetis
   chrono:
   pytest:
   pytest-xdist:
-  doxygen:
+#  doxygen:
 #  gmsh:
   scorec:
-  matplotlib:
-  sphinx:
-  sphinx-bootstrap-theme:
-  pyzmq:
-  vapory:
-  tornado:
+#  matplotlib:
+#  sphinx:
+#  sphinx-bootstrap-theme:
+#  pyzmq:
+#  vapory:
+#  tornado:
   #ipython:
   #terminado:
-  geojson:
-  shapely:
-  matlab:
-    use: host-matlab
+#  geojson:
+#  shapely:
+#  matlab:
+#    use: host-matlab
   #ipdb:
   #jupyterlab:
   #jupyter:
   #ipyparallel:
-  buildbot-worker:
+#  buildbot-worker:
   #julia:
   #pyjulia:
-  backports-shutil-get-terminal-size:
-  configparser:
+#  backports-shutil-get-terminal-size:
+#  configparser:
   #rtree:
   #ipython-d3plot:
   #ipython-gridwidget:
