@@ -1,7 +1,6 @@
-when: machine == 'SGIICEX'
+when: machine == 'CrayXC40'
 
 extends: [setuptools_package, libflags]
-
 dependencies:
   build: [blas, lapack, numpy]
   run: [blas, lapack, numpy]

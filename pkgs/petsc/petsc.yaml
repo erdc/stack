@@ -6,6 +6,10 @@ when version == 'master':
   sources:
   - key: git:8c405a35e3463db34467c44b5b94e7b81d895f6d
     url: https://bitbucket.org/petsc/petsc
+when version == '3.8.4':
+  sources:
+  - key: tar.gz:jnir6togvymxfogd2jlhhpblcjrhoxpx
+    url: http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.8.4.tar.gz
 when version == '3.7.6':
   sources:
   - key: tar.gz:wb7xwtsx25pzqj4hxwawt55y326vv3re
@@ -52,6 +56,7 @@ build_stages:
   link: {{link}}
   debug: {{debug}}
   download: [{{download}}]
+  use_downloaded: [{{use_downloaded}}]
 
 # PETSc 3.5 does not allow the use of the -j option to make
 -  name: make

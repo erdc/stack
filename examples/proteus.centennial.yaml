@@ -1,0 +1,87 @@
+# This profile file controls your <#> (HashDist) build environment.
+
+# In the future, we'll provide better incorporation of
+# automatic environment detection.  For now, have a look
+# at the YAML files in the top-level directory and choose
+# the most *specific* file that matches your environment.
+
+extends:
+- file: suse.yaml
+
+# The packages list specifies all the packages that you
+# require installed.  <#> will ensure that all packages
+# and their dependencies are installed when you build this
+# profile.
+
+parameters:
+  machine: SGIICEX
+  HOST_MPI_DIR: /opt/hpe/hpc/mpt/mpt-2.17
+  HOST_MPIEXEC: mpiexec_mpt
+  HOST_MPICC: mpicc
+  HOST_MPICXX: mpicxx
+  HOST_MPIF77: mpif77
+  HOST_MPIF90: mpif90
+  PATH: |
+    /opt/hpe/hpc/mpt/mpt-2.17/bin:/p/app/gnu/5.3.0/bin:/usr/brl/bin:/p/app/sgi/mpt/mpt-2.15/bin:/home/PBS/SLB:/usr/cta/unsupported/BC:/usr/local/bin:/opt/sgi/sbin:/opt/sgi/bin:/usr/lib64/qt-3.3/bin:/usr/sbin:/usr/bsd:/sbin:/usr/bin:/bin:/usr/bin/X11:/usr/krb5/bin:/usr/brl/bin:/usr/local/sbin:/opt/c3/bin:/opt/ibutils/bin:/opt/pbs/default/bin:/sbin:/bin
+  PROLOGUE: |
+    export PATH=/opt/hpe/hpc/mpt/mpt-2.17/bin:/p/app/gnu/5.3.0/bin:/usr/brl/bin:/p/app/sgi/mpt/mpt-2.15/bin:/home/PBS/SLB:/usr/cta/unsupported/BC:/usr/local/bin:/opt/sgi/sbin:/opt/sgi/bin:/usr/lib64/qt-3.3/bin:/usr/sbin:/usr/bsd:/sbin:/usr/bin:/bin:/usr/bin/X11:/usr/krb5/bin:/usr/brl/bin:/usr/local/sbin:/opt/c3/bin:/opt/ibutils/bin:/opt/pbs/default/bin:/sbin:/bin; export LD_LIBRARY_PATH=/opt/hpe/hpc/mpt/mpt-2.17/lib:/p/app/gnu/5.3.0/lib64:/p/app/sgi/mpt/mpt-2.15/lib; export ARCHIVE_HOST="msas24.arl.hpc.mil"; export BC_NODE_TYPE="LOGIN"; export BC_ACCELERATOR_NODE_CORES="40"; export KRB5HOME="/usr/krb5/bin"; export F77="mpif90"; export MPICC_F77="gfortran"; export CSI_HOME="/usr/cta"; export MANPATH="/opt/hpe/hpc/mpt/mpt-2.17/man:/p/app/gnu/5.3.0/share/man:/p/app/sgi/mpt/mpt-2.15/man:/usr/share/man:/usr/local/man:/opt/c3/man:/opt/sgi/share/man:/usr/share/catman:/usr/catman:/usr/man"; export BC_BIGMEM_NODE_CORES="40"; export JAVA_HOME="/opt/rh/rh-eclipse46/root/usr/lib/jvm/java"; export VENDOR="unknown"; export FPATH="/opt/hpe/hpc/mpt/mpt-2.17/include:/p/app/sgi/mpt/mpt-2.15/include"; export MPSCP_BLOCKED_FILE="/etc/mpscp_blocked_ports"; export CXX="mpicxx"; export HOSTNAME="centennial17"; export PROTEUS_ARCH="centennial"; export LS_COLORS="rs=0:di=38;5;27:ln=38;5;51:mh=44;38;5;15:pi=40;38;5;11:so=38;5;13:do=38;5;5:bd=48;5;232;38;5;11:cd=48;5;232;38;5;3:or=48;5;232;38;5;9:mi=05;48;5;232;38;5;15:su=48;5;196;38;5;15:sg=48;5;11;38;5;16:ca=48;5;196;38;5;226:tw=48;5;10;38;5;16:ow=48;5;10;38;5;21:st=48;5;21;38;5;15:ex=38;5;34:*.tar=38;5;9:*.tgz=38;5;9:*.arc=38;5;9:*.arj=38;5;9:*.taz=38;5;9:*.lha=38;5;9:*.lz4=38;5;9:*.lzh=38;5;9:*.lzma=38;5;9:*.tlz=38;5;9:*.txz=38;5;9:*.tzo=38;5;9:*.t7z=38;5;9:*.zip=38;5;9:*.z=38;5;9:*.Z=38;5;9:*.dz=38;5;9:*.gz=38;5;9:*.lrz=38;5;9:*.lz=38;5;9:*.lzo=38;5;9:*.xz=38;5;9:*.bz2=38;5;9:*.bz=38;5;9:*.tbz=38;5;9:*.tbz2=38;5;9:*.tz=38;5;9:*.deb=38;5;9:*.rpm=38;5;9:*.jar=38;5;9:*.war=38;5;9:*.ear=38;5;9:*.sar=38;5;9:*.rar=38;5;9:*.alz=38;5;9:*.ace=38;5;9:*.zoo=38;5;9:*.cpio=38;5;9:*.7z=38;5;9:*.rz=38;5;9:*.cab=38;5;9:*.jpg=38;5;13:*.jpeg=38;5;13:*.gif=38;5;13:*.bmp=38;5;13:*.pbm=38;5;13:*.pgm=38;5;13:*.ppm=38;5;13:*.tga=38;5;13:*.xbm=38;5;13:*.xpm=38;5;13:*.tif=38;5;13:*.tiff=38;5;13:*.png=38;5;13:*.svg=38;5;13:*.svgz=38;5;13:*.mng=38;5;13:*.pcx=38;5;13:*.mov=38;5;13:*.mpg=38;5;13:*.mpeg=38;5;13:*.m2v=38;5;13:*.mkv=38;5;13:*.webm=38;5;13:*.ogm=38;5;13:*.mp4=38;5;13:*.m4v=38;5;13:*.mp4v=38;5;13:*.vob=38;5;13:*.qt=38;5;13:*.nuv=38;5;13:*.wmv=38;5;13:*.asf=38;5;13:*.rm=38;5;13:*.rmvb=38;5;13:*.flc=38;5;13:*.avi=38;5;13:*.fli=38;5;13:*.flv=38;5;13:*.gl=38;5;13:*.dl=38;5;13:*.xcf=38;5;13:*.xwd=38;5;13:*.yuv=38;5;13:*.cgm=38;5;13:*.emf=38;5;13:*.axv=38;5;13:*.anx=38;5;13:*.ogv=38;5;13:*.ogx=38;5;13:*.aac=38;5;45:*.au=38;5;45:*.flac=38;5;45:*.mid=38;5;45:*.midi=38;5;45:*.mka=38;5;45:*.mp3=38;5;45:*.mpc=38;5;45:*.ogg=38;5;45:*.ra=38;5;45:*.wav=38;5;45:*.axa=38;5;45:*.oga=38;5;45:*.spx=38;5;45:*.xspf=38;5;45:"; export GROUP="3411C002"; export OSCAR_HOME="/opt/oscar"; export LESSOPEN="||/usr/bin/lesspipe.sh %s"; export MACHTYPE="x86_64"; export CPATH="/opt/hpe/hpc/mpt/mpt-2.17/include:/p/app/sgi/mpt/mpt-2.15/include"; export QTDIR="/usr/lib64/qt-3.3"; export PET_HOME="/usr/cta/pet"; export LANGUAGE="en_US.UTF-8"; export SHLVL="1"; export EDITOR="emacs -nw"; export MODULESHOME="/usr/share/Modules"; export INFOPATH="/p/app/gnu/5.3.0/share/info"; export DAAC_HOME="/usr/cta/DAAC"; export MPI4PY_HOME="/p/app/unsupported/COST/mpi4py/3.0.0/gnu/sgimpt"; export PROJECTS_HOME="/usr/cta/unsupported"; export MODULEPATH="/p/app/unsupported/COST/modules:/p/app/modulefiles/devel:/p/app/modulefiles/apps:/p/app/modulefiles/unsupported:/usr/share/Modules/modulefiles:/etc/modulefiles"; export BC_HOST="centennial"; export SSH_CONNECTION="173.235.23.125 58214 140.31.75.32 22"; export COST_MODULES_DIR="/p/app/unsupported/COST/modules"; export _LMFILES_="/p/app/modulefiles/devel/mpi/sgimpt/2.15:/p/app/modulefiles/unsupported/Master:/p/app/modulefiles/devel/compiler/gcc/5.3.0:/p/app/modulefiles/apps/costinit:/usr/share/Modules/modulefiles/mpt/2.17:/p/app/unsupported/COST/modules/mpi4py/gnu/sgimpt/3.0.0"; export MODULE_VERSION="3.2.10"; export REMOTEHOST="173.235.23.125"; export FC="mpif90"; export DISPLAY="localhost:10.0"; export LANG="en_US.UTF-8"; export QTLIB="/usr/lib64/qt-3.3/lib"; export LIBRARY_PATH="/opt/hpe/hpc/mpt/mpt-2.17/lib:/p/app/sgi/mpt/mpt-2.15/lib"; export KRB5_HOME="/usr/krb5/bin"; export QTINC="/usr/lib64/qt-3.3/include"; export SAMPLES_HOME="/usr/cta/SCR"; export F90="mpif90"; export OSTYPE="linux"; export C3_RSH="ssh -oConnectTimeout=10 -oForwardX11=no"; export MPI_IB_XRC="0"; export BC_CORES_PER_NODE="40"; export CC="mpicc"; export HOST="centennial17"; export MPT_VERSION="2.17"; export QT_GRAPHICSSYSTEM_CHECKED="1"; export NLSPATH="/p/app/intel/l_psxe_2017.1.043/debugger_2017/gdb/intel64_mic/share/locale/%l_%t/%N:/p/app/intel/l_psxe_2017.1.043/debugger_2017/gdb/intel64/share/locale/%l_%t/%N"; export SSH_TTY="/dev/pts/3"; export MPSCP_CONFIG_FILENAME="/etc/mpscp_config"; export COMPILER_VER="5.3.0"; export HOSTTYPE="x86_64-linux"; export SSH_CLIENT="173.235.23.125 58214 22"; export TERM="xterm-256color"; export MPICC_F90="gfortran"; export BC_STANDARD_NODE_CORES="40"; export MPICC_CC="gcc"; export COMPILER="gcc"; export MPICC_CXX="g++"; export COST_HOME="/p/app/unsupported/COST"; export MPI_ROOT="/opt/hpe/hpc/mpt/mpt-2.17"; export GCCROOT="/p/app/gnu/5.3.0/"; export KRB5CCNAME="PIPE:1023"; export BC_PHI_NODE_CORES="0"; export LOADEDMODULES="mpi/sgimpt/2.15:Master:compiler/gcc/5.3.0:costinit:mpt/2.17:mpi4py/gnu/sgimpt/3.0.0"; export GIT_SSL_NO_VERIFY="true"; export SECURE_LINE="1"; export WORKDIR=/p/work1/${USER}; export CC=gcc; export CXX=g++; export F77=gfortran; export F90=gfortran; export FC=gfortran; TERM=xterm; 
+
+  DYNAMIC_EXE_LINKER_FLAGS: -dynamic
+
+packages:
+  future:
+  recordtype:
+  launcher:
+  cmake:
+  openssl:
+    use: host-openssl
+  python:
+    host: false
+    link: shared
+    build_with: |
+      bzip2, sqlite, openssl
+  blas:
+    use: openblas
+  lapack:
+    use: openblas-lapack
+  daetk:
+  mpi:
+    use: host-mpi
+  mpi4py:
+  nose:
+  hdf5:
+  parmetis:
+    without_check: true
+  petsc:
+    version: 3.7.6
+    openblas: true
+    build_with: |
+      parmetis, cmake, blas
+    download: |
+      superlu, superlu_dist, hypre, blacs, scalapack, mumps, ptscotch, zoltan
+    coptflags: -O2
+    link: shared
+    debug: false
+  petsc4py:
+    version: 3.7.0
+    with_conf: true
+  pytables:
+  tetgen:
+  triangle:
+  memory_profiler:
+  boost:
+    toolset: gcc
+    address_model: 64
+    build_with: |
+      python
+#  scipy:
+  h5py:
+  pip:
+#  zoltan:
+#    build_with: |
+#      parmetis
+  chrono:
+  pytest:
+  pytest-xdist:
+  #gmsh:
+  scorec:

@@ -4,5 +4,20 @@ defaults:
   relocatable: false
 
 sources:
-- key: tar.gz:rwis6rhqlufrljff3fvhn6cs5ec5aun3
-  url: http://ftp.heanet.ie/mirrors/ftp.gnu.org/gnu/gdbm/gdbm-1.11.tar.gz
+- key: tar.gz:xcbczndwtywxlhecrqdpdftbje3mrdau
+  url: ftp://ftp.gnu.org/gnu/gdbm/gdbm-1.18.tar.gz
+
+build_stages:
+- name: setEnv
+  before: configure
+  handler: bash
+  bash: |
+    export CFLAGS="-D_GNU_SOURCE"
+    export WORK=/tmp
+
+- name: configure
+  after: setEnv
+  extra: ['--with-cflags=-fPIC',
+          '--with-gnumake',
+          '--with-cxxflags=-fPIC']
+>>>>>>> master
