@@ -20,4 +20,3 @@ build_stages:
   extra: ['--with-cflags=-fPIC',
           '--with-gnumake',
           '--with-cxxflags=-fPIC']
->>>>>>> master
