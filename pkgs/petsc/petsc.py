@@ -3,6 +3,73 @@ from hashdist import build_stage
 def preConfigureCrayXE6(ctx, conf_lines):
     conf_lines += ['LDFLAGS=-dynamic /usr/lib64/libcpuset.so.1 /usr/lib64/libbitmask.so.1' + 
                    ctx.parameters['DYNAMIC_EXE_LINKER_FLAGS'],
+                   '--known-sdot-returns-double=0',
+                   '--known-snrm2-returns-double=0',
+               '--known-mpi-shared-libraries=1',
+               '--with-batch',
+               '--known-sdot-returns-double=0',
+               '--known-snrm2-returns-double=0',
+               '--known-level1-dcache-size=16384',
+               '--known-level1-dcache-linesize=64',
+               '--known-level1-dcache-assoc=4',
+               '--known-memcmp-ok=1',
+               '--known-sizeof-char=1',
+               '--known-sizeof-void-p=8',
+               '--known-sizeof-short=2',
+               '--known-sizeof-int=4',
+               '--known-sizeof-long=8',
+               '--known-sizeof-long-long=8',
+               '--known-sizeof-float=4',
+               '--known-sizeof-double=8',
+               '--known-sizeof-size_t=8',
+               '--known-bits-per-byte=8',
+               '--known-sizeof-MPI_Comm=4',
+               '--known-sizeof-MPI_Fint=4',
+               '--known-mpi-long-double=1',
+               '--known-mpi-c-double-complex=1',
+               '--known-mpi-int64_t=1',
+               '--with-pthread=1']
+
+def preConfigureCrayXC30(ctx, conf_lines):
+    conf_lines += ['PETSC_ARCH=crayxc30',
+                   'PETSC_DIR=${BUILD}',
+                   'LDFLAGS=' + ctx.parameters['DYNAMIC_EXE_LINKER_FLAGS'],
+                   '--with-cmake=/app/COST/cmake-3.0.0-gnu/bin/cmake',
+                   '--with-cmake-exe=/app/COST/cmake-3.0.0-gnu/bin/cmake',
+                   '--with-cmake-dir=/app/COST/cmake-3.0.0-gnu',
+              '--known-has-attribute-aligned=1',
+                '--known-mpi-shared-libraries=1',
+               '--with-batch',
+               '--known-sdot-returns-double=0',
+               '--known-snrm2-returns-double=0',
+               '--known-level1-dcache-size=16384',
+               '--known-level1-dcache-linesize=64',
+               '--known-level1-dcache-assoc=4',
+               '--known-memcmp-ok=1',
+               '--known-sizeof-char=1',
+               '--known-sizeof-void-p=8',
+               '--known-sizeof-short=2',
+               '--known-sizeof-int=4',
+               '--known-sizeof-long=8',
+               '--known-sizeof-long-long=8',
+               '--known-sizeof-float=4',
+               '--known-sizeof-double=8',
+               '--known-sizeof-size_t=8',
+               '--known-bits-per-byte=8',
+               '--known-sizeof-MPI_Comm=4',
+               '--known-sizeof-MPI_Fint=4',
+               '--known-mpi-long-double=1',
+               '--known-mpi-c-double-complex=1',
+               '--known-mpi-int64_t=1',
+               '--with-pthread=1']
+
+def preConfigureCrayXC40(ctx, conf_lines):
+    conf_lines += ['PETSC_ARCH=crayxc40',
+                   'PETSC_DIR=${BUILD}',
+                   'LDFLAGS=' + ctx.parameters['DYNAMIC_EXE_LINKER_FLAGS'],
+                   '--with-cmake-exe=${CMAKE_DIR}/bin/cmake',
+                   '--with-cmake=${CMAKE_DIR}/bin/cmake',
+                   '--with-cmake-dir=${CMAKE_DIR}',
                '--known-has-attribute-aligned=1',
                '--known-mpi-shared-libraries=1',
                '--with-batch',
@@ -31,6 +98,7 @@ def preConfigureCrayXE6(ctx, conf_lines):
 
 def preConfigureSGIICEX(ctx, conf_lines):
     conf_lines += ['LDFLAGS=' + ctx.parameters['DYNAMIC_EXE_LINKER_FLAGS'],
+               '--known-has-attribute-aligned=1',
                '--known-mpi-shared-libraries=1',
                '--with-pic',
                '--with-batch',
@@ -88,11 +156,14 @@ def configure(ctx, stage_args):
     # temporaries.  Here, we force PETSc to use our ./_tmp directory
     # as its temporary directory.  This configuration change may be of
     # general use for the other build systems.
-    conf_lines = ['mkdir ${PWD}/_tmp && TMPDIR=${PWD}/_tmp',
-                  './configure --prefix="${ARTIFACT}"']
-
+    conf_lines = ['TMPDIR=${BUILD}',
+                  'PATH=${CMAKE_DIR}/bin:${PATH} ./configure --verbose --prefix="${ARTIFACT}"']
     if ctx.parameters.get('machine','') == 'CrayXE6':
         preConfigureCrayXE6(ctx, conf_lines)
+    elif ctx.parameters.get('machine','') == 'CrayXC30':
+        preConfigureCrayXC30(ctx, conf_lines)
+    elif ctx.parameters.get('machine','') == 'CrayXC40':
+        preConfigureCrayXC40(ctx, conf_lines)
     elif ctx.parameters.get('machine','') == 'SGIICEX':
         preConfigureSGIICEX(ctx, conf_lines)
 
@@ -166,12 +237,12 @@ def configure(ctx, stage_args):
             continue
         if dep_var == 'MPI':
             conf_lines.append('--with-mpi-compilers')
-            conf_lines.append('CC=$MPICC')
-            conf_lines.append('CXX=$MPICXX')
+            conf_lines.append('CC=${MPICC}')
+            conf_lines.append('CXX=${MPICXX}')
             if ctx.parameters['fortran']:
-                conf_lines.append('F77=$MPIF77')
-                conf_lines.append('F90=$MPIF90')
-                conf_lines.append('FC=$MPIF90')
+                conf_lines.append('F77=${MPIF77}')
+                conf_lines.append('F90=${MPIF90}')
+                conf_lines.append('FC=${MPIF90}')
             else:
                 conf_lines.append('--with-fc=0')
             continue
@@ -181,6 +252,11 @@ def configure(ctx, stage_args):
     for package in stage_args['download']:
         package_name = package.strip()
         conf_lines.append('--download-%s=1' % package_name)
+    for package in stage_args['use_downloaded']:
+        from os.path import expanduser
+        package_name = package.strip()
+        home = expanduser("~")
+        conf_lines.append('--download-{0}={1}/{0}.tar.gz'.format(package_name,home))
 
     # Multilinify
     for i in range(len(conf_lines) - 1):

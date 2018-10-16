@@ -4,8 +4,8 @@ dependencies:
   run: [mpi, hdf5, numpy, numexpr, cython, zlib, szip]
 
 sources:
-- key: tar.gz:7w56utw3nowqvqhfh7d3y2lq46hbf3xu
-  url: https://pypi.python.org/packages/a2/e5/697f7ec96c4808983711635ef2e4c6b217493343938410125bcece1642cf/tables-3.4.2.tar.gz
+- key: tar.gz:xxc4a43rflzkio5l2e44jbk7zgkjnozm
+  url: https://files.pythonhosted.org/packages/4d/53/8f34ce887c2a2ad80518980419a5f6f41defc85a287a355987e559ce9385/tables-3.4.4.tar.gz
 
 build_stages:
 - name: install
@@ -13,9 +13,11 @@ build_stages:
   after: setup_dirs
   handler: bash
   bash: |
-    CC=${MPICC} CXX=${MPICXX}  ${PYTHON} -c 'import setuptools; __file__="setup.py"; exec(open(__file__).read())' \
+    ls ${HDF5_DIR}/lib
+    HDF5_DIR=${HDF5_DIR} CC=${MPICC} CXX=${MPICXX}  ${PYTHON} -c 'import setuptools; __file__="setup.py"; exec(open(__file__).read())' \
        ${SETUPTOOLS_PACKAGE_EXTRA_OPTIONS} \
        install \
+       --hdf5=${HDF5_DIR} \
        --prefix=. --root=${ARTIFACT} \
        --single-version-externally-managed \
        --lflags="-Wl,-rpath,${HDF5_DIR}/lib -L${HDF5_DIR}/lib -lhdf5 \

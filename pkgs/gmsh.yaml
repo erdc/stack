@@ -1,8 +1,8 @@
 extends: [cmake_package]
 
 sources:
-- key: tar.gz:ydm74ehv6znhwwrwjt43tqya6qxln4wc
-  url: http://gmsh.info/src/gmsh-3.0.2-source.tgz
+- key: tar.gz:6pezgqebkolbxuf325relarrvpsqv2vl
+  url: http://gmsh.info/src/gmsh-4.0.2-source.tgz
 
 defaults:
   relocatable: false
@@ -14,14 +14,21 @@ dependencies:
 build_stages:
 - name: configure
   extra:
-    - '-DCMAKE_CXX_COMPILER:STRING=${MPICXX}'
-    - '-DCMAKE_C_COMPILER:STRING=${MPICC}'
-    - '-DENABLE_PETSC:BOOL=OFF'
-    - '-DENABLE_PETSC4PY:BOOL=OFF'
+    - '-DCMAKE_CXX_COMPILER:FILEPATH=${MPICXX}'
+    - '-DCMAKE_C_COMPILER:FILEPATH=${MPICC}'  
+    - '-DENABLE_FLTK:BOOL=ON'
+    - '-DENABLE_BUILD_SHARED:BOOL=ON'
+    - '-DENABLE_WRAP_PYTHON:BOOL=ON'
+    - '-DBLAS_LAPACK_LIBRARIES:STRING="${LAPACK_LDFLAGS};${BLAS_LDFLAGS}"'
+
+- when: machine == 'CrayXE6' or machine == 'CrayXC30' or machine == 'CrayXC40'
+  name: configure
+  extra:
+    - '-DCMAKE_CXX_COMPILER:FILEPATH=${MPICXX}'
+    - '-DCMAKE_C_COMPILER:FILEPATH=${MPICC}'  
     - '-DENABLE_FLTK:BOOL=OFF'
-    - '-DENABLE_BUILD_STATIC:BOOL=ON'
-    - '-DENABLE_BUILD_SHARED:BOOL=OFF'
-    - '-DENABLE_WRAP_PYTHON:BOOL=OFF'
-    - '-DSKIP_BUILD_RPATH:BOOL=ON'
-    - '-DCMAKE_INSTALL_RPATH:STRING=""'
-    - '-DCMAKE_INSTALL_RPATH_USE_LINK_PATH:BOOL=OFF'
+    - '-DENABLE_PETSC:BOOL=OFF'
+    - '-DENABLE_BUILD_SHARED:BOOL=ON'
+    - '-DENABLE_WRAP_PYTHON:BOOL=ON'
+    - '-DBLAS_LAPACK_LIBRARIES:STRING="${LAPACK_LDFLAGS};${BLAS_LDFLAGS}"'
+    - '-DCMAKE_SKIP_INSTALL_RPATH:BOOL=ON'

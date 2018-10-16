@@ -12,10 +12,12 @@ dependencies:
     - bzip2
     - python
     - zlib
-    - openjpeg
-    - png
+#    - openjpeg
+#    - png
     - swig
-    - libjpeg
+    - blaze
+    - boost
+#    - libjpeg
 
 build_stages:
 - name: cmakelists-patch

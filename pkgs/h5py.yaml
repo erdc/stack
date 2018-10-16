@@ -5,8 +5,8 @@ dependencies:
   run: [numpy, mpi4py]
 
 sources:
-- key: tar.gz:dafgrayr5atp62xg2o62tnocsk4qwkdy
-  url: https://pypi.python.org/packages/41/7a/6048de44c62fc5e618178ef9888850c3773a9e4be249e5e673ebce0402ff/h5py-2.7.1.tar.gz
+- key: tar.gz:4ytmmwufq6jb5pd7xdjrusnn37oqxgu2
+  url: https://files.pythonhosted.org/packages/74/5d/6f11a5fffc3d8884bb8d6c06abbee0b3d7c8c81bde9819979208ba823a47/h5py-2.8.0.tar.gz
 
 build_stages:
 - name: build_ext_options
@@ -14,16 +14,17 @@ build_stages:
   before: install
   handler: bash
   bash: |
-       export HDF5_VERSION='1.8.19'
+       export HDF5_VERSION='1.8.21'
        export CC=${MPICC}
        export CXX=${MPICXX}
        export SETUPTOOLS_PACKAGE_EXTRA_OPTIONS="configure --mpi"
+
 - name: install
   after: setup_dirs
   mode: replace
   handler: bash
   bash: |
-    HDF5_VERSION=1.8.19 CC=${MPICC} ${PYTHON} -c 'import setuptools; __file__="setup.py"; exec(open(__file__).read())' \
+    HDF5_VERSION=1.8.21 CC=${MPICC} CXX=${MPICXX} ${PYTHON} -c 'import setuptools; __file__="setup.py"; exec(open(__file__).read())' \
        ${SETUPTOOLS_PACKAGE_EXTRA_OPTIONS} \
        install \
        --prefix=. --root=${ARTIFACT} \
