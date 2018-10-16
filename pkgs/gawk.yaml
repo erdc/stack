@@ -5,4 +5,4 @@ defaults:
 
 sources:
 - key: tar.gz:kvsgjpjojpc2b6wukjvvsyr6jpsawtbp
-  url: http://ftp.heanet.ie/mirrors/gnu/gawk/gawk-4.1.1.tar.gz
+  url: http://ftp.heanet.ie/mirrors/ftp.gnu.org/gnu/gawk/gawk-4.1.1.tar.gz

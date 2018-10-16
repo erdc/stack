@@ -4,9 +4,6 @@ when pyver == '2.7':
     sources:
     - key: tar.gz:dbqx2hyvuoaksgovc5rqvhgyltqx5jqc
       url: https://www.python.org/ftp/python/2.7.15/Python-2.7.15.tgz
-#    sources:
-#    - key: tar.gz:qkjjxfx5nl6i3kbywfera4dyyax2c5cl
-#      url: http://python.org/ftp/python/2.7.11/Python-2.7.11.tgz
 when pyver == '3.2':
     sources:
     - key: tar.gz:7qpecklofhkhn5uwga5mvyutvz5cgehq

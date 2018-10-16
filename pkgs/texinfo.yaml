@@ -8,4 +8,4 @@ defaults:
 
 sources:
 - key: tar.gz:nogkgdu3n4etwvh6arbz4vkf4vsmmnuy
-  url: http://ftp.heanet.ie/mirrors/gnu/texinfo/texinfo-5.2.tar.g
+  url: http://ftp.heanet.ie/mirrors/ftp.gnu.org/gnu/texinfo/texinfo-5.2.tar.g
