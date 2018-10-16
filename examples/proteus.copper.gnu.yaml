@@ -15,7 +15,7 @@ extends:
 
 parameters:
   machine: CrayXE6
-  HOST_MATLAB: '/usr/local/applic/matlab/R2012b/bin/matlab'
+#  HOST_MATLAB: '/usr/local/applic/matlab/R2012b/bin/matlab'
   HOST_MPICC: cc
   HOST_MPICXX: CC
   HOST_MPIF77: ftn
