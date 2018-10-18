@@ -55,17 +55,17 @@ packages:
   perl:
     use: host-perl
   petsc:
-    version: 3.7.6
+    version: 3.10.2
     openblas: true
     build_with: |
       parmetis, cmake, blas
     download: |
-      hypre, blacs, scalapack, mumps, ptscotch, zoltan, superlu
+      hypre, blacs, scalapack, mumps, ptscotch, zoltan, superlu, superlu_dist
     coptflags: -O2
     link: shared
-    debug: false
+    debug: true
   petsc4py:
-    version: 3.7.0
+    version: 3.10.0
     with_conf: true
   pytables:
   tetgen:
