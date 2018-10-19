@@ -1,7 +1,7 @@
 extends: [autotools_package]
 
 defaults:
-  relocatable: false
+  relocatable: true
 
 sources:
 - key: tar.gz:xcbczndwtywxlhecrqdpdftbje3mrdau
