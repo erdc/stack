@@ -1,8 +1,8 @@
 extends: [autotools_package]
 
 sources:
-- key: tar.gz:ko4dx4hos6etd53pvhfunlkk77vgk6ds
-  url: https://github.com/zeromq/libzmq/releases/download/v4.2.0/zeromq-4.2.0.tar.gz
+- key: tar.gz:zsijborvoe6vtozppv4wl6dxanwetrkv
+  url: https://github.com/zeromq/libzmq/releases/download/v4.2.5/zeromq-4.2.5.tar.gz
 
 build_stages:
 - name: configure

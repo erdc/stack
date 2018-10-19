@@ -80,9 +80,8 @@ packages:
 #  scipy:
   h5py:
   pip:
-#  zoltan:
-#    build_with: |
-#      parmetis
+  zoltan:
+    use: petsc-zoltan
   chrono:
   pytest:
   pytest-xdist:

@@ -252,6 +252,11 @@ def configure(ctx, stage_args):
     for package in stage_args['download']:
         package_name = package.strip()
         conf_lines.append('--download-%s=1' % package_name)
+    for package in stage_args['use_downloaded']:
+        from os.path import expanduser
+        package_name = package.strip()
+        home = expanduser("~")
+        conf_lines.append('--download-{0}={1}/{0}.tar.gz'.format(package_name,home))
 
     # Multilinify
     for i in range(len(conf_lines) - 1):
