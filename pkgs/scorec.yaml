@@ -25,7 +25,7 @@ build_stages:
 - name: configure
   debug: true
   extra: [
-  '-DBUILD_SHARED_LIBS:BOOL=OFF',
+  '-DBUILD_SHARED_LIBS:BOOL=ON',
   '-DBUILD_EXES:BOOL=OFF',
   '-DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=ON',
   '-DCMAKE_C_COMPILER:STRING=${MPICC}',
