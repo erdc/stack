@@ -1,8 +1,8 @@
 extends: [cmake_package]
 
 sources:
-- key: tar.gz:fewerd5wmhfc6evvlgnjineosbh6gyaz
-  url: https://github.com/projectchrono/chrono/archive/3.0.0.tar.gz
+- key: tar.gz:vj7bb7muhvw7aybafq2yy3q2meofvcoj
+  url: https://github.com/projectchrono/chrono/archive/91a3cae8aa3c860129c696882f5bab63d14660c8.tar.gz
 
 defaults:
   relocatable: false
@@ -37,7 +37,7 @@ build_stages:
     - '-DENABLE_MODULE_VEHICLE:BOOL=ON'
     - '-DENABLE_MODULE_FSI:BOOL=ON'
     - '-DENABLE_OPENMP:BOOL=ON'
-    - '-DENABLE_MODULE_PYTHON:BOOL=OFF'
+    - '-DENABLE_MODULE_PYTHON:BOOL=ON'
     - '-DENABLE_MODULE_COSIMULATION:BOOL=OFF'
     - '-DENABLE_MODULE_MATLAB:BOOL=OFF'
     - '-DENABLE_MODULE_MKL:BOOL=OFF'
