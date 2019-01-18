@@ -5,8 +5,11 @@ dependencies:
   run: []
 
 sources:
-- key: tar.gz:wzcxkja7mt3oyac2jvatom47wc5f4flo
-  url: https://files.pythonhosted.org/packages/21/89/ca320e5b45d381ae0df74c4b5694f1471c1b2453c5eb4bac3449f5970481/Cython-0.28.5.tar.gz
+- key: tar.gz:flayp74zrkk2xn724rjlkf4pshq2oe3j
+  url: https://files.pythonhosted.org/packages/c1/f2/d1207fd0dfe5cb4dbb06a035eb127653821510d896ce952b5c66ca3dafa4/Cython-0.29.2.tar.gz
+#sources:
+#- key: tar.gz:wzcxkja7mt3oyac2jvatom47wc5f4flo
+#  url: https://files.pythonhosted.org/packages/21/89/ca320e5b45d381ae0df74c4b5694f1471c1b2453c5eb4bac3449f5970481/Cython-0.28.5.tar.gz
 #sources:
 # - key: tar.gz:6fa5d6ocpid3lkj7pxcthfdsaz7c24ka
 #   url: https://pypi.python.org/packages/b7/67/7e2a817f9e9c773ee3995c1e15204f5d01c8da71882016cac10342ef031b/Cython-0.25.2.tar.gz

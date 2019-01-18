@@ -24,7 +24,10 @@ when pyver == '3.6':
     sources:
     - key: tar.gz:pemureyquxyx66wlvnsnompenxfaoauh
       url: https://www.python.org/ftp/python/3.6.2/Python-3.6.2.tgz
-
+when pyver == '3.7':
+    sources:
+    - key: tar.gz:6coyhr3txhgheqq2xormgf7e43qf3em7
+      url: https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz
 
 dependencies:
   build: [zlib, bzip2, sqlite, openssl, launcher, ncurses, readline, gdbm, {{build_with}}]
