@@ -1,8 +1,8 @@
 extends: [cmake_package]
 
 sources:
-- key: tar.gz:vj7bb7muhvw7aybafq2yy3q2meofvcoj
-  url: https://github.com/projectchrono/chrono/archive/91a3cae8aa3c860129c696882f5bab63d14660c8.tar.gz
+- key: tar.gz:jdigwflegxlvjgspkxbtppl5kbncbobw
+  url: https://github.com/projectchrono/chrono/archive/f21f02bd274682883269819d1c274e7c834308c3.tar.gz
 
 defaults:
   relocatable: false
@@ -20,14 +20,6 @@ dependencies:
 #    - libjpeg
 
 build_stages:
-- name: cmakelists-patch
-  before: configure
-  files:
-    - lib64.patch
-  handler: bash
-  bash: |
-    patch -up1 < _hashdist/lib64.patch
-
 - name: configure
   extra:
     - '-DENABLE_UNIT_CASCADE:BOOL=ON'
@@ -59,7 +51,7 @@ build_stages:
   bash: |
     cd ${ARTIFACT} && \
     mkdir -p ${ARTIFACT}/lib/python{{pyver}}/site-packages && \
-    cp ${ARTIFACT}/share/chrono/python/* ${ARTIFACT}/lib/python{{pyver}}/site-packages
+    cp -r ${ARTIFACT}/share/chrono/python/* ${ARTIFACT}/lib/python{{pyver}}/site-packages
 
 profile_links:
   - name: python_packages
