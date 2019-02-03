@@ -1,8 +1,8 @@
 extends: [cmake_package]
 
 sources:
-- key: tar.gz:fewerd5wmhfc6evvlgnjineosbh6gyaz
-  url: https://github.com/projectchrono/chrono/archive/3.0.0.tar.gz
+- key: tar.gz:jdigwflegxlvjgspkxbtppl5kbncbobw
+  url: https://github.com/projectchrono/chrono/archive/f21f02bd274682883269819d1c274e7c834308c3.tar.gz
 
 defaults:
   relocatable: false
@@ -20,14 +20,6 @@ dependencies:
 #    - libjpeg
 
 build_stages:
-- name: cmakelists-patch
-  before: configure
-  files:
-    - lib64.patch
-  handler: bash
-  bash: |
-    patch -up1 < _hashdist/lib64.patch
-
 - name: configure
   extra:
     - '-DENABLE_UNIT_CASCADE:BOOL=ON'
@@ -37,7 +29,7 @@ build_stages:
     - '-DENABLE_MODULE_VEHICLE:BOOL=ON'
     - '-DENABLE_MODULE_FSI:BOOL=ON'
     - '-DENABLE_OPENMP:BOOL=ON'
-    - '-DENABLE_MODULE_PYTHON:BOOL=OFF'
+    - '-DENABLE_MODULE_PYTHON:BOOL=ON'
     - '-DENABLE_MODULE_COSIMULATION:BOOL=OFF'
     - '-DENABLE_MODULE_MATLAB:BOOL=OFF'
     - '-DENABLE_MODULE_MKL:BOOL=OFF'
@@ -51,3 +43,17 @@ build_stages:
     - '-DPYTHON_INCLUDE_DIR:PATH=${PYTHON_DIR}/include/python2.7'
     - '-DPYTHON_LIBRARY:PATH=${PYTHON_DIR}/lib/libpython2.7.so'
     - '-DUSE_PARALLEL_SIMD:BOOL=ON'
+
+- name: create_symlinks
+  after: install
+  when: platform == 'linux'
+  handler: bash
+  bash: |
+    cd ${ARTIFACT} && \
+    mkdir -p ${ARTIFACT}/lib/python{{pyver}}/site-packages && \
+    cp -r ${ARTIFACT}/share/chrono/python/* ${ARTIFACT}/lib/python{{pyver}}/site-packages
+
+profile_links:
+  - name: python_packages
+    link: 'lib/python{{pyver}}/site-packages/*'
+    dirs: true
