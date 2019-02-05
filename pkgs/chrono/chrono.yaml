@@ -43,6 +43,7 @@ build_stages:
     - '-DPYTHON_INCLUDE_DIR:PATH=${PYTHON_DIR}/include/python2.7'
     - '-DPYTHON_LIBRARY:PATH=${PYTHON_DIR}/lib/libpython2.7.so'
     - '-DUSE_PARALLEL_SIMD:BOOL=ON'
+    - '-DSWIG_DIR:PATH=${SWIG_DIR}'
 
 - name: create_symlinks
   after: install
