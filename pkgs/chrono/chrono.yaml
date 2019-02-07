@@ -9,6 +9,7 @@ defaults:
 
 dependencies:
   build:
+    - pcre
     - bzip2
     - python
     - zlib
