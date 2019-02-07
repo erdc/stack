@@ -1,5 +1,8 @@
 extends: [cmake_package]
 
+defaults:
+  relocatable: false
+
 sources:
 - url: https://support.hdfgroup.org/ftp/lib-external/szip/2.1.1/src/szip-2.1.1.tar.gz
   key: tar.gz:ehxjlc2pfvf6fsokx6s6dkkio4cdmcoo

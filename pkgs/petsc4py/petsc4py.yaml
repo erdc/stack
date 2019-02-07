@@ -48,6 +48,10 @@ build_stages:
 #      PATH=$PATH:$PETSC_DIR/bin \
 #      $PYTHON runtests.py)
 
+when version == '3.10.0':
+  sources:
+  - key: tar.gz:on7hqewmyvfr4dlorxsl3tminsgofbys
+    url: https://bitbucket.org/petsc/petsc4py/get/3.10.0.tar.gz
 when version == 'master': #note, update commits on petsc and petsc4py to use master
   sources:
   - key: tar.gz:xn263ax2jy7ptxnl36a72afroeq2icol
