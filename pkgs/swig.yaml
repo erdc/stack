@@ -26,3 +26,5 @@ when_build_dependency:
   value: ${ARTIFACT}/bin/swig
 - prepend_path: PATH
   value: '${ARTIFACT}/bin'
+- prepend_path: LD_LIBRARY_PATH
+  value: '${PCRE_DIR}/lib'
