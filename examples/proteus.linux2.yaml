@@ -53,11 +53,6 @@ packages:
   tetgen: #3D simplex mesh generator
   triangle: #2D simplex mesh generator
   memory_profiler:
-  boost:
-    toolset: gcc
-    address_model: 64
-    build_with: |
-      python
   scipy:
   h5py:
   pip:
