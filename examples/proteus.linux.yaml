@@ -1,0 +1,129 @@
+# This profile file controls your <#> (HashDist) build environment.
+
+# In the future, we'll provide better incorporation of
+# automatic environment detection.  For now, have a look
+# at the YAML files in the top-level directory and choose
+# the most *specific* file that matches your environment.
+
+extends:
+- file: debian.yaml
+
+parameters:
+  pyver: '3.7'
+  python_site_packages_rel: 'lib/python3.7/site-packages'
+  python_host_packages: '/usr/lib/python3.7/dist-packages'
+
+# The packages list specifies all the packages that you
+# require installed.  <#> will ensure that all packages
+# and their dependencies are installed when you build this
+# profile.
+
+packages:
+  future:
+  recordtype:
+  cmake:
+  openjpeg: #dependency of chrono
+    version: '2.1'
+  openssl:
+  python:
+    host: false
+    link: shared
+    build_with: |
+      bzip2, sqlite, openssl
+  blas:
+    use: openblas
+  lapack:
+    use: openblas-lapack
+  daetk:
+  mpi:
+    use: mpich
+  mpi4py:
+  nose:
+  coverage:
+  hdf5:
+  petsc:
+    version: 3.10.2
+    openblas: true
+    build_with: |
+      parmetis, cmake, blas
+    download: |
+      superlu, superlu_dist, hypre, blacs, scalapack, mumps
+    coptflags: -O2
+    link: shared
+    debug: false
+  petsc4py:
+    version: 3.10.0
+    with_conf: true
+  pytables:
+  tetgen: #3D simplex mesh generator
+  triangle: #2D simplex mesh generator
+  memory_profiler:
+  scipy:
+  h5py:
+  pip:
+  chrono:
+  pytest:
+  pytest-xdist:
+  pytest-cov:
+  pybind11:
+  gmsh: #used for mesh generation
+  zoltan:
+  scorec:
+  #matplotlib: # used in testing suite 
+  #pcs_api: #personal cloud storage api
+  #pyzmq:
+  #scandir:
+  #
+  ## Optional Packages
+  #buildbot-worker:
+  #doxygen: #for building documentation
+  #sphinx: #for building website
+  #sphinx-bootstrap-theme:
+  #clawpack:
+  #pydap:
+  #julia:
+  #pyjulia:
+  #jasper: 
+  #grib_api:
+  #cgal: computational geometric library
+  #pyproj:
+  #pygrib:
+  #rdp: #remote desktop package
+  #vapory:
+  #tornado:
+  #ipython:
+  #terminado:
+  #geojson:
+  #shapely:
+  #matlab:
+  #  use: host-matlab
+  #ipdb:
+  #jupyterlab:
+  #jupyter:
+  #ipyparallel:
+  #backports-abc:
+  #backports-shutil-get-terminal-size:
+  #configparser:
+  #rtree:
+  #ipython-d3plot:
+  #ipython-gridwidget:
+  #jupyter-pip:
+  #leafletwidget:
+  #ipywidgets:
+  #ipyleaflet:
+  #pythreejs:
+  #proteus:
+  #sympy: #symbolic math library
+  #ode: #library which has ode solvers
+  #pygments:
+  #pillow: #python imaging library
+  #launcher:
+  #netcdf4:
+  #netcdf4f:
+  #python-netcdf4:
+  #netcdf4cpp:
+  #pexpect:
+
+
+
+
