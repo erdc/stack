@@ -5,7 +5,9 @@ when platform == 'linux':
     build: [patchelf]
 
 sources:
-- url: http://bzip.org/1.0.6/bzip2-1.0.6.tar.gz
+    # official link down - no alternative link provided on official website
+    # - url: http://bzip.org/1.0.6/bzip2-1.0.6.tar.gz
+- url: https://fossies.org/linux/misc/bzip2-1.0.6.tar.gz
   key: tar.gz:ukci6nh42xlm6r666acgd7fvfcqeqtmo
 
 build_stages:

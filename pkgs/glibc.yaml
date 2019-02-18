@@ -8,7 +8,7 @@ defaults:
 
 sources:
 - key: tar.bz2:fyut64kbq4cemmzgjtm44amdy4gdvkla
-  url: http://ftp.heanet.ie/mirrors/gnu/glibc/glibc-2.19.tar.bz2
+  url: http://ftp.heanet.ie/mirrors/ftp.gnu.org/gnu/glibc/glibc-2.19.tar.bz2
 
 build_stages:
  - name: prologue

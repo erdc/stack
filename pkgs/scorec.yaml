@@ -1,6 +1,6 @@
 extends: [cmake_package]
 dependencies:
-  build: [mpi, parmetis, zoltan, bzip2]
+  build: [mpi, zoltan, petsc, parmetis, bzip2]
 
 #changing git->zip b/c of ssl issues on hpcmp platforms
 #sources:
@@ -25,16 +25,19 @@ build_stages:
 - name: configure
   debug: true
   extra: [
-  '-DBUILD_SHARED_LIBS:BOOL=ON',
+  '-DBUILD_SHARED_LIBS:BOOL=OFF',
+  '-DBUILD_EXES:BOOL=OFF',
+  '-DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=ON',
   '-DCMAKE_C_COMPILER:STRING=${MPICC}',
   '-DCMAKE_CXX_COMPILER:STRING=${MPICXX}',
+  '-DSCOREC_CXX_WARNINGS:BOOL=OFF',
   '-DENABLE_ZOLTAN:BOOL=ON',
   '-DSCOREC_CXX_OPTIMIZE=ON',
   '-DMDS_ID_TYPE="int"',
   '-DPCU_COMPRESS=ON',
   '-DENABLE_FPP=ON',
   '-DENABLE_SIMMETRIX:BOOL=OFF',
-  '-DZOLTAN_PREFIX:PATH=${ZOLTAN_DIR}',
+  '-DZOLTAN_PREFIX:PATH=${PETSC_DIR}',
   '-DPARMETIS_PREFIX:PATH=${PARMETIS_DIR}',
   '-DCMAKE_BUILD_TYPE=Release',
   '-DSCOREC_CXX_WARNINGS=OFF'

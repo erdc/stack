@@ -21,18 +21,17 @@ build_stages:
   after: setup_builddir
   handler: bash
   bash: |
-    export MPI_DIR=/apps/openmpi/1.10.2/gcc/6.1.0/lib
-    export CFLAGS="-m64"
-    export CXXFLAGS="-m64"
-    export CPPFLAGS="-m64"
-    export FCFLAGS="-m64"
+    export MPI_DIR=$MPI_ROOT
+    export CC=$MPICC
+    export CXX=$MPICXX
+    export FC=$MPIF90
 
 - name: configure
   after: setEnv
   configure_path: ".."
-  extra: ['--with-cflags=-fPIC',
-          '--with-gnumake',
+  extra: ['--with-cflags="-fPIC"',
+          '--with-cxxflags="-fPIC"',
+          '--with-fcflags="-fPIC"',
           '--with-parmetis',
           '--with-parmetis-libdir=${PARMETIS_DIR}/lib',
-          '--with-parmetis-incdir=${PARMETIS_DIR}/include',
-          '--with-cxxflags=-fPIC']
+          '--with-parmetis-incdir=${PARMETIS_DIR}/include']
