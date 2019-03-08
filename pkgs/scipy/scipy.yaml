@@ -4,26 +4,12 @@ dependencies:
   build: [blas, lapack, numpy, cython]
   run: [blas, lapack, numpy]
 
+  
 sources:
-- key: tar.gz:q444m6cc5wnbynggfvwmuyyb2cw6idkq
-  url: https://github.com/scipy/scipy/releases/download/v1.0.1/scipy-1.0.1.tar.gz
+- key: tar.gz:4cc5dov4wqm3xzmof2afvrqzetnmjssf
+  url: https://github.com/scipy/scipy/releases/download/v1.2.1/scipy-1.2.1.tar.gz
 
 build_stages:
-  - when: platform == 'linux'
-    name: set-lapack-paths
-    after: libflags
-    before: install
-    handler: bash
-    bash: |
-      export LDFLAGS="-shared -Wl,-rpath=${PYTHON_DIR}/lib $(${PYTHON_DIR}/bin/python-config --ldflags)"
-      echo "[ALL]" > site.cfg
-      echo "extra_link_args = -shared" >> site.cfg
-      echo "[openblas]" >> site.cfg
-      echo "libraries = openblas" >> site.cfg
-      echo "library_dirs = ${OPENBLAS_DIR}/lib" >> site.cfg
-      echo "include_dirs = ${OPENBLAS_DIR}/lib" >> site.cfg
-      echo "runtime_library_dirs = ${OPENBLAS_DIR}/lib" >> site.cfg
-
   - when: platform == 'Darwin'
     name: set-lapack-paths
     after: libflags
@@ -36,7 +22,6 @@ build_stages:
       echo "library_dirs = ${OPENBLAS_DIR}/lib" >> site.cfg
       echo "include_dirs = ${OPENBLAS_DIR}/lib" >> site.cfg
       echo "runtime_library_dirs = ${OPENBLAS_DIR}/lib" >> site.cfg
-
   - name: install
     after: setup_dirs
     mode: replace
