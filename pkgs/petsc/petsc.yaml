@@ -2,47 +2,51 @@ extends: [autotools_package]
 dependencies:
   build: [blas, mpi, python, cmake, {{build_with}}]
 
-when version == '3.10.2':
-  sources:
-  - key: tar.gz:5kjlowzwrngicdt5zqsxcibknhirohj3
-    url: https://bitbucket.org/petsc/petsc/get/v3.10.2.tar.gz
-when version == 'master':
-  sources:
-  - key: git:8c405a35e3463db34467c44b5b94e7b81d895f6d
-    url: https://bitbucket.org/petsc/petsc
-when version == '3.8.4':
-  sources:
-  - key: tar.gz:jnir6togvymxfogd2jlhhpblcjrhoxpx
-    url: http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.8.4.tar.gz
-when version == '3.7.6':
-  sources:
-  - key: tar.gz:wb7xwtsx25pzqj4hxwawt55y326vv3re
-    url: http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.7.6.tar.gz
-when version == '3.7.5':  
-  sources:
-  - key: tar.gz:2z3yd2x4qctstavsoeghejihe3ehth6b
-    url: http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.7.5.tar.gz
-when version == '3.7.4':
-  sources:
-  - key: tar.gz:skvlms373heeshxp77kmz27fzcqlvefe
-    url: http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.7.4.tar.gz
-when version == '3.6.1':
-  sources:
-  - key: tar.gz:v2wbaflfus5gbhb7h4j23jdvoif42mve
-    url: http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.6.1.tar.gz
-when version == '3.5.2':
-  sources:
-  - key: tar.gz:ygj3gebgevuuwg5evyrgenkhf3ry5b2d
-    url: http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.5.2.tar.gz
+# when version == '3.10.3':
+sources:
+- key: tar.gz:hpl62lmkz4suaxioofgfgawshstv7npu
+  url: https://bitbucket.org/petsc/petsc/get/v3.10.3.tar.gz
+# when version == '3.10.2':
+#   sources:
+#   - key: tar.gz:5kjlowzwrngicdt5zqsxcibknhirohj3
+#     url: https://bitbucket.org/petsc/petsc/get/v3.10.2.tar.gz
+# when version == 'master':
+#   sources:
+#   - key: git:8c405a35e3463db34467c44b5b94e7b81d895f6d
+#     url: https://bitbucket.org/petsc/petsc
+# when version == '3.8.4':
+#   sources:
+#   - key: tar.gz:jnir6togvymxfogd2jlhhpblcjrhoxpx
+#     url: http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.8.4.tar.gz
+# when version == '3.7.6':
+#   sources:
+#   - key: tar.gz:wb7xwtsx25pzqj4hxwawt55y326vv3re
+#     url: http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.7.6.tar.gz
+# when version == '3.7.5':
+#   sources:
+#   - key: tar.gz:2z3yd2x4qctstavsoeghejihe3ehth6b
+#     url: http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.7.5.tar.gz
+# when version == '3.7.4':
+#   sources:
+#   - key: tar.gz:skvlms373heeshxp77kmz27fzcqlvefe
+#     url: http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.7.4.tar.gz
+# when version == '3.6.1':
+#   sources:
+#   - key: tar.gz:v2wbaflfus5gbhb7h4j23jdvoif42mve
+#     url: http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.6.1.tar.gz
+# when version == '3.5.2':
+#   sources:
+#   - key: tar.gz:ygj3gebgevuuwg5evyrgenkhf3ry5b2d
+#     url: http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.5.2.tar.gz
 
 defaults:
   # /include/petscconfiginfo.h contains absolute path
   relocatable: false
   fortran: false
   debug: false
-  version: '3.5.2'
+  version: '3.10.3' #'3.5.2'
 
-build_stages: 
+build_stages:
 
 # This patch did not go into 3.4.3 :(
 - when: platform == 'Cygwin'
@@ -69,7 +73,7 @@ build_stages:
    after: configure
    bash: |
      make
- 
+
 -  name: install
    mode: replace
    handler: bash

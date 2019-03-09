@@ -44,7 +44,7 @@ build_stages:
   mode: replace
   bash: |
     #./config --prefix=$ARTIFACT shared zlib-dynamic -I$ZLIB_DIR/include -Wl,-rpath=$ARTIFACT/lib -Wl,-rpath=$ZLIB_DIR/lib
-    ./Configure --prefix=$ARTIFACT shared zlib-dynamic -I$ZLIB_DIR/include darwin64-x86_64-cc enable-ec_nistp-64_gcc_128
+    ./Configure --prefix=$ARTIFACT shared zlib-dynamic -I$ZLIB_DIR/include darwin64-x86_64-cc enable-ec_nistp_64_gcc_128
 
 - name: link_ca_bundle
   handler: bash
@@ -55,4 +55,3 @@ build_stages:
 when_build_dependency:
 - prepend_path: PKG_CONFIG_PATH
   value: '${ARTIFACT}/lib/pkgconfig'
-

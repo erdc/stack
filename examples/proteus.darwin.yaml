@@ -84,3 +84,4 @@ packages:
   pytest-xdist:
   boost:
     toolset: darwin
+  chrono:
