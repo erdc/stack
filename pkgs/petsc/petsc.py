@@ -258,7 +258,6 @@ def configure(ctx, stage_args):
         home = expanduser("~")
         conf_lines.append('--download-{0}={1}/{0}.tar.gz'.format(package_name,home))
 
-    conf_lines.append('--with-cxx-dialect=C++11')
     # Multilinify
     for i in range(len(conf_lines) - 1):
         conf_lines[i] = conf_lines[i] + ' \\'

@@ -8,8 +8,8 @@ defaults:
   relocatable: false
 
 sources:
-  - url: https://ftp.gnu.org/gnu/bison/bison-3.3.2.tar.xz #http://ftp.gnu.org/gnu/bison/bison-3.0.tar.gz
-    key: tar.xz:aopoiw3b3fpfaa7h5a3w7eeaaanuazx7 #tar.gz:4w36y5oqxgrgkxmndbkmjithrgrxbw4h
+  - url: http://ftp.gnu.org/gnu/bison/bison-3.0.tar.gz
+    key: tar.gz:4w36y5oqxgrgkxmndbkmjithrgrxbw4h
 
 when_build_dependency:
   - prepend_path: PATH
