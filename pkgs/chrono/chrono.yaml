@@ -1,43 +1,32 @@
 extends: [cmake_package]
 
 sources:
-- key: tar.gz:fewerd5wmhfc6evvlgnjineosbh6gyaz
-  url: https://github.com/projectchrono/chrono/archive/3.0.0.tar.gz
+- key: tar.gz:qa5vbcpeqm2hoh3ff5n6y6pzl4veft5q
+  url: https://github.com/projectchrono/chrono/archive/4.0.0.tar.gz
 
 defaults:
   relocatable: false
 
 dependencies:
   build:
+    - pcre
     - bzip2
     - python
     - zlib
-#    - openjpeg
-#    - png
     - swig
-    - blaze
-    - boost
-#    - libjpeg
 
 build_stages:
-- name: cmakelists-patch
-  before: configure
-  files:
-    - lib64.patch
-  handler: bash
-  bash: |
-    patch -up1 < _hashdist/lib64.patch
-
 - name: configure
   extra:
+    - '-DBUILD_DEMOS:BOOL=OFF'
+    - '-DENABLE_MODULE_CASCADE:BOOL=OFF'
     - '-DENABLE_UNIT_CASCADE:BOOL=ON'
-    - '-DENABLE_MODULE_FEA:BOOL=ON'
     - '-DENABLE_MODULE_IRRLICHT:BOOL=OFF'
     - '-DENABLE_MODULE_POSTPROCESS:BOOL=ON'
     - '-DENABLE_MODULE_VEHICLE:BOOL=ON'
     - '-DENABLE_MODULE_FSI:BOOL=ON'
     - '-DENABLE_OPENMP:BOOL=ON'
-    - '-DENABLE_MODULE_PYTHON:BOOL=OFF'
+    - '-DENABLE_MODULE_PYTHON:BOOL=ON'
     - '-DENABLE_MODULE_COSIMULATION:BOOL=OFF'
     - '-DENABLE_MODULE_MATLAB:BOOL=OFF'
     - '-DENABLE_MODULE_MKL:BOOL=OFF'
@@ -45,9 +34,22 @@ build_stages:
     - '-DENABLE_MODULE_OPENGL:BOOL=OFF'
     - '-DENABLE_MODULE_OGRE:BOOL=OFF'
     - '-DCMAKE_BUILD_TYPE:STRING=Release'
-    - '-DBLAZE_DIR:PATH=${BLAZE_DIR}'
-    - '-DBOOST_DIR:PATH=${BOOST_DIR}/include'
     - '-DPYTHON_EXECUTABLE:PATH=${PYTHON}'
     - '-DPYTHON_INCLUDE_DIR:PATH=${PYTHON_DIR}/include/python2.7'
     - '-DPYTHON_LIBRARY:PATH=${PYTHON_DIR}/lib/libpython2.7.so'
-    - '-DUSE_PARALLEL_SIMD:BOOL=ON'
+    - '-DSWIG_DIR:PATH=${SWIG_DIR}'
+    - '-DSWIG_EXECUTABLE=${SWIG_EXECUTABLE}'
+
+- name: create_symlinks
+  after: install
+  when: platform == 'linux'
+  handler: bash
+  bash: |
+    cd ${ARTIFACT} && \
+    mkdir -p ${ARTIFACT}/lib/python{{pyver}}/site-packages && \
+    cp -r ${ARTIFACT}/share/chrono/python/* ${ARTIFACT}/lib/python{{pyver}}/site-packages
+
+profile_links:
+  - name: python_packages
+    link: 'lib/python{{pyver}}/site-packages/*'
+    dirs: true
