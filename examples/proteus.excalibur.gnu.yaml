@@ -51,6 +51,7 @@ packages:
   mpi4py:
   nose:
   hdf5:
+    use: host-hdf5
   parmetis:
     without_check: true
   perl:
@@ -60,7 +61,8 @@ packages:
     build_with: |
       parmetis, cmake, blas
     download: |
-      superlu, superlu_dist, hypre, blacs, scalapack, mumps, ptscotch, zoltan
+      superlu
+#, superlu_dist, hypre, blacs, scalapack, ptscotch, zoltan
     coptflags: -O2
     link: shared
     debug: false
@@ -87,4 +89,4 @@ packages:
   pytest:
   pytest-xdist:
 #  gmsh:
-  scorec:
+#  scorec:
