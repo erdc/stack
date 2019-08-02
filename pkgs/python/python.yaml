@@ -26,10 +26,6 @@ when pyver == '3.6':
       url: https://www.python.org/ftp/python/3.6.2/Python-3.6.2.tgz
 when pyver == '3.7' or pyver == '3.7m':
     sources:
-    - key: tar.gz:6coyhr3txhgheqq2xormgf7e43qf3em7
-      url: https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz
-when pyver == '3.7.4':
-    sources:
     - key: tar.xz:7n4zcnfynamzsmfxl4tgpdyysmrbibbg
       url: https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tar.xz
 
@@ -78,7 +74,7 @@ build_stages:
     append: {LDFLAGS: "-Wl,-rpath,${ARTIFACT}/lib"}
     extra: ['--enable-shared']
 
-  - when: pyver == '3.4' or pyver == '3.5' or pyver == '3.6' or pyver=='3.7' or pyver=='3.7.4'
+  - when: pyver == '3.4' or pyver == '3.5' or pyver == '3.6' or pyver=='3.7'
     name: configure
     mode: update
     extra: ['--without-ensurepip', '--without-pymalloc']
