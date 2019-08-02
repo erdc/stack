@@ -14,6 +14,9 @@ extends:
 # profile.
 
 parameters:
+  pyver: '3.7'
+  python_site_packages_rel: 'lib/python3.7/site-packages'
+  python_host_packages: '/p/app/unsupported/COST/python3/3.5.1/gnu/lib/python3.5/site-packages/'
   machine: CrayXC40
   HOST_MPICC: cc
   HOST_MPICXX: CC
@@ -30,33 +33,48 @@ parameters:
 packages:
   future:
   recordtype:
+  py2gmsh:
+  boost:
+    toolset: gcc
+    address_model: 64
+    build_with: |
+      python
+  chrono:
+  gmsh:
+#  scorec:
+  zoltan:
+    use: petsc-zoltan
+  bzip2:
+    use: host-bzip2
   pkg-config:
     use: host-pkg-config
   launcher:
   cmake:
   openssl:
-    use: host-openssl
   python:
     host: false
     link: shared
     build_with: |
-      bzip2, sqlite, openssl
+      openssl,bzip2,sqlite,libffi
   blas:
-    use: host-libsci-blas
+    use: openblas
   lapack:
-    use: host-libsci-lapack
+    use: openblas-lapack
   daetk:
   mpi:
     use: host-mpi
   mpi4py:
   nose:
   hdf5:
+#  jupyter:
+  matplotlib:
   parmetis:
     without_check: true
   perl:
     use: host-perl
   petsc:
-    version: 3.7.6
+    openblas: true
+    version: 3.10.2
     build_with: |
       parmetis, cmake, blas
     download: |
@@ -65,26 +83,18 @@ packages:
     link: shared
     debug: false
   petsc4py:
-    version: 3.7.0
+    version: 3.10.0
     with_conf: true
   pytables:
+  sphinx:
+#  superlu:
+  sympy:
   tetgen:
   triangle:
   memory_profiler:
-  boost:
-    toolset: gcc
-    address_model: 64
-    build_with: |
-      python
+#  scipy:
   h5py:
   pip:
-  zoltan:
-    use: petsc-zoltan
-#  zoltan:
-#    build_with: |
-#      parmetis
-  chrono:
   pytest:
   pytest-xdist:
-#  gmsh:
-  scorec:
+  pytest-cov:
