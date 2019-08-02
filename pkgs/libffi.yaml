@@ -7,8 +7,8 @@ defaults:
   relocatable: false
 
 sources:
-- key: tar.gz:dxo54faayo6lo5e5hgahdl4iypshkqcy
-  url: ftp://sourceware.org/pub/libffi/libffi-3.0.13.tar.gz
+- key: tar.gz:s3ii33tpeyv65inbrle2haa7mqay3rcs
+  url: https://github.com/libffi/libffi/archive/v3.2.1.tar.gz
 
 when_build_dependency:
 - prepend_path: PKG_CONFIG_PATH
@@ -19,5 +19,7 @@ build_stages:
     before: configure
     handler: bash
     bash: |
-      # Always use /lib instead of sometimes /lib64
-      sed -i 's:@toolexeclibdir@:$(libdir):g' Makefile.in
+      ./autogen.sh
+      sed -i 's:@toolexeclibdir@:$(libdir):g' Makefile.in && \
+      sed -e '/^includesdir/ s/$(libdir).*$/$(includedir)/' -i include/Makefile.in && \
+      sed -e '/^includedir/ s/=.*$/=@includedir@/' -e 's/^Cflags: -I${includedir}/Cflags:/' -i libffi.pc.in

@@ -14,6 +14,9 @@ extends:
 # profile.
 
 parameters:
+  pyver: '3.7.4'
+  python_site_packages_rel: 'lib/python3.7/site-packages'
+  python_host_packages: '/p/app/unsupported/COST/python3/3.5.1/gnu/lib/python3.5/site-packages/'
   machine: CrayXC40
   HOST_MPICC: cc
   HOST_MPICXX: CC
@@ -38,7 +41,7 @@ packages:
       python
   chrono:
   gmsh:
-  scorec:
+#  scorec:
   zoltan:
     use: petsc-zoltan
   bzip2:
@@ -52,7 +55,7 @@ packages:
     host: false
     link: shared
     build_with: |
-      openssl,bzip2,sqlite
+      openssl,bzip2,sqlite,libffi
   blas:
     use: host-libsci-blas
   lapack:
@@ -71,8 +74,8 @@ packages:
     version: 3.7.6
     build_with: |
       parmetis, cmake, blas
-    download: |
-      superlu, ptscotch, zoltan, hypre
+#    download: |
+#      superlu, ptscotch, zoltan, hypre
     coptflags: -O2
     link: shared
     debug: false
