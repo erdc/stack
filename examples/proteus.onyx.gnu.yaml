@@ -57,9 +57,9 @@ packages:
     build_with: |
       openssl,bzip2,sqlite,libffi
   blas:
-    use: host-libsci-blas
+    use: openblas
   lapack:
-    use: host-libsci-lapack
+    use: openblas-lapack
   daetk:
   mpi:
     use: host-mpi
@@ -70,7 +70,7 @@ packages:
   matplotlib:
   parmetis:
   petsc:
-    openblas: false
+    openblas: true
     version: 3.10.2
     build_with: |
       parmetis, cmake, blas
