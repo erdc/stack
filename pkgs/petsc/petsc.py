@@ -4,6 +4,7 @@ def preConfigureCrayXE6(ctx, conf_lines):
     conf_lines += ['LDFLAGS=' + ctx.parameters['DYNAMIC_EXE_LINKER_FLAGS'],
                    '--known-sdot-returns-double=0',
                    '--known-snrm2-returns-double=0',
+               '--known-64-bit-blas-indices=0',
                '--known-mpi-shared-libraries=1',
                '--with-batch',
                '--known-sdot-returns-double=0',
@@ -33,7 +34,8 @@ def preConfigureCrayXC30(ctx, conf_lines):
     conf_lines += ['PETSC_ARCH=crayxc30',
                    'PETSC_DIR=${BUILD}',
                    'LDFLAGS=' + ctx.parameters['DYNAMIC_EXE_LINKER_FLAGS'],
-                   '--with-cmake=/app/COST/cmake-3.0.0-gnu/bin/cmake',
+                   '--known-64-bit-blas-indices=0',
+                   '--with-cmake=1',
                    '--with-cmake-exe=/app/COST/cmake-3.0.0-gnu/bin/cmake',
                    '--with-cmake-dir=/app/COST/cmake-3.0.0-gnu',
               '--known-has-attribute-aligned=1',
@@ -67,8 +69,9 @@ def preConfigureCrayXC40(ctx, conf_lines):
                    'PETSC_DIR=${BUILD}',
                    'LDFLAGS=' + ctx.parameters['DYNAMIC_EXE_LINKER_FLAGS'],
                    '--with-cmake-exe=${CMAKE_DIR}/bin/cmake',
-                   '--with-cmake=${CMAKE_DIR}/bin/cmake',
+                   '--with-cmake=1',
                    '--with-cmake-dir=${CMAKE_DIR}',
+               '--known-64-bit-blas-indices=0',
                '--known-has-attribute-aligned=1',
                '--known-mpi-shared-libraries=1',
                '--with-batch',
@@ -97,6 +100,7 @@ def preConfigureCrayXC40(ctx, conf_lines):
 
 def preConfigureSGIICEX(ctx, conf_lines):
     conf_lines += ['LDFLAGS=' + ctx.parameters['DYNAMIC_EXE_LINKER_FLAGS'],
+               '--known-64-bit-blas-indices=0',
                '--known-has-attribute-aligned=1',
                '--known-mpi-shared-libraries=1',
                '--with-pic',
@@ -157,7 +161,7 @@ def configure(ctx, stage_args):
     # as its temporary directory.  This configuration change may be of
     # general use for the other build systems.
     conf_lines = ['TMPDIR=${BUILD}',
-                  'PATH=${CMAKE_DIR}/bin:${PATH} ./configure --verbose --prefix="${ARTIFACT}"']
+                  'PATH=${CMAKE_DIR}/bin:${PATH} ./configure --with-cxx-dialect=C++11 --verbose --prefix="${ARTIFACT}"']
     if ctx.parameters.get('machine','') == 'CrayXE6':
         preConfigureCrayXE6(ctx, conf_lines)
     elif ctx.parameters.get('machine','') == 'CrayXC30':
