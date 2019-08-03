@@ -75,7 +75,7 @@ packages:
     build_with: |
       parmetis, cmake, blas
     download: |
-      superlu, ptscotch, zoltan, hypre
+      superlu, zoltan, hypre
     coptflags: -O2
     link: shared
     debug: false
