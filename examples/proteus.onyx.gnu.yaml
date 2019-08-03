@@ -41,7 +41,7 @@ packages:
       python
   chrono:
   gmsh:
-#  scorec:
+  scorec:
   zoltan:
     use: petsc-zoltan
   bzip2:
@@ -75,8 +75,7 @@ packages:
     build_with: |
       parmetis, cmake, blas
     download: |
-      superlu
-#, ptscotch, zoltan, hypre
+      superlu, ptscotch, zoltan, hypre
     coptflags: -O2
     link: shared
     debug: false
@@ -90,7 +89,7 @@ packages:
   tetgen:
   triangle:
   memory_profiler:
-#  scipy:
+  scipy:
   h5py:
   pip:
   pytest:
