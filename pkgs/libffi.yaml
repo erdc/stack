@@ -1,7 +1,7 @@
 extends: [autotools_package]
 
 dependencies:
-  build: [gnu-sed]
+  build: [autoconf, gnu-sed]
 
 defaults:
   relocatable: false
