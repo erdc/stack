@@ -38,6 +38,7 @@ build_stages:
     - '-DPYTHON_INCLUDE_DIR:PATH=${PYTHON_DIR}/include/python{{pyver}}'
     - '-DPYTHON_LIBRARY:PATH=${PYTHON_DIR}/lib/libpython{{pyver}}.so'
     - '-DSWIG_DIR:PATH=${SWIG_DIR}'
+    - '-DSWIG_EXECUTABLE=${SWIG_EXECUTABLE}'
 
 - name: create_symlinks
   after: install
