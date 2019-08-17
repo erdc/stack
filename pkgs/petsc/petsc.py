@@ -157,7 +157,7 @@ def configure(ctx, stage_args):
     # as its temporary directory.  This configuration change may be of
     # general use for the other build systems.
     conf_lines = ['TMPDIR=${BUILD}',
-                  'PATH=${CMAKE_DIR}/bin:${PATH} ./configure --verbose --prefix="${ARTIFACT}"']
+                  'PATH=${CMAKE_DIR}/bin:${PATH} ./configure --with-cxx-dialect=C++11 --verbose --prefix="${ARTIFACT}"']
     if ctx.parameters.get('machine','') == 'CrayXE6':
         preConfigureCrayXE6(ctx, conf_lines)
     elif ctx.parameters.get('machine','') == 'CrayXC30':

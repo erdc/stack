@@ -5,6 +5,5 @@ dependencies:
   run: [numpy]
 
 sources:
- - key: tar.gz:3mxoolzhpmr4qljaigessdvew6jptpk3
-   url: https://pypi.python.org/packages/c6/f0/11628fa4d332d8fe9ab0ba8e9bfe0e065fb6b5324859171ee72d84e079c0/numexpr-2.6.1.tar.gz
-
+- key: tar.gz:2vzgpo67ccig6xwxqqntjbf6ysxqjfaq
+  url: https://github.com/pydata/numexpr/archive/v2.6.9.tar.gz

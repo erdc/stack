@@ -6,6 +6,7 @@ dependencies:
 #sources:
 #  - url: https://github.com/scorec/core.git
 #    key: git:fc94c3d4b013d7535e43549577b2c5f619d43d4b
+
 sources:
 - key: zip:f2lso4iu2raobfwovh43h6z556b6vcni
   url: https://github.com/SCOREC/core/archive/dfe08cd01552acf4b758bf942dade27e4ea46f22.zip

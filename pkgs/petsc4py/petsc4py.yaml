@@ -1,7 +1,7 @@
 extends: [distutils_package]
 dependencies:
   build: [mpi, petsc, numpy, cython]
-  run: [mpi, petsc, numpy]
+  run: [mpi, petsc, numpy, cython]
 
 defaults:
   version: '3.5'
@@ -15,7 +15,6 @@ build_stages:
     bash: |
       ${PYTHON} conf/cythonize.py
       patch -p1 < _hashdist/fix_libpetsc4py_decls.patch
-
   - when: version == '3.5'
     name: with_conf
     handler: bash
@@ -49,13 +48,22 @@ build_stages:
 #      PATH=$PATH:$PETSC_DIR/bin \
 #      $PYTHON runtests.py)
 
+when version == 'master': #note, update commits on petsc and petsc4py to use master
+  sources:
+  - key: tar.gz:xn263ax2jy7ptxnl36a72afroeq2icol
+    url: https://bitbucket.org/petsc/petsc4py/get/master.tar.gz
+when version == '3.11.0':
+  sources:
+  - key: tar.gz:ld2pk6wjn3bze44qnbm43q4iwgxdoicf
+    url: https://bitbucket.org/petsc/petsc4py/downloads/petsc4py-3.11.0.tar.gz
 when version == '3.10.0':
   sources:
-  - key: tar.gz:on7hqewmyvfr4dlorxsl3tminsgofbys
-    url: https://bitbucket.org/petsc/petsc4py/get/3.10.0.tar.gz
-when version == 'master': #note, update commits on petsc and petsc4py to use master
-  - key: git:8c9fc3a08c95098a208468fe9546fa5952638d12
-    url: https://bitbucket.org/petsc/petsc4py
+  - key: tar.gz:ixkly27gnacsu2g76mi4af3rog445tww
+    url: https://bitbucket.org/petsc/petsc4py/downloads/petsc4py-3.10.0.tar.gz
+when version == '3.9.1':
+  sources:
+  - key: tar.gz:bthoserbn4ia3gyimn7ag3pqbycduuyd
+    url: https://bitbucket.org/petsc/petsc4py/downloads/petsc4py-3.9.1.tar.gz
 when version == '3.8.1':
   sources:
   - key: tar.gz:263symzx3xcwamottufvfv7srnq6zra3

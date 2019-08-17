@@ -1,9 +1,9 @@
 extends: [setuptools_package]
 
 dependencies:
-  build: [python]
-  run: [python]
+  build: [python,googletest]
+  run: [python,googletest]
 
 sources:
- - key: tar.gz:kp5fjsh2rio7zvvpjpyjzynk4xknsso2
-   url: https://pypi.python.org/packages/29/72/5c1888c4948a0c7b736d10e0f0f69966e7c0874a660222ed0a2c2c6daa9f/pyproj-1.9.5.1.tar.gz
+ - key: tar.gz:bjhxspgjgu44ekjghdcjryseekroyszf
+   url: https://files.pythonhosted.org/packages/73/ef/53a7e9e98595baf4d7212aa731fcec256b432a3db60a55b58a027a4d9d47/pyproj-2.2.0.tar.gz
