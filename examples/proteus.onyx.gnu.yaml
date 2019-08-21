@@ -43,7 +43,6 @@ packages:
   gmsh:
   scorec:
   zoltan:
-    use: petsc-zoltan
   bzip2:
     use: host-bzip2
   pkg-config:
@@ -75,7 +74,7 @@ packages:
     build_with: |
       parmetis, cmake, blas
     download: |
-      superlu, superlu_dist, zoltan, hypre, blacs, scalapack, mumps
+      superlu, superlu_dist, hypre, blacs, scalapack, mumps
     coptflags: -O2
     link: shared
     debug: false

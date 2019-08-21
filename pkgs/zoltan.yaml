@@ -33,6 +33,10 @@ build_stages:
   extra: ['--with-cflags="-fPIC"',
           '--with-cxxflags="-fPIC"',
           '--with-fcflags="-fPIC"',
+          '--disable-tests',
+          '--disable-zoltan-examples',
+          '--disable-examples',
+          '--disable-zoltan-tests',
           '--with-parmetis',
           '--with-parmetis-libdir=${PARMETIS_DIR}/lib',
           '--with-parmetis-incdir=${PARMETIS_DIR}/include']
