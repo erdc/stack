@@ -1,7 +1,5 @@
-when platform != 'linux':
-  extends: [distutils_package]
-when platform == 'linux':
-  extends: [setuptools_package, libflags]
+extends: [setuptools_package]
+
 dependencies:
   build: [blas, lapack, numpy]
   run: [blas, lapack, numpy]
@@ -11,14 +9,29 @@ sources:
    url: https://files.pythonhosted.org/packages/cb/97/361c8c6ceb3eb765371a702ea873ff2fe112fa40073e7d2b8199db8eb56e/scipy-1.3.0.tar.gz
 
 build_stages:
-  - when: platform == 'linux'
-    name: set-lapack-paths
-    after: libflags
-    before: install
-    handler: bash
-    bash: |
-      export LDFLAGS="$LDFLAGS -shared $LAPACK_LDFLAGS $BLAS_LDFLAGS"
-      export ATLAS=None
-      export OPENBLAS=$OPENBLAS_DIR
-      export LAPACK=$LAPACK_LDFLAGS
-      export BLAS=$BLAS_LDFLAGS
+- name: create-site.cfg
+  after: prologue
+  before: install
+  handler: bash
+  bash: |
+    cat > site.cfg << EOF
+    [ALL]
+    extra_link_args = -shared
+    [openblas]
+    libraries = openblas
+    library_dirs = ${OPENBLAS_DIR}/lib
+    include_dirs = ${OPENBLAS_DIR}/include
+    runtime_library_dirs = ${OPENBLAS_DIR}/include
+    EOF
+
+- name: set-LDFLAGS
+  after: prologue
+  before: install
+  handler: bash
+  bash: |
+    export NPY_DISTUTILS_APPEND_FLAGS=1
+    export CPPFLAGS="${CPPFLAGS} -I$(${PYTHON} -c "import numpy; print(numpy.get_include())")"
+    echo $CPPFLAGS
+    export LDFLAGS="-shared -Wl,-rpath=${PYTHON_DIR}/lib -Wl,-rpath=${OPENBLAS_DIR}/lib $(${PYTHON_DIR}/bin/python3-config --ldflags)"
+    export LAPACK=None
+    export BLAS=None

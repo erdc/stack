@@ -13,7 +13,9 @@ build_stages:
   after: setup_dirs
   handler: bash
   bash: |
-    ls ${HDF5_DIR}/lib
+    gcc --version
+    cc --version
+    export HDF5_DIR=/opt/cray/hdf5-parallel/1.8.14/GNU/5.1
     HDF5_DIR=${HDF5_DIR} CC=${MPICC} CXX=${MPICXX}  ${PYTHON} -c 'import setuptools; __file__="setup.py"; exec(open(__file__).read())' \
        ${SETUPTOOLS_PACKAGE_EXTRA_OPTIONS} \
        install \

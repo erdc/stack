@@ -31,18 +31,18 @@ for p in ignored['PATH'].split(":"):
         PATH+="{0}".format(p)
 PROLOGUE="export PATH={0}; ".format(PATH)+PROLOGUE
 del ignored['PATH']
-#print "Ignoring these paths"
-#for k,v in ignored.items():
-#    print k+"="+v
+print "Ignoring these paths"
+for k,v in ignored.items():
+    print k+"="+v
 try:
     PROLOGUE+= "export WORKDIR={0}; ".format(
         ignored['WORKDIR'].replace(
-            os.environ['USER'],r'${USER}'))
+            os.environ['USER'],r'$(whoami)'))
 except:
     pass
 
 #compilers
-PROLOGUE+="export CC=gcc; export CXX=g++; export F77=gfortran; export F90=gfortran; export FC=gfortran; TERM=xterm; "
+PROLOGUE+="TMPDIR=${WORKDIR}; export CC=gcc; export CXX=g++; export F77=gfortran; export F90=gfortran; export FC=gfortran; TERM=xterm; "
 print("  PATH: |\n    {0}".format(PATH))
 print("  PROLOGUE: |\n    {0}".format(PROLOGUE))
 

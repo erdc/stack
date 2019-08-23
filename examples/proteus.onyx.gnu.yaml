@@ -14,6 +14,9 @@ extends:
 # profile.
 
 parameters:
+  pyver: '3.7'
+  python_site_packages_rel: 'lib/python3.7/site-packages'
+  python_host_packages: '/p/app/unsupported/COST/python3/3.5.1/gnu/lib/python3.5/site-packages/'
   machine: CrayXC40
   HOST_MPICC: cc
   HOST_MPICXX: CC
@@ -52,11 +55,11 @@ packages:
     host: false
     link: shared
     build_with: |
-      openssl,bzip2,sqlite
+      openssl,bzip2,sqlite,libffi
   blas:
-    use: host-libsci-blas
+    use: openblas
   lapack:
-    use: host-libsci-lapack
+    use: openblas-lapack
   daetk:
   mpi:
     use: host-mpi
@@ -67,8 +70,8 @@ packages:
   matplotlib:
   parmetis:
   petsc:
-    openblas: false
-    version: 3.7.6
+    openblas: true
+    version: 3.10.2
     build_with: |
       parmetis, cmake, blas
     download: |
@@ -77,16 +80,16 @@ packages:
     link: shared
     debug: false
   petsc4py:
-    version: 3.7.0
+    version: 3.10.0
     with_conf: true
   pytables:
   sphinx:
-  superlu:
+#  superlu:
   sympy:
   tetgen:
   triangle:
   memory_profiler:
-#  scipy:
+  scipy:
   h5py:
   pip:
   pytest:
