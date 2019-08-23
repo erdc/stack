@@ -21,7 +21,7 @@ build_stages:
   mode: replace
   handler: bash
   bash: |
-    ${PYTHON} -c 'import setuptools; __file__="setup.py"; exec(open(__file__).read())' \
+    PYTHONPATH=$PYTHONPATH:$SETUPTOOLS_DIR/lib/python{{pyver}}/site-packages ${PYTHON} -c 'import setuptools; __file__="setup.py"; exec(open(__file__).read())' \
        ${SETUPTOOLS_PACKAGE_EXTRA_OPTIONS} \
        install \
        --prefix=. --root=${ARTIFACT} \
