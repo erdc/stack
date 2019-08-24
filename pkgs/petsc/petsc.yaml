@@ -1,6 +1,6 @@
 extends: [autotools_package]
 dependencies:
-  build: [blas, mpi, python, cmake, cython, {{build_with}}]
+  build: [blas, mpi, python, cmake, cython, openssl, {{build_with}}]
 
 when version == '3.11.3':
   sources:
@@ -64,6 +64,15 @@ build_stages:
   handler: bash
   bash: |
     patch -p1 < _hashdist/fix_dll_link_detection.patch
+
+- name: git
+  mode: replace
+  after: prologue
+  before: configure
+  handler: bash
+  bash: |
+    export PATH=/app/COST/git/2.4.4/gnu//bin:/app/COST/python3/3.6.7/gnu//bin:/app/COST/valgrind/3.12.0/gnu//bin:/app/COST/python/2.7.9/gnu//bin:/app/COST/tcltk/8.6.4/gnu//bin:/app/COST/bzip2/1.0.6/gnu//bin:/p/home/cekees/proteus/gordon.gnu/bin:/opt/cray/rca/1.0.0-2.0502.60530.1.62.ari/bin:/opt/cray/alps/5.2.4-2.0502.9774.31.11.ari/sbin:/opt/cray/alps/5.2.4-2.0502.9774.31.11.ari/bin:/opt/cray/dvs/2.5_0.9.0-1.0502.2188.1.116.ari/bin:/opt/cray/xpmem/0.1-2.0502.64982.5.3.ari/bin:/opt/cray/ugni/6.0-1.0502.10863.8.29.ari/bin:/opt/cray/udreg/2.3.2-1.0502.10518.2.17.ari/bin:/opt/gcc/6.3.0/bin:/app/totalview/8.13/toolworks/totalview.8.13.0-0/bin:/app/mpscp/mpscp-1.3a/bin:/opt/pbs/default/bin:/opt/cray/mpt/7.5.3/gni/bin:/opt/cray/craype/2.5.9/bin:/opt/cray/switch/1.0-1.0502.60522.1.61.ari/bin:/opt/cray/eslogin/eswrap/1.3.3-1.020200.1280.0/bin:/opt/modules/3.2.10.5/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/openssh-7.5p1a.SLES11/bin:/usr/local/bin:/opt/xt-boot/default/bin/snos64:/usr/bin/X11:/usr/X11R6/bin:/usr/games:/usr/lib/mit/bin:/usr/lib/mit/sbin:/usr/lib/qt3/bin:/opt/cray/bin:/app/bin:/app/COTS/bin:/pbs/SLB:/opt/intel/bin:/app/PST/bin:/usr/local/krb5/bin
+    export LD_LIBRARY_PATH=/app/COST/dependencies/curl/7.43.0/gnu/lib:/app/COST/git/2.4.4/gnu//lib:/app/COST/dependencies/xz/5.2.2/gnu/lib:/app/COST/dependencies/openssl/1.0.2n/gnu/lib:/app/COST/python3/3.6.7/gnu//lib:/app/COST/valgrind/3.12.0/gnu//lib:/app/COST/dependencies/zlib/1.2.8/gnu/lib:/app/COST/dependencies/sqlite/3081101/gnu/lib:/app/COST/dependencies/readline/6.3/gnu/lib:/app/COST/dependencies/openssl/1.0.2f/gnu/lib:/app/COST/python/2.7.9/gnu//lib:/app/COST/tcltk/8.6.4/gnu//lib:/app/COST/bzip2/1.0.6/gnu//lib:/p/home/cekees/proteus/gordon.gnu/lib:/p/home/cekees/proteus/gordon.gnu/lib64:/opt/gcc/6.3.0/snos/lib64
 
 - name: configure ## See petsc.py for details
   mode: replace
