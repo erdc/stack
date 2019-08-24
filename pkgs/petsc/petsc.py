@@ -127,9 +127,7 @@ def preConfigureSGIICEX(ctx, conf_lines):
                '--known-mpi-c-double-complex=1',
                '--known-mpi-int64_t=1',
                '--with-pthread=1',
-               '--known-64-bit-blas-indices=0',
-               '--with-blas-lapack-lib="-L/app/unsupported/COST/lapack/3.5.0/gnu/lib -llapack -L/app/unsupported/COST/gotoblas2/1.13/gnu/lib -lgoto2  -llapacke  -lrefblas -ltmglib -lgfortran"']
-
+               '--known-64-bit-blas-indices=0']
 @build_stage()
 def configure(ctx, stage_args):
     """

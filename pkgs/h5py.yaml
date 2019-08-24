@@ -16,7 +16,7 @@ build_stages:
   before: install
   handler: bash
   bash: |
-       export HDF5_VERSION='1.8.14'
+       export HDF5_VERSION='1.8.21'
        export CC=${MPICC}
        export SETUPTOOLS_PACKAGE_EXTRA_OPTIONS="configure --mpi"
 
@@ -25,8 +25,7 @@ build_stages:
   mode: replace
   handler: bash
   bash: |
-    export HDF5_DIR=/opt/cray/hdf5-parallel/1.8.14/GNU/5.1
-    HDF5_VERSION=1.8.14 CC=${MPICC} CXX=${MPICXX} ${PYTHON} -c 'import setuptools; __file__="setup.py"; exec(open(__file__).read())' \
+    HDF5_VERSION=1.8.21 CC=${MPICC} CXX=${MPICXX} ${PYTHON} -c 'import setuptools; __file__="setup.py"; exec(open(__file__).read())' \
        ${SETUPTOOLS_PACKAGE_EXTRA_OPTIONS} \
        install \
        --prefix=. --root=${ARTIFACT} \
