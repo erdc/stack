@@ -85,5 +85,6 @@ packages:
   chrono:
   pytest:
   pytest-xdist:
-#  gmsh:
+  gmsh:
   scorec:
+  scipy:
