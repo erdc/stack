@@ -30,8 +30,7 @@ build_stages:
 - name: configure
   after: setEnv
   configure_path: ".."
-  extra: ['--with-ldflags="-dynamic"',
-          '--with-cflags="-fPIC"',
+  extra: ['--with-cflags="-fPIC"',
           '--with-cxxflags="-fPIC"',
           '--with-fcflags="-fPIC"',
           '--with-parmetis',
