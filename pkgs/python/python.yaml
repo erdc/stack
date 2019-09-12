@@ -30,7 +30,7 @@ when pyver == '3.7' or pyver == '3.7m':
       url: https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tar.xz
 
 dependencies:
-  build: [zlib, bzip2, sqlite, openssl, launcher, ncurses, readline, gdbm, {{build_with}}]
+  build: [libffi, zlib, bzip2, sqlite, openssl, launcher, ncurses, readline, gdbm, {{build_with}}]
   run: []
 
 defaults:
