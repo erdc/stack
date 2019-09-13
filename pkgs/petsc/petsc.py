@@ -1,9 +1,12 @@
 from hashdist import build_stage
 
 def preConfigureCrayXE6(ctx, conf_lines):
-    conf_lines += ['LDFLAGS=' + ctx.parameters['DYNAMIC_EXE_LINKER_FLAGS'],
-                   '--known-sdot-returns-double=0',
-                   '--known-snrm2-returns-double=0',
+    conf_lines += [
+               'PETSC_ARCH=crayxe6',
+               'PETSC_DIR=${BUILD}',
+               'LDFLAGS=' + ctx.parameters['DYNAMIC_EXE_LINKER_FLAGS'],
+               '--known-sdot-returns-double=0',
+               '--known-snrm2-returns-double=0',
                '--known-64-bit-blas-indices=0',
                '--known-mpi-shared-libraries=1',
                '--with-batch',
