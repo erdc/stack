@@ -7,8 +7,8 @@ when platform == 'linux':
 sources:
     # official link down - no alternative link provided on official website
     # - url: http://bzip.org/1.0.6/bzip2-1.0.6.tar.gz
-- url: https://fossies.org/linux/misc/bzip2-1.0.6.tar.gz
-  key: tar.gz:ukci6nh42xlm6r666acgd7fvfcqeqtmo
+- url: https://www.sourceware.org/pub/bzip2/bzip2-latest.tar.gz
+  key: tar.gz:vnnagf3o4ednh4h2sdrydwshrxnoibmr
 
 build_stages:
 

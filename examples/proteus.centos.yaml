@@ -52,7 +52,7 @@ packages:
   coverage:
   hdf5:
   petsc:
-    version: 3.10.2
+    version: 3.9.4
     openblas: true
     build_with: |
       parmetis, cmake, blas
@@ -62,7 +62,7 @@ packages:
     link: shared
     debug: false
   petsc4py:
-    version: 3.10.0
+    version: 3.9.1
     with_conf: true
   pytables:
   tetgen: #3D simplex mesh generator
