@@ -4,12 +4,10 @@ dependencies:
 
 #changing git->zip b/c of ssl issues on hpcmp platforms
 #sources:
-#  - url: https://github.com/scorec/core.git
-#    key: git:fc94c3d4b013d7535e43549577b2c5f619d43d4b
 
 sources:
-- key: zip:x6hwphrhmys3ena27tq3pyqrhr6xgt7j
-  url: https://github.com/SCOREC/core/archive/f66ef983d00ce7c295cd2c090aae0644e893f87a.zip
+- key: zip:p5befcbgsrfsog4lwufd46akil32rpj2
+  url: https://github.com/SCOREC/core/archive/v2.2.2.zip
 
 defaults:
   relocatable: true
