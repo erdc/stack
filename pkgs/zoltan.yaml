@@ -8,7 +8,7 @@ sources:
 
 defaults:
   #include/Makefile.export.zoltan.macros
-  relocatable: false
+  relocatable: true#false
 
 build_stages:
 - name: setup_builddir
