@@ -33,10 +33,8 @@ packages:
       bzip2, sqlite, openssl
   blas:
     use: openblas
-    #use: host-blas
   lapack:
     use: openblas-lapack
-    #use: host-lapack
   daetk:
   mpi:
     use: mpich
@@ -70,6 +68,8 @@ packages:
   pytest-cov:
   pybind11:
   gmsh: #used for mesh generation
+  zoltan:
+  scorec:
   superlu:
   superlu_dist:
   xtensor:

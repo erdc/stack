@@ -1,8 +1,8 @@
 extends: [cmake_package]
 
 dependencies:
-  build: [mpi]
-  run: [mpi]
+  build: [mpi, python, pytest]
+  run: [mpi, python, pytest]
 
 sources:
  - key: tar.gz:d3wvppdimmmq4nldokips6razaop4tmq
@@ -23,4 +23,6 @@ build_stages:
   debug: true
   extra: [
   '-DCMAKE_CXX_COMPILER:STRING=${MPICXX}',
+  '-DPYBIND11_TEST:BOOL=OFF',
   ]
+
