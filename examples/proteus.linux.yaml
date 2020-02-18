@@ -70,11 +70,8 @@ packages:
   gmsh: #used for mesh generation
   zoltan:
   scorec:
-  superlu:
-  superlu_dist:
   xtensor:
   xtensor-python:
-  #scorec:
   #matplotlib: # used in testing suite 
   #pcs_api: #personal cloud storage api
   #pyzmq:
