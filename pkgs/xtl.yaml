@@ -1,0 +1,27 @@
+extends: [cmake_package]
+
+dependencies:
+  build: [mpi]
+  run: [mpi]
+
+sources:
+  - key: tar.gz:4pfwelppc5fxmvd4fhha2y5ocqd62gp4
+    url: https://github.com/QuantStack/xtl/archive/0.6.11.tar.gz
+
+defaults:
+  relocatable: true
+
+build_stages:
+- name: setup_builddir
+  after: prologue
+  handler: bash
+  bash: |
+    mkdir -p _build
+    cd _build
+
+- name: configure
+  debug: true
+  extra: [
+  '-DCMAKE_C_COMPILER:STRING=${MPICC}',
+  '-DCMAKE_CXX_COMPILER:STRING=${MPICXX}',
+  ]

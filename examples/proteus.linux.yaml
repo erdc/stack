@@ -11,7 +11,7 @@ extends:
 parameters:
   pyver: '3.7'
   python_site_packages_rel: 'lib/python3.7/site-packages'
-  python_host_packages: '/usr/lib/python3.7/dist-packages'
+  python_host_packages: '/usr/lib/python3.7/site-packages'
 
 # The packages list specifies all the packages that you
 # require installed.  <#> will ensure that all packages
@@ -70,6 +70,8 @@ packages:
   gmsh: #used for mesh generation
   zoltan:
   scorec:
+  xtensor:
+  xtensor-python:
   #matplotlib: # used in testing suite 
   #pcs_api: #personal cloud storage api
   #pyzmq:
