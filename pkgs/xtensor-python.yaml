@@ -1,7 +1,7 @@
 extends: [cmake_package]
 
 dependencies:
-  build: [xtensor, xtl, mpi, pybind11_cmake]
+  build: [xtensor, xtl, mpi, pybind11_cmake,numpy,python]
   run: [xtensor, xtl, mpi, pybind11_cmake]
 
 sources:
@@ -20,7 +20,7 @@ build_stages:
     cd _build
 
 - name: configure
-  debug: true
+  debug: false
   extra: [
   '-DCMAKE_C_COMPILER:STRING=${MPICC}',
   '-DCMAKE_CXX_COMPILER:STRING=${MPICXX}',
