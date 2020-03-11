@@ -4,10 +4,12 @@ dependencies:
 
 #changing git->zip b/c of ssl issues on hpcmp platforms
 #sources:
+#  - url: https://github.com/scorec/core.git
+#    key: git:fc94c3d4b013d7535e43549577b2c5f619d43d4b
 
 sources:
-- key: zip:p5befcbgsrfsog4lwufd46akil32rpj2
-  url: https://github.com/SCOREC/core/archive/v2.2.2.zip
+- key: zip:f2lso4iu2raobfwovh43h6z556b6vcni
+  url: https://github.com/SCOREC/core/archive/dfe08cd01552acf4b758bf942dade27e4ea46f22.zip
 
 defaults:
   relocatable: true
@@ -24,20 +26,27 @@ build_stages:
 - name: configure
   debug: true
   extra: [
-  '-DBUILD_SHARED_LIBS:BOOL=ON',
+  '-DBUILD_SHARED_LIBS:BOOL=OFF',
   '-DBUILD_EXES:BOOL=ON',
   '-DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=ON',
   '-DCMAKE_C_COMPILER:STRING=${MPICC}',
   '-DCMAKE_CXX_COMPILER:STRING=${MPICXX}',
+  '-DCMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=-dynamic',
+  '-DCMAKE_SHARED_LINKER_FLAGS_RELEASE:STRING=-dynamic',
+  '-DCMAKE_MODULE_LINKER_FLAGS_RELEASE:STRING=-dynamic',
   '-DSCOREC_CXX_WARNINGS:BOOL=OFF',
   '-DENABLE_ZOLTAN:BOOL=ON',
-  '-DSCOREC_CXX_OPTIMIZE=ON',
-  '-DMDS_ID_TYPE="int"',
+  '-DSCOREC_CXX_OPTIMIZE:BOOL=ON',
+  '-DMDS_ID_TYPE:STRING="int"',
   '-DPCU_COMPRESS=ON',
   '-DENABLE_FPP=ON',
   '-DENABLE_SIMMETRIX:BOOL=OFF',
+#  '-DBZIP2_PREFIX:PATH=${BZIP2_DIR}',
+  '-DBZIP2_INCLUDE_DIR:PATH=/usr/include',
+  '-DBZIP2_LIBRARY_RELEASE:PATH=/usr/lib64/libbz2.so',
   '-DZOLTAN_PREFIX:PATH=${ZOLTAN_DIR}',
-  '-DPARMETIS_PREFIX:PATH=${PARMETIS_DIR}',
-  '-DCMAKE_BUILD_TYPE=Release',
-  '-DSCOREC_CXX_WARNINGS=OFF'
+#  '-DPARMETIS_PREFIX:PATH=${PARMETIS_DIR}',
+  '-DPARMETIS_INCLUDE_DIR:PATH=${PARMETIS_DIR}/include',
+  '-DPARMETIS_LIBRARY_RELEASE:PATH="${PARMETIS_DIR}/lib/libparmetis.so;${PARMETIS_DIR}/lib/libmetis.so"',
+  '-DCMAKE_BUILD_TYPE:STRING="Release"',
   ]
