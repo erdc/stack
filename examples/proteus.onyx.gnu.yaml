@@ -59,6 +59,9 @@ packages:
     use: openblas
   lapack:
     use: openblas-lapack
+  pybind11:
+  xtensor:
+  xtensor-python:
   daetk:
   mpi:
     use: host-mpi

@@ -8,8 +8,10 @@ dependencies:
 #    key: git:fc94c3d4b013d7535e43549577b2c5f619d43d4b
 
 sources:
-- key: zip:f2lso4iu2raobfwovh43h6z556b6vcni
-  url: https://github.com/SCOREC/core/archive/dfe08cd01552acf4b758bf942dade27e4ea46f22.zip
+- key: zip:p5befcbgsrfsog4lwufd46akil32rpj2
+  url: https://github.com/SCOREC/core/archive/v2.2.2.zip
+#- key: zip:f2lso4iu2raobfwovh43h6z556b6vcni
+#  url: https://github.com/SCOREC/core/archive/dfe08cd01552acf4b758bf942dade27e4ea46f22.zip
 
 defaults:
   relocatable: true
