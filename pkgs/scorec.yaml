@@ -68,8 +68,7 @@ build_stages:
       -DBZIP2_INCLUDE_DIR:PATH=/usr/include
       -DBZIP2_LIBRARY_RELEASE:PATH=/usr/lib64/libbz2.so
       -DZOLTAN_PREFIX:PATH=${ZOLTAN_DIR}
-      -DPARMETIS_INCLUDE_DIR:PATH=${PARMETIS_DIR}/include
-      -DPARMETIS_LIBRARY_RELEASE:PATH=${PARMETIS_DIR}/lib/libparmetis.so;${PARMETIS_DIR}/lib/libmetis.so
+      -DPARMETIS_PREFIX:PATH=${PARMETIS_DIR}
       -DCMAKE_BUILD_TYPE:STRING=Release"
 
 - name: configure
