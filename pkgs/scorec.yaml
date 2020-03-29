@@ -90,4 +90,3 @@ build_stages:
   handler: bash
   bash: |
     make install
-
