@@ -1,12 +1,12 @@
 extends: [setuptools_package]
 
 dependencies:
-  build: [blas, lapack, numpy]
-  run: [blas, lapack, numpy]
+  build: [blas, lapack, numpy, pybind11, pybind11_cmake, binutils]
+  run: [blas, lapack, numpy, pybind11, pybind11_cmake, binutils]
 
 sources:
- - key: tar.gz:yo5uxuvmvax3jgbepxxkyergleq74iyv
-   url: https://files.pythonhosted.org/packages/cb/97/361c8c6ceb3eb765371a702ea873ff2fe112fa40073e7d2b8199db8eb56e/scipy-1.3.0.tar.gz
+ - key: tar.gz:33q3x45gzd3tw2zbrszi53mn2ezup2rp
+   url: https://files.pythonhosted.org/packages/04/ab/e2eb3e3f90b9363040a3d885ccc5c79fe20c5b8a3caa8fe3bf47ff653260/scipy-1.4.1.tar.gz
 
 build_stages:
 - name: create-site.cfg
@@ -30,7 +30,7 @@ build_stages:
   handler: bash
   bash: |
     export NPY_DISTUTILS_APPEND_FLAGS=1
-    export CPPFLAGS="${CPPFLAGS} -I$(${PYTHON} -c "import numpy; print(numpy.get_include())")"
+    export CPPFLAGS="${CPPFLAGS} -I$(${PYTHON} -c "import numpy; print(numpy.get_include())") -I${PYBIND11_CMAKE_DIR}/include"
     echo $CPPFLAGS
     export LDFLAGS="-shared -Wl,-rpath=${PYTHON_DIR}/lib -Wl,-rpath=${OPENBLAS_DIR}/lib $(${PYTHON_DIR}/bin/python3-config --ldflags)"
     export LAPACK=None
