@@ -62,19 +62,6 @@ packages:
     use: host-hdf5
   parmetis:
     without_check: true
-#  petsc:
-#    version: 3.7.6
-##    fortran: true
-#    build_with: |
-#      parmetis, cmake, blas, lapack
-#    download: |
-#      ptscotch, superlu, superlu_dist,hypre, blacs, scalapack, mumps
-#    coptflags: -O2
-#    link: shared
-#    debug: false
-#  petsc4py:
-#    version: 3.7.0
-#    with_conf: true
   petsc:
     openblas: true
     version: 3.11.3
@@ -105,6 +92,6 @@ packages:
   pytest-cov:
   pybind11:
   binutils:
+  xtensor:
+  xtensor-python:
 #  gmsh:
-#  zoltan:
-#  scorec:
