@@ -1,15 +1,12 @@
 extends: [setuptools_package]
 
 dependencies:
-  build: [setuptools, blas, cython]
-  run: [blas, cython]
+  build: [setuptools, blas, cython, binutils]
+  run: [blas, cython, binutils]
 
-#sources:
-#- key: zip:sup67yx3op4eyyql5rhaahuavag5viny
-#  url: https://files.pythonhosted.org/packages/da/32/1b8f2bb5fb50e4db68543eb85ce37b9fa6660cd05b58bddfafafa7ed62da/numpy-1.17.0.zip
 sources:
- - key: zip:sup67yx3op4eyyql5rhaahuavag5viny
-   url: https://files.pythonhosted.org/packages/da/32/1b8f2bb5fb50e4db68543eb85ce37b9fa6660cd05b58bddfafafa7ed62da/numpy-1.17.0.zip
+ - key: zip:46eupe7g5bka3pvmo7ehwse6gmmupajv
+   url: https://files.pythonhosted.org/packages/84/1e/ff467ac56bfeaea51d4a2e72d315c1fe440b20192fea7e460f0f248acac8/numpy-1.18.2.zip
 
 build_stages:
   - name: create-site.cfg
@@ -37,8 +34,32 @@ build_stages:
       #export ATLAS=None
       export LAPACK=None
       export BLAS=None
-      /usr/cta/unsupported/modcountsupport/modcount.ksh bash list
-      env
+
+#   - when: machine == 'CrayXE6' or machine == 'CrayXC30' or machine == 'CrayXC40'
+#     name: create-site.cfg
+#     after: prologue
+#     before: install
+#     files:
+#       - 'version_match.patch'
+#     handler: bash
+#     bash: |
+#       patch -p0 < _hashdist/version_match.patch
+#       cat > site.cfg << EOF
+#       [DEFAULT]
+#       library_dirs = ${CRAY_LIBSCI_PREFIX_DIR}/lib
+#       libraries = sci_gnu
+#       EOF
+
+#   - when: machine == 'CrayXE6' or machine == 'CrayXC30' or machine == 'CrayXC40'
+#     name: set-LDFLAGS
+#     after: prologue
+#     before: install
+#     handler: bash
+#     bash: |
+#       export LDFLAGS="-shared -Wl,-rpath=${PYTHON_DIR}/lib -Wl,-rpath=${CRAY_LIBSCI_PREFIX_DIR}/lib $(${PYTHON_DIR}/bin/python-config --ldflags)"
+#       export LAPACK=sci_gnu
+#       export BLAS=sci_gnu
+#       export ATLAS=None
 
   - when: machine == 'SGIICEX'
     name: create-site.cfg

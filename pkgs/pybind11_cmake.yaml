@@ -1,0 +1,28 @@
+extends: [cmake_package]
+
+dependencies:
+  build: [mpi, python, pytest]
+  run: [mpi, python, pytest]
+
+sources:
+ - key: tar.gz:d3wvppdimmmq4nldokips6razaop4tmq
+   url: https://github.com/pybind/pybind11/archive/v2.4.3.tar.gz
+
+defaults:
+  relocatable: true
+
+build_stages:
+- name: setup_builddir
+  after: prologue
+  handler: bash
+  bash: |
+    mkdir -p _build
+    cd _build
+
+- name: configure
+  debug: true
+  extra: [
+  '-DCMAKE_CXX_COMPILER:STRING=${MPICXX}',
+  '-DPYBIND11_TEST:BOOL=OFF',
+  ]
+
