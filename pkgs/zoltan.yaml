@@ -33,6 +33,7 @@ build_stages:
   extra: ['--with-cflags="-fPIC"',
           '--with-cxxflags="-fPIC"',
           '--with-fcflags="-fPIC"',
+          '--with-ldflags="-shared"',
           '--with-parmetis',
           '--with-parmetis-libdir=${PARMETIS_DIR}/lib',
           '--with-parmetis-incdir=${PARMETIS_DIR}/include']
