@@ -27,7 +27,7 @@ build_stages:
     - '-DENABLE_MODULE_VEHICLE:BOOL=OFF'
     - '-DENABLE_MODULE_FSI:BOOL=OFF'
     - '-DENABLE_OPENMP:BOOL=ON'
-    - '-DENABLE_MODULE_PYTHON:BOOL=ON'
+    - '-DENABLE_MODULE_PYTHON:BOOL=OFF'
     - '-DENABLE_MODULE_COSIMULATION:BOOL=OFF'
     - '-DENABLE_MODULE_MATLAB:BOOL=OFF'
     - '-DENABLE_MODULE_MKL:BOOL=OFF'
@@ -41,16 +41,16 @@ build_stages:
     - '-DSWIG_DIR:PATH=${SWIG_DIR}'
     - '-DSWIG_EXECUTABLE=${SWIG_EXECUTABLE}'
 
-- name: create_symlinks
-  after: install
-  when: platform == 'linux'
-  handler: bash
-  bash: |
-    cd ${ARTIFACT} && \
-    mkdir -p ${ARTIFACT}/lib/python{{pyver}}/site-packages && \
-    cp -r ${ARTIFACT}/share/chrono/python/* ${ARTIFACT}/lib/python{{pyver}}/site-packages
+#- name: create_symlinks
+#  after: install
+#  when: platform == 'linux'
+#  handler: bash
+#  bash: |
+#    cd ${ARTIFACT} && \
+#    mkdir -p ${ARTIFACT}/lib/python{{pyver}}/site-packages && \
+#    cp -r ${ARTIFACT}/share/chrono/python/* ${ARTIFACT}/lib/python{{pyver}}/site-packages
 
-profile_links:
-  - name: python_packages
-    link: 'lib/python{{pyver}}/site-packages/*'
-    dirs: true
+#profile_links:
+#  - name: python_packages
+#    link: 'lib/python{{pyver}}/site-packages/*'
+#    dirs: true
