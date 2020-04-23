@@ -7,8 +7,11 @@ defaults:
   relocatable: false
 
 sources:
-- key: tar.bz2:rhybab4lnt3jyi6cpcl5nbqflk4jwgmn
-  url: http://ftp.heanet.ie/mirrors/ftp.gnu.org/gnu/binutils/binutils-2.34.tar.bz2
+- key: tar.gz:knjx2m2iec7bh3vyvszsnua4psaudb3s
+  url: http://ftp.gnu.org/gnu/binutils/binutils-2.34.tar.gz
+#sources:
+#- key: tar.bz2:rhybab4lnt3jyi6cpcl5nbqflk4jwgmn
+#  url: http://ftp.heanet.ie/mirrors/ftp.gnu.org/gnu/binutils/binutils-2.34.tar.bz2
 
 build_stages:
 
