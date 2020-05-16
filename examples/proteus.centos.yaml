@@ -41,7 +41,7 @@ packages:
     host: false
     link: shared
     build_with: |
-      bzip2, sqlite, openssl
+      bzip2, sqlite, openssl, libffi
   blas:
     use: openblas
   lapack:
