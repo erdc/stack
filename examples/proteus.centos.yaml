@@ -6,14 +6,12 @@
 # the most *specific* file that matches your environment.
 
 extends:
-- file: centos.yaml
-
-# The packages list specifies all the packages that you
-# require installed.  <#> will ensure that all packages
-# and their dependencies are installed when you build this
-# profile.
+- file: debian.yaml
 
 parameters:
+  pyver: '3.7'
+  python_site_packages_rel: 'lib/python3.7/site-packages'
+  python_host_packages: '/usr/lib/python3.7/site-packages'
   machine: Hydra
   HOST_MPICC: mpicc
   HOST_MPICXX: mpicxx
@@ -23,43 +21,123 @@ parameters:
   PATH: |
     /usr/bin:/bin:/usr/sbin:/sbin
   PROLOGUE: |
-    source /etc/profile.d/modules.sh;echo "loading modules";module load gcc/4.4.6;module load openmpi/1.6.4/gcc/4.4.6;echo "setting default compilers";export CPP=/usr/bin/cpp;
+    source /etc/profile.d/modules.sh;echo "loading modules";module load gcc/8.2.0;module load openmpi/3.0.0/gcc/8.2.0;echo "setting default compilers";export CPP=/usr/bin/cpp;
   DYNAMIC_EXE_LINKER_FLAGS: -dynamic
 
+# The packages list specifies all the packages that you
+# require installed.  <#> will ensure that all packages
+# and their dependencies are installed when you build this
+# profile.
+
 packages:
-  launcher:
+  py2gmsh:
+  future:
+  recordtype:
   cmake:
+  openjpeg: #dependency of chrono
+    version: '2.1'
+  openssl:
   python:
     host: false
+    link: shared
     build_with: |
-      openssl,bzip2,sqlite
+      bzip2, sqlite, openssl
   blas:
     use: openblas
-  lapack:    
+  lapack:
+    use: openblas-lapack
   daetk:
   mpi:
     use: host-mpi
   mpi4py:
   nose:
+  coverage:
   hdf5:
-  ipython:
-  matplotlib:
   petsc:
+    version: 3.11.3
+    openblas: true
     build_with: |
-      parmetis
+      parmetis, cmake, blas
     download: |
-      ptscotch, superlu, superlu_dist, spooles, hypre, blacs, scalapack, mumps
+      superlu, superlu_dist, hypre, blacs, scalapack, mumps
     coptflags: -O2
     link: shared
     debug: false
   petsc4py:
+    version: 3.11.0
     with_conf: true
   pytables:
-  sphinx:
-  superlu:
-  sympy:
-  tetgen:
-  triangle:
+  tetgen: #3D simplex mesh generator
+  triangle: #2D simplex mesh generator
   memory_profiler:
+  scipy:
   h5py:
-  ode:
+  pip:
+  chrono:
+  pytest:
+  pytest-xdist:
+  pytest-cov:
+  pybind11:
+  gmsh: #used for mesh generation
+  zoltan:
+  scorec:
+  xtensor:
+  xtensor-python:
+  #matplotlib: # used in testing suite 
+  #pcs_api: #personal cloud storage api
+  #pyzmq:
+  #scandir:
+  #
+  ## Optional Packages
+  #buildbot-worker:
+  #doxygen: #for building documentation
+  #sphinx: #for building website
+  #sphinx-bootstrap-theme:
+  #clawpack:
+  #pydap:
+  #julia:
+  #pyjulia:
+  #jasper: 
+  #grib_api:
+  #cgal: computational geometric library
+  #pyproj:
+  #pygrib:
+  #rdp: #remote desktop package
+  #vapory:
+  #tornado:
+  #ipython:
+  #terminado:
+  #geojson:
+  #shapely:
+  #matlab:
+  #  use: host-matlab
+  #ipdb:
+  #jupyterlab:
+  #jupyter:
+  #ipyparallel:
+  #backports-abc:
+  #backports-shutil-get-terminal-size:
+  #configparser:
+  #rtree:
+  #ipython-d3plot:
+  #ipython-gridwidget:
+  #jupyter-pip:
+  #leafletwidget:
+  #ipywidgets:
+  #ipyleaflet:
+  #pythreejs:
+  #proteus:
+  #sympy: #symbolic math library
+  #ode: #library which has ode solvers
+  #pygments:
+  #pillow: #python imaging library
+  #launcher:
+  #netcdf4:
+  #netcdf4f:
+  #python-netcdf4:
+  #netcdf4cpp:
+  #pexpect:
+
+
+
+
