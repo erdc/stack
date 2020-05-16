@@ -1,8 +1,8 @@
 extends: [setuptools_package]
 
 dependencies:
-  build: [setuptools, blas, cython, binutils]
-  run: [blas, cython, binutils]
+  build: [setuptools, blas, cython]
+  run: [blas, cython]
 
 sources:
  - key: zip:46eupe7g5bka3pvmo7ehwse6gmmupajv

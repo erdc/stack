@@ -1,8 +1,8 @@
 extends: [setuptools_package]
 
 dependencies:
-  build: [blas, lapack, numpy, pybind11, pybind11_cmake, binutils]
-  run: [blas, lapack, numpy, pybind11, pybind11_cmake, binutils]
+  build: [blas, lapack, numpy, pybind11, pybind11_cmake]
+  run: [blas, lapack, numpy, pybind11, pybind11_cmake]
 
 sources:
  - key: tar.gz:33q3x45gzd3tw2zbrszi53mn2ezup2rp
