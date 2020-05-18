@@ -14,10 +14,12 @@ ENV LANGUAGE en_US.UTF-8
 RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER
 
 RUN chown -R $NB_USER:users /home/$NB_USER
-RUN chown -R $NB_USER:users $PWD
+RUN echo $PWD
+RUN ls
+RUN chown -R $NB_USER:users stack
+RUN cd stack
 #build proteus as $NBUSER
 USER $NB_USER
-RUN echo $PWD
 
 RUN ./hit/bin/hit init-home && \
     ./hit/bin/hit remote add http://levant.hrwallingford.com/hashdist_src --objects="source" && \
