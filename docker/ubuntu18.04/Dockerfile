@@ -14,14 +14,19 @@ ENV LANGUAGE en_US.UTF-8
 RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER
 
 RUN chown -R $NB_USER:users /home/$NB_USER
-RUN echo $PWD
-RUN ls
-RUN chown -R $NB_USER:users stack
-RUN cd stack
+
+WORKDIR /home/$NB_USER
+
 #build proteus as $NBUSER
 USER $NB_USER
 
-RUN ./hit/bin/hit init-home && \
+RUN git init && \
+    git remote add origin https://github.com/erdc/stack && \
+    git fetch --depth 1 origin $SOURCE_COMMIT && \
+    git checkout FETCH_HEAD && \
+    cd stack && \
+    git submodule udpate --init --recursive && \
+    ./hit/bin/hit init-home && \
     ./hit/bin/hit remote add http://levant.hrwallingford.com/hashdist_src --objects="source" && \
     ln -s examples/proteus.linux.yaml default.yaml && \
     ./hit/bin/hit -j 1 build default.yaml -v && \
@@ -37,4 +42,3 @@ RUN ./hit/bin/hit init-home && \
     rm -rf /home/$NB_USER/proteus/build && \
     rm -rf /home/$NB_USER/proteus/stack/default
 
-WORKDIR /home/$NB_USER
