@@ -52,6 +52,10 @@ when version == 'master': #note, update commits on petsc and petsc4py to use mas
   sources:
   - key: tar.gz:xn263ax2jy7ptxnl36a72afroeq2icol
     url: https://bitbucket.org/petsc/petsc4py/get/master.tar.gz
+when version == '3.13.0': #note, update commits on petsc and petsc4py to use master
+  sources:
+  - key: tar.gz:vtrb64iqfz2s735mnsa3muqh5w5itjux
+    url: https://files.pythonhosted.org/packages/7c/e7/5b089013c5188ee5f619ad64749fc3e6355943950dfcf421c327d66ee2ac/petsc4py-3.13.0.tar.gz
 when version == '3.11.0':
   sources:
   - key: tar.gz:ld2pk6wjn3bze44qnbm43q4iwgxdoicf
