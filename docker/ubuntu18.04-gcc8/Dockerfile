@@ -15,23 +15,25 @@ RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER
 
 RUN chown -R $NB_USER:users /home/$NB_USER
 
+WORKDIR /home/$NB_USER
+
 #build proteus as $NBUSER
 USER $NB_USER
 
-RUN ./hit/bin/hit init-home && \
+RUN git clone https://github.com/erdc/stack && \
+    cd stack && \
+    git checkout ${SOURCE_COMMIT} && \
+    echo ${SOURCE_COMMIT} && \
+    git log | head -1 && \
+    git submodule update --init --recursive && \
+    ./hit/bin/hit init-home && \
     ./hit/bin/hit remote add http://levant.hrwallingford.com/hashdist_src --objects="source" && \
     ln -s examples/proteus.linux.yaml default.yaml && \
-    ./hit/bin/hit -j 1 build default.yaml -v && \
+    ./hit/bin/hit build default.yaml -v && \
+    cd /home/$NB_USER && \
     chmod u+rwX -R /home/$NB_USER/.hashdist/src && \
-    rm -rf rm -rf /home/$NB_USER/.hashdist/src && \
+    rm -rf /home/$NB_USER/.hashdist/src && \
     rm -rf /home/$NB_USER/.cache && \
     chmod u+rwX -R /home/$NB_USER/.hashdist/bld/chrono/*/share/chrono/data && \
     rm -rf /home/$NB_USER/.hashdist/bld/chrono/*/share/chrono/data/* && \
-    rm -rf /home/$NB_USER/proteus/.git && \
-    rm -rf /home/$NB_USER/stack/.git && \
-    rm -rf /home/$NB_USER/air-water-vv/.git && \
-    rm -rf /home/$NB_USER/proteus/air-water-vv && \
-    rm -rf /home/$NB_USER/proteus/build && \
-    rm -rf /home/$NB_USER/proteus/stack/default
-
-WORKDIR /home/$NB_USER
+    rm -rf /home/$NB_USER/stack

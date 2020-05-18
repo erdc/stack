@@ -20,21 +20,20 @@ WORKDIR /home/$NB_USER
 #build proteus as $NBUSER
 USER $NB_USER
 
-RUN mkdir stack && \
+RUN git clone https://github.com/erdc/stack && \
     cd stack && \
-    git init && \
-    git remote add origin https://github.com/erdc/stack && \
-    git fetch --depth 1 origin $SOURCE_COMMIT && \
-    git checkout FETCH_HEAD && \
-    git submodule udpate --init --recursive && \
+    git checkout ${SOURCE_COMMIT} && \
+    echo ${SOURCE_COMMIT} && \
+    git log | head -1 && \
+    git submodule update --init --recursive && \
     ./hit/bin/hit init-home && \
     ./hit/bin/hit remote add http://levant.hrwallingford.com/hashdist_src --objects="source" && \
     ln -s examples/proteus.linux.yaml default.yaml && \
-    ./hit/bin/hit -j 1 build default.yaml -v && \
+    ./hit/bin/hit build default.yaml -v && \
+    cd /home/$NB_USER && \
     chmod u+rwX -R /home/$NB_USER/.hashdist/src && \
-    rm -rf rm -rf /home/$NB_USER/.hashdist/src && \
+    rm -rf /home/$NB_USER/.hashdist/src && \
     rm -rf /home/$NB_USER/.cache && \
     chmod u+rwX -R /home/$NB_USER/.hashdist/bld/chrono/*/share/chrono/data && \
     rm -rf /home/$NB_USER/.hashdist/bld/chrono/*/share/chrono/data/* && \
-    cd /home/$NB_USER && \
     rm -rf /home/$NB_USER/stack
