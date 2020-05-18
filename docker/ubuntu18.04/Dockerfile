@@ -15,12 +15,8 @@ RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER
 
 RUN chown -R $NB_USER:users /home/$NB_USER
 
-EXPOSE 8888
-WORKDIR /home/$NB_USER
-
 #build proteus as $NBUSER
 USER $NB_USER
-
 
 RUN ./hit/bin/hit init-home && \
     ./hit/bin/hit remote add http://levant.hrwallingford.com/hashdist_src --objects="source" && \
