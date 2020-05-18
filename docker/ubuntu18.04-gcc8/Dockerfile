@@ -21,7 +21,6 @@ WORKDIR /home/$NB_USER
 #build proteus as $NBUSER
 USER $NB_USER
 
-WORKDIR /home/$NB_USER
 
 RUN ./hit/bin/hit init-home && \
     ./hit/bin/hit remote add http://levant.hrwallingford.com/hashdist_src --objects="source" && \
@@ -38,3 +37,5 @@ RUN ./hit/bin/hit init-home && \
     rm -rf /home/$NB_USER/proteus/air-water-vv && \
     rm -rf /home/$NB_USER/proteus/build && \
     rm -rf /home/$NB_USER/proteus/stack/default
+
+WORKDIR /home/$NB_USER

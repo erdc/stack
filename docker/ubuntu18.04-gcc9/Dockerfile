@@ -16,7 +16,6 @@ RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER
 RUN chown -R $NB_USER:users /home/$NB_USER
 
 EXPOSE 8888
-WORKDIR /home/$NB_USER
 
 #build proteus as $NBUSER
 USER $NB_USER
@@ -38,3 +37,5 @@ RUN ./hit/bin/hit init-home && \
     rm -rf /home/$NB_USER/proteus/air-water-vv && \
     rm -rf /home/$NB_USER/proteus/build && \
     rm -rf /home/$NB_USER/proteus/stack/default
+
+WORKDIR /home/$NB_USER
