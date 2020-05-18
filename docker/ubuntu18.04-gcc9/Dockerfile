@@ -23,15 +23,10 @@ USER $NB_USER
 
 WORKDIR /home/$NB_USER
 
-RUN git clone https://github.com/erdc/proteus && \
-    cd proteus && \
-    git checkout master && \
-    git submodule update --init --recursive && \
-    ./stack/hit/bin/hit init-home && \
-    ./stack/hit/bin/hit remote add http://levant.hrwallingford.com/hashdist_src --objects="source" && \
-    make stack stack/hit/bin/hit stack/default.yaml && \
-    cd stack && \
-    ./hit/bin/hit build default.yaml -v && \
+RUN ./hit/bin/hit init-home && \
+    ./hit/bin/hit remote add http://levant.hrwallingford.com/hashdist_src --objects="source" && \
+    ln -s examples/proteus.linux.yaml default.yaml && \
+    ./hit/bin/hit -j 1 build default.yaml -v && \
     chmod u+rwX -R /home/$NB_USER/.hashdist/src && \
     rm -rf rm -rf /home/$NB_USER/.hashdist/src && \
     rm -rf /home/$NB_USER/.cache && \
