@@ -20,11 +20,12 @@ WORKDIR /home/$NB_USER
 #build proteus as $NBUSER
 USER $NB_USER
 
-RUN git init && \
+RUN mkdir stack && \
+    cd stack && \
+    git init && \
     git remote add origin https://github.com/erdc/stack && \
     git fetch --depth 1 origin $SOURCE_COMMIT && \
     git checkout FETCH_HEAD && \
-    cd stack && \
     git submodule udpate --init --recursive && \
     ./hit/bin/hit init-home && \
     ./hit/bin/hit remote add http://levant.hrwallingford.com/hashdist_src --objects="source" && \
@@ -35,10 +36,5 @@ RUN git init && \
     rm -rf /home/$NB_USER/.cache && \
     chmod u+rwX -R /home/$NB_USER/.hashdist/bld/chrono/*/share/chrono/data && \
     rm -rf /home/$NB_USER/.hashdist/bld/chrono/*/share/chrono/data/* && \
-    rm -rf /home/$NB_USER/proteus/.git && \
-    rm -rf /home/$NB_USER/stack/.git && \
-    rm -rf /home/$NB_USER/air-water-vv/.git && \
-    rm -rf /home/$NB_USER/proteus/air-water-vv && \
-    rm -rf /home/$NB_USER/proteus/build && \
-    rm -rf /home/$NB_USER/proteus/stack/default
-
+    cd /home/$NB_USER && \
+    rm -rf /home/$NB_USER/stack
