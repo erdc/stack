@@ -1,7 +1,7 @@
 extends: [setuptools_package]
 
 dependencies:
-  build: [setuptools, blas, cython]
+  build: [setuptools, blas, cython, {{build_with}}]
   run: [blas, cython]
 
 sources:
