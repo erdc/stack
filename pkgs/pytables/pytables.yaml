@@ -13,9 +13,10 @@ build_stages:
   after: setup_dirs
   handler: bash
   bash: |
-    gcc --version
-    cc --version
-    HDF5_DIR=${HDF5_DIR} CC=gcc CXX=g++  ${PYTHON} -c 'import setuptools; __file__="setup.py"; exec(open(__file__).read())' \
+    which $MPICC
+    which $MPICXX
+    export LD_LIBRARY_PATH=${HDF5_DIR}/lib:${LD_LIBRARY_PATH}
+    HDF5_DIR=${HDF5_DIR} CC=${MPICC} CXX=${MPICXX}  ${PYTHON} -c 'import setuptools; __file__="setup.py"; exec(open(__file__).read())' \
        ${SETUPTOOLS_PACKAGE_EXTRA_OPTIONS} \
        install \
        --hdf5=${HDF5_DIR} \
