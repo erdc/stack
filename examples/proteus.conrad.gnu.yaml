@@ -93,7 +93,12 @@ packages:
   pytest-xdist:
   gmsh:
   scorec:
+  numpy:
+    build_with: |
+      binutils
   scipy:
+    build_with: |
+      binutils
   pybind11:
   xtensor:
   xtensor-python:
