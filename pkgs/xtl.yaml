@@ -1,7 +1,7 @@
 extends: [cmake_package]
 
 dependencies:
-  build: [mpi]
+  build: [mpi,pkg-config]
   run: [mpi]
 
 sources:
@@ -22,6 +22,6 @@ build_stages:
 - name: configure
   debug: true
   extra: [
-  '-DCMAKE_C_COMPILER:STRING=${MPICC}',
-  '-DCMAKE_CXX_COMPILER:STRING=${MPICXX}',
+  '-DCMAKE_C_COMPILER:STRING=gcc',
+  '-DCMAKE_CXX_COMPILER:STRING=g++',
   ]

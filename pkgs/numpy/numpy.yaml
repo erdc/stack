@@ -1,8 +1,8 @@
 extends: [setuptools_package]
 
 dependencies:
-  build: [setuptools, blas, cython, binutils]
-  run: [blas, cython, binutils]
+  build: [setuptools, blas, cython, {{build_with}}]
+  run: [blas, cython]
 
 sources:
  - key: zip:46eupe7g5bka3pvmo7ehwse6gmmupajv
@@ -61,34 +61,34 @@ build_stages:
 #       export BLAS=sci_gnu
 #       export ATLAS=None
 
-  - when: machine == 'SGIICEX'
-    name: create-site.cfg
-    before: install
-    files:
-      - 'version_match.patch'
-    handler: bash
-    bash: |
-      patch -p0 < _hashdist/version_match.patch
-      cat > site.cfg << EOF
-      [ALL]
-      extra_link_args = -shared
-      [openblas]
-      libraries = openblas
-      library_dirs = ${OPENBLAS_DIR}/lib
-      include_dirs = ${OPENBLAS_DIR}/include
-      runtime_library_dirs = ${OPENBLAS_DIR}/include
-      EOF
+# - when: machine == 'SGIICEX'
+#   name: create-site.cfg
+#   before: install
+#   files:
+#     - 'version_match.patch'
+#   handler: bash
+#   bash: |
+#     patch -p0 < _hashdist/version_match.patch
+#     cat > site.cfg << EOF
+#     [ALL]
+#     extra_link_args = -shared
+#     [openblas]
+#     libraries = openblas
+#     library_dirs = ${OPENBLAS_DIR}/lib
+#     include_dirs = ${OPENBLAS_DIR}/include
+#     runtime_library_dirs = ${OPENBLAS_DIR}/include
+#     EOF
 
-  - when: machine == 'SGIICEX'
-    name: set-LDFLAGS
-    after: prologue
-    before: install
-    handler: bash
-    bash: |
-      export LDFLAGS="-shared -Wl,-rpath=${PYTHON_DIR}/lib -Wl,-rpath=${OPENBLAS_DIR}/lib $(${PYTHON_DIR}/bin/python3-config --ldflags)"
-      export LAPACK=None
-      export BLAS=None
-      export ATLAS=None
+# - when: machine == 'SGIICEX'
+#   name: set-LDFLAGS
+#   after: prologue
+#   before: install
+#   handler: bash
+#   bash: |
+#     export LDFLAGS="-shared -Wl,-rpath=${PYTHON_DIR}/lib -Wl,-rpath=${OPENBLAS_DIR}/lib $(${PYTHON_DIR}/bin/python3-config --ldflags)"
+#     export LAPACK=None
+#     export BLAS=None
+#     export ATLAS=None
 
   - when: platform == 'Cygwin'
     name: set-LDFLAGS
