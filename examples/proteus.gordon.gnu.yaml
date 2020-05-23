@@ -36,6 +36,12 @@ parameters:
   DYNAMIC_EXE_LINKER_FLAGS: -dynamic
 
 packages:
+  numpy:
+    build_with: |
+      binutils
+  scipy:
+    build_with: |
+      binutils
   future:
   recordtype:
   pip:
@@ -48,7 +54,7 @@ packages:
     host: false
     link: shared
     build_with: |
-      bzip2, sqlite, openssl, libffi
+      libffi, bzip2, sqlite, openssl, libffi
   blas:
     use: openblas
   lapack:
@@ -93,7 +99,6 @@ packages:
   pytest-xdist:
   gmsh:
   scorec:
-  scipy:
   pybind11:
   xtensor:
   xtensor-python:
