@@ -14,8 +14,6 @@ build_stages:
     before: install
     handler: bash
     bash: |
-      echo "path after prologue-===="
-      echo ${PATH}
       cat > site.cfg << EOF
       [ALL]
       extra_link_args = -shared
