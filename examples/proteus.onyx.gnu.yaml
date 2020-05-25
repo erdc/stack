@@ -40,7 +40,7 @@ packages:
     build_with: |
       python
   chrono:
-  gmsh:
+  #gmsh:
   scorec:
   zoltan:
   bzip2:
@@ -91,7 +91,12 @@ packages:
   tetgen:
   triangle:
   memory_profiler:
+  numpy:
+    build_with: |
+      libffi
   scipy:
+    build_with: |
+      libffi
   h5py:
   pip:
   pytest:
