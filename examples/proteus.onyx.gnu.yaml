@@ -40,7 +40,7 @@ packages:
     build_with: |
       python
   chrono:
-  #gmsh:
+  gmsh:
   scorec:
   zoltan:
   bzip2:
