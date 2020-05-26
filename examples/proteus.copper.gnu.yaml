@@ -48,7 +48,7 @@ packages:
     host: false
     link: shared
     build_with: |
-      bzip2, sqlite, openssl
+      libffi, bzip2, sqlite, openssl
   blas:
     use: openblas
   lapack:
@@ -81,9 +81,14 @@ packages:
   triangle:
   memory_profiler:
   scipy:
+    build_with: |
+      binutils
+  numpy:
+    build_with: |
+      binutils
   h5py:
   pip:
-  chrono:
+#  chrono:
   scorec:
   zoltan:
     build_with: |
