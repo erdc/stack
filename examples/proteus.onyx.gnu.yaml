@@ -91,7 +91,12 @@ packages:
   tetgen:
   triangle:
   memory_profiler:
+  numpy:
+    build_with: |
+      libffi
   scipy:
+    build_with: |
+      libffi
   h5py:
   pip:
   pytest:
