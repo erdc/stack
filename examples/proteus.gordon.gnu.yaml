@@ -68,17 +68,17 @@ packages:
   parmetis:
     without_check: true
   petsc:
-    version: 3.11.3
+    version: 3.13.3
     openblas: true
     build_with: |
       parmetis, cmake, blas, openssl
     download: |
-      superlu, superlu_dist, blacs, scalapack, mumps
+      superlu, superlu_dist, hypre, blacs, scalapack, mumps, ptscotch
     coptflags: -O2
     link: shared
     debug: false
   petsc4py:
-    version: 3.11.0
+    version: 3.13.0
     with_conf: true
   pytables:
   tetgen:
