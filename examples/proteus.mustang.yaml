@@ -62,7 +62,7 @@ packages:
   perl:
     use: host-perl
   petsc:
-    version: 3.11.3
+    version: 3.13.3
     openblas: true
     build_with: |
       parmetis, cmake, blas
@@ -72,7 +72,7 @@ packages:
     link: shared
     debug: true
   petsc4py:
-    version: 3.11.0
+    version: 3.13.0
     with_conf: true
   pytables:
   tetgen:
