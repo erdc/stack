@@ -65,7 +65,7 @@ packages:
     without_check: true
   petsc:
     openblas: true
-    version: 3.11.3
+    version: 3.13.3
     build_with: |
       parmetis, cmake, blas
     download: |
@@ -74,7 +74,7 @@ packages:
     link: shared
     debug: false
   petsc4py:
-    version: 3.11.0
+    version: 3.13.0
     with_conf: true
   pytables:
   tetgen:
@@ -88,7 +88,7 @@ packages:
       binutils
   h5py:
   pip:
-#  chrono:
+  chrono:
   scorec:
   zoltan:
     build_with: |
