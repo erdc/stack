@@ -1,0 +1,143 @@
+# This profile file controls your <#> (HashDist) build environment.
+
+# In the future, we'll provide better incorporation of
+# automatic environment detection.  For now, have a look
+# at the YAML files in the top-level directory and choose
+# the most *specific* file that matches your environment.
+
+extends:
+- file: debian.yaml
+
+parameters:
+  pyver: '3.7'
+  python_site_packages_rel: 'lib/python3.7/site-packages'
+  python_host_packages: '/usr/lib/python3.7/site-packages'
+  HOST_MPICC: mpicc
+  HOST_MPICXX: mpicxx
+  HOST_MPIF77: mpif77
+  HOST_MPIF90: mpif90
+  HOST_MPIEXEC: mpiexec
+  PATH: |
+    /usr/local/packages/mvapich2/2.3.3/shshegyv/bin:/usr/local/packages/gcc/9.3.0/7ywjt2jl/bin:/usr/lib64/qt-3.3/bin:/usr/local/packages/Modules/4.5.0/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/local/bin:/opt/ibutils/bin:/opt/dell/srvadmin/bin
+  LD_LIBRARY_PATH: |
+    /usr/local/packages/mvapich2/2.3.3/shshegyv/lib:/usr/local/packages/gcc/9.3.0/7ywjt2jl/lib64:/usr/local/packages/gcc/9.3.0/7ywjt2jl/lib
+  PROLOGUE: |
+    export LOADEDMODULES="gcc/9.3.0:mvapich2/2.3.3/gcc-9.3.0"; export MV2_USE_RDMA_CM="0"; export MVAPICH2ROOT="/usr/local/packages/mvapich2/2.3.3/shshegyv"; export XDG_RUNTIME_DIR="/run/user/30276"; export LESSOPEN="||/usr/bin/lesspipe.sh %s"; export CUDA_NIC_INTEROP="1"; export SSH_CLIENT="173.235.23.125 64824 22"; export CPATH="/usr/local/packages/mvapich2/2.3.3/shshegyv/include:/usr/local/packages/gcc/9.3.0/7ywjt2jl/include"; export MODULES_LMCONFLICT_modshare="mvapich2/2.3.3/gcc-9.3.0&mvapich2:1:gcc/9.3.0&gcc:1"; export QTDIR="/usr/lib64/qt-3.3"; export MODULES_LMCONFLICT="gcc/9.3.0&gcc:mvapich2/2.3.3/gcc-9.3.0&mvapich2"; export LOADEDMODULES_modshare="gcc/9.3.0:1:mvapich2/2.3.3/gcc-9.3.0:1"; export SSH_CONNECTION="173.235.23.125 64824 208.100.124.22 22"; export LANG="en_US.UTF-8"; export QTLIB="/usr/lib64/qt-3.3/lib"; export TERM="xterm-256color"; export LIBRARY_PATH="/usr/local/packages/mvapich2/2.3.3/shshegyv/lib:/usr/local/packages/gcc/9.3.0/7ywjt2jl/lib64:/usr/local/packages/gcc/9.3.0/7ywjt2jl/lib"; export MODULEPATH_modshare="/usr/local/packages/Modules/4.5.0/modulefiles:1"; export MV2_CPU_BINDING_POLICY="hybrid"; export QTINC="/usr/lib64/qt-3.3/include"; export LD_LIBRARY_PATH_modshare="/usr/local/packages/gcc/9.3.0/7ywjt2jl/lib64:1:/usr/local/packages/gcc/9.3.0/7ywjt2jl/lib:1:/usr/local/packages/mvapich2/2.3.3/shshegyv/lib:1"; export F77="/usr/local/packages/gcc/9.3.0/7ywjt2jl/bin/gfortran"; export HISTSIZE="90000"; export MANPATH_modshare=":1:/usr/local/packages/gcc/9.3.0/7ywjt2jl/share/man:1:/usr/local/packages/mvapich2/2.3.3/shshegyv/share/man:1"; export MANPATH="/usr/local/packages/mvapich2/2.3.3/shshegyv/share/man:/usr/local/packages/gcc/9.3.0/7ywjt2jl/share/man::"; export QT_PLUGIN_PATH="/usr/lib64/kde4/plugins:/usr/lib/kde4/plugins"; export SLURM_MPI_TYPE="pmi2"; export LIBRARY_PATH_modshare="/usr/local/packages/gcc/9.3.0/7ywjt2jl/lib64:1:/usr/local/packages/gcc/9.3.0/7ywjt2jl/lib:1:/usr/local/packages/mvapich2/2.3.3/shshegyv/lib:1"; export MODULES_LMPREREQ_modshare="mvapich2/2.3.3/gcc-9.3.0&gcc/9.3.0:1"; export CPATH_modshare="/usr/local/packages/mvapich2/2.3.3/shshegyv/include:1:/usr/local/packages/gcc/9.3.0/7ywjt2jl/include:1"; export MV2_HYBRID_BINDING_POLICY="numa"; export CMAKE_PREFIX_PATH_modshare="/usr/local/packages/mvapich2/2.3.3/shshegyv/:1:/usr/local/packages/gcc/9.3.0/7ywjt2jl/:1"; export CC="/usr/local/packages/gcc/9.3.0/7ywjt2jl/bin/gcc"; export MODULES_LMPREREQ="mvapich2/2.3.3/gcc-9.3.0&gcc/9.3.0"; export MODULES_LMNOTUASKED="gcc/9.3.0"; export ENV="/usr/local/packages/Modules/4.5.0/init/profile.sh"; export QT_GRAPHICSSYSTEM_CHECKED="1"; export BASH_ENV="/usr/local/packages/Modules/4.5.0/init/bash"; export PKG_CONFIG_PATH_modshare="/usr/local/packages/mvapich2/2.3.3/shshegyv/lib/pkgconfig:1"; export XDG_SESSION_ID="4924"; export CMAKE_PREFIX_PATH="/usr/local/packages/mvapich2/2.3.3/shshegyv/:/usr/local/packages/gcc/9.3.0/7ywjt2jl/"; export MODULEPATH="/usr/local/packages/Modules/modulefiles/apps:/usr/local/packages/Modules/modulefiles/admin"; export KDEDIRS="/usr"; export _LMFILES_="/usr/local/packages/Modules/modulefiles/apps/gcc/9.3.0:/usr/local/packages/Modules/modulefiles/apps/mvapich2/2.3.3/gcc-9.3.0"; export CXX="/usr/local/packages/gcc/9.3.0/7ywjt2jl/bin/g++"; export SSH_TTY="/dev/pts/2"; export HOSTNAME="qbc2"; export MODULES_LMNOTUASKED_modshare="gcc/9.3.0:1"; export MOABHOMEDIR="/usr/moab"; export MODULESHOME="/usr/local/packages/Modules/4.5.0"; export HISTCONTROL="ignoredups"; export SHLVL="1"; export FC="/usr/local/packages/gcc/9.3.0/7ywjt2jl/bin/gfortran"; export _LMFILES__modshare="/usr/local/packages/Modules/modulefiles/apps/mvapich2/2.3.3/gcc-9.3.0:1:/usr/local/packages/Modules/modulefiles/apps/gcc/9.3.0:1"; export LS_COLORS="rs=0:di=38;5;27:ln=38;5;51:mh=44;38;5;15:pi=40;38;5;11:so=38;5;13:do=38;5;5:bd=48;5;232;38;5;11:cd=48;5;232;38;5;3:or=48;5;232;38;5;9:mi=05;48;5;232;38;5;15:su=48;5;196;38;5;15:sg=48;5;11;38;5;16:ca=48;5;196;38;5;226:tw=48;5;10;38;5;16:ow=48;5;10;38;5;21:st=48;5;21;38;5;15:ex=38;5;34:*.tar=38;5;9:*.tgz=38;5;9:*.arc=38;5;9:*.arj=38;5;9:*.taz=38;5;9:*.lha=38;5;9:*.lz4=38;5;9:*.lzh=38;5;9:*.lzma=38;5;9:*.tlz=38;5;9:*.txz=38;5;9:*.tzo=38;5;9:*.t7z=38;5;9:*.zip=38;5;9:*.z=38;5;9:*.Z=38;5;9:*.dz=38;5;9:*.gz=38;5;9:*.lrz=38;5;9:*.lz=38;5;9:*.lzo=38;5;9:*.xz=38;5;9:*.bz2=38;5;9:*.bz=38;5;9:*.tbz=38;5;9:*.tbz2=38;5;9:*.tz=38;5;9:*.deb=38;5;9:*.rpm=38;5;9:*.jar=38;5;9:*.war=38;5;9:*.ear=38;5;9:*.sar=38;5;9:*.rar=38;5;9:*.alz=38;5;9:*.ace=38;5;9:*.zoo=38;5;9:*.cpio=38;5;9:*.7z=38;5;9:*.rz=38;5;9:*.cab=38;5;9:*.jpg=38;5;13:*.jpeg=38;5;13:*.gif=38;5;13:*.bmp=38;5;13:*.pbm=38;5;13:*.pgm=38;5;13:*.ppm=38;5;13:*.tga=38;5;13:*.xbm=38;5;13:*.xpm=38;5;13:*.tif=38;5;13:*.tiff=38;5;13:*.png=38;5;13:*.svg=38;5;13:*.svgz=38;5;13:*.mng=38;5;13:*.pcx=38;5;13:*.mov=38;5;13:*.mpg=38;5;13:*.mpeg=38;5;13:*.m2v=38;5;13:*.mkv=38;5;13:*.webm=38;5;13:*.ogm=38;5;13:*.mp4=38;5;13:*.m4v=38;5;13:*.mp4v=38;5;13:*.vob=38;5;13:*.qt=38;5;13:*.nuv=38;5;13:*.wmv=38;5;13:*.asf=38;5;13:*.rm=38;5;13:*.rmvb=38;5;13:*.flc=38;5;13:*.avi=38;5;13:*.fli=38;5;13:*.flv=38;5;13:*.gl=38;5;13:*.dl=38;5;13:*.xcf=38;5;13:*.xwd=38;5;13:*.yuv=38;5;13:*.cgm=38;5;13:*.emf=38;5;13:*.axv=38;5;13:*.anx=38;5;13:*.ogv=38;5;13:*.ogx=38;5;13:*.aac=38;5;45:*.au=38;5;45:*.flac=38;5;45:*.mid=38;5;45:*.midi=38;5;45:*.mka=38;5;45:*.mp3=38;5;45:*.mpc=38;5;45:*.ogg=38;5;45:*.ra=38;5;45:*.wav=38;5;45:*.axa=38;5;45:*.oga=38;5;45:*.spx=38;5;45:*.xspf=38;5;45:"; export MODULES_CMD="/usr/local/packages/Modules/4.5.0/libexec/modulecmd.tcl"; export CC=gcc; export CXX=g++; export F77=gfortran; export F90=gfortran; export FC=gfortran; export MPI_ROOT="/usr/local/packages/mvapich2/2.3.3/shshegyv/";
+
+# The packages list specifies all the packages that you
+# require installed.  <#> will ensure that all packages
+# and their dependencies are installed when you build this
+# profile.
+
+packages:
+  py2gmsh:
+  future:
+  recordtype:
+  cmake:
+  openjpeg: #dependency of chrono
+    version: '2.1'
+  openssl:
+  python:
+    host: false
+    link: shared
+    build_with: |
+      bzip2, sqlite, openssl
+  blas:
+    use: openblas
+  lapack:
+    use: openblas-lapack
+  daetk:
+  mpi:
+    use: host-mpi
+  mpi4py:
+  nose:
+  coverage:
+  hdf5:
+  petsc:
+    version: 3.13.1
+    openblas: true
+    build_with: |
+      parmetis, cmake, blas
+    download: |
+      superlu, superlu_dist, hypre, blacs, scalapack, mumps
+    coptflags: -O2
+    link: shared
+    debug: false
+  petsc4py:
+    version: 3.13.0
+    with_conf: true
+  pytables:
+  tetgen: #3D simplex mesh generator
+  triangle: #2D simplex mesh generator
+  memory_profiler:
+  scipy:
+  h5py:
+  pip:
+  chrono:
+  pytest:
+  pytest-xdist:
+  pytest-cov:
+  pybind11:
+  gmsh:
+  zoltan:
+  scorec:
+  xtensor:
+  xtensor-python:
+  #matplotlib: # used in testing suite 
+  #pcs_api: #personal cloud storage api
+  #pyzmq:
+  #scandir:
+  #
+  ## Optional Packages
+  #buildbot-worker:
+  #doxygen: #for building documentation
+  #sphinx: #for building website
+  #sphinx-bootstrap-theme:
+  #clawpack:
+  #pydap:
+  #julia:
+  #pyjulia:
+  #jasper: 
+  #grib_api:
+  #cgal: computational geometric library
+  #pyproj:
+  #pygrib:
+  #rdp: #remote desktop package
+  #vapory:
+  #tornado:
+  #ipython:
+  #terminado:
+  #geojson:
+  #shapely:
+  #matlab:
+  #  use: host-matlab
+  #ipdb:
+  #jupyterlab:
+  #jupyter:
+  #ipyparallel:
+  #backports-abc:
+  #backports-shutil-get-terminal-size:
+  #configparser:
+  #rtree:
+  #ipython-d3plot:
+  #ipython-gridwidget:
+  #jupyter-pip:
+  #leafletwidget:
+  #ipywidgets:
+  #ipyleaflet:
+  #pythreejs:
+  #proteus:
+  #sympy: #symbolic math library
+  #ode: #library which has ode solvers
+  #pygments:
+  #pillow: #python imaging library
+  #launcher:
+  #netcdf4:
+  #netcdf4f:
+  #python-netcdf4:
+  #netcdf4cpp:
+  #pexpect:
+
+
+
+
