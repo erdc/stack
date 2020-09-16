@@ -3,6 +3,15 @@ dependencies:
   build: [libxml2, pkg-config]
 
 build_stages:
+  - name: unset_extra_fortran
+    after: prologue
+    before: configure
+    mode: replace
+    handler: bash
+    bash: |
+      unset F77
+      unset F90
+
   - name: configure
     mode: update
     extra: ['--enable-shared']
