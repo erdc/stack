@@ -1,8 +1,8 @@
 extends: [base_package]
 
 sources:
-- key: tar.gz:xxqtmerm5465n37c3yog6zobbfk3xmgm
-  url: https://github.com/xianyi/OpenBLAS/archive/v0.3.7.tar.gz
+- key: tar.gz:mwt5hjabbjhdxvoaxksbui2hs7gtufzv
+  url: https://github.com/xianyi/OpenBLAS/archive/v0.3.12.tar.gz
 
 defaults:
   # cmake/OpenBLASConfig.cmake contains hard-coded path
