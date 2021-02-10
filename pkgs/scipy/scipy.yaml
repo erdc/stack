@@ -21,7 +21,7 @@ build_stages:
     libraries = openblas
     library_dirs = ${OPENBLAS_DIR}/lib
     include_dirs = ${OPENBLAS_DIR}/include
-    runtime_library_dirs = ${OPENBLAS_DIR}/include
+    runtime_library_dirs = ${OPENBLAS_DIR}/lib
     EOF
 
 - name: set-LDFLAGS
