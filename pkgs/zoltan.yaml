@@ -3,8 +3,8 @@ dependencies:
   build: [mpi, parmetis, {{build_with}}]
 
 sources:
-- key: tar.gz:2dly7xvlpi4fzb6tmzvyvdohjcmu74cn
-  url: http://www.cs.sandia.gov/~kddevin/Zoltan_Distributions/zoltan_distrib_v3.83.tar.gz
+- key: tar.gz:c4zavhyi4r7tb5xtqrvhjuk372tphqnz
+  url: https://github.com/sandialabs/Zoltan/archive/v3.83.tar.gz
 
 defaults:
   #include/Makefile.export.zoltan.macros
