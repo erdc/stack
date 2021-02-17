@@ -1,11 +1,8 @@
 extends: [base_package]
 
-#sources:
-#- key: tar.gz:4rveinfd47aaargi6tywpymln5filpt5
-#  url: http://192.237.213.149/tetgen1.5.1.tar.gz
 sources:
-- url: http://tetgen.org/files/tetgen1.4.3.tar.gz
-  key: tar.gz:sutrdoygw73e7wcv5msmgpyi4p5pic65
+- key: tar.gz:q626mhv5hjdr7rhszxlretblchowmopu
+  url: http://wias-berlin.de/software/tetgen/1.5/src/tetgen1.6.0.tar.gz
 
 build_stages:
 - name: make

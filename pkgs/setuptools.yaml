@@ -5,11 +5,8 @@ dependencies:
   run: [python]
 
 sources:
-- key: zip:uirncjxvi4kzqbj4tj37jnou6jxkuhyv
-  url: https://files.pythonhosted.org/packages/1d/64/a18a487b4391a05b9c7f938b94a16d80305bf0369c6b0b9509e86165e1d3/setuptools-41.0.1.zip
-#sources:
-# - key: zip:twskbn2vxrg7qgqjtfsxkdlagwm77grx
-#   url: https://pypi.python.org/packages/4a/27/cf254815e1c31b4ccd37acce8d9ed9fb923c820c589b0cb3149b3f0e3ea3/setuptools-31.0.1.zip
+- key: tar.gz:chxugslnlnm6c7jmh74wd5mh5iac2wk3
+  url: https://github.com/pypa/setuptools/archive/v53.0.0.tar.gz
 
 build_stages:
   - name: install

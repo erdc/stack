@@ -5,8 +5,8 @@ dependencies:
   run: [blas, lapack, numpy, pybind11, pybind11_cmake]
 
 sources:
- - key: tar.gz:33q3x45gzd3tw2zbrszi53mn2ezup2rp
-   url: https://files.pythonhosted.org/packages/04/ab/e2eb3e3f90b9363040a3d885ccc5c79fe20c5b8a3caa8fe3bf47ff653260/scipy-1.4.1.tar.gz
+- key: tar.xz:3udnaluky3qt5fz4xkz5uy4irwxsnjh6
+  url: https://github.com/scipy/scipy/releases/download/v1.6.0/scipy-1.6.0.tar.xz
 
 build_stages:
 - name: create-site.cfg
