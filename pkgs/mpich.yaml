@@ -5,12 +5,12 @@ dependencies:
 build_stages:
   - name: configure
     mode: update
-    extra: ['--enable-shared']
+    extra: ['--enable-shared', '--with-device=ch4:ofi']
 
   - when: not fortran
     name: configure
     mode: update
-    extra: ['--disable-f77', '--disable-fc', '--disable-fortran', '--with-device=ch4:ofi']
+    extra: ['--disable-f77', '--disable-fc', '--disable-fortran']
 
 sources:
 - key: tar.gz:ra3jhgae55wusk6o47kuvox5mr35fpwk
