@@ -10,7 +10,7 @@ build_stages:
   - when: not fortran
     name: configure
     mode: update
-    extra: ['--disable-f77', '--disable-fc', '--disable-fortran']
+    extra: ['--disable-f77', '--disable-fc', '--disable-fortran', '--with-libfabric']
 
 sources:
 - key: tar.gz:ra3jhgae55wusk6o47kuvox5mr35fpwk
