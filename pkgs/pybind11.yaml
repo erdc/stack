@@ -1,9 +1,9 @@
 extends: [setuptools_package]
 
 dependencies:
-  build: []
-  run: []
+  build: [cmake]
+  run: [cmake]
 
 sources:
-- key: tar.gz:s5ie3nswiblq6mwt7x3qdqs2gqgimqyd
-  url: https://github.com/pybind/pybind11/archive/v2.5.0.tar.gz
+- key: tar.gz:r7zp74rn6a4plticz2uk6vtcfpdh6w3e
+  url: https://github.com/pybind/pybind11/archive/v2.6.2.tar.gz

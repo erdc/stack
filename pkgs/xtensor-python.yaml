@@ -1,12 +1,12 @@
 extends: [cmake_package]
 
 dependencies:
-  build: [xtensor, xtl, mpi, pybind11_cmake,numpy,python]
-  run: [xtensor, xtl, mpi, pybind11_cmake]
+  build: [xtensor, xtl, mpi, pybind11, pybind11_cmake, numpy,python]
+  run: [xtensor, xtl, mpi, pybind11, pybind11_cmake]
 
 sources:
-  - key: tar.gz:4lrfc4q3tl6w6urj73cyxzizc6jalogv
-    url: https://github.com/QuantStack/xtensor-python/archive/0.24.1.tar.gz
+- key: tar.gz:dzynwrk2jxf2ejwekc7zeynaligc7lkr
+  url: https://github.com/xtensor-stack/xtensor-python/archive/0.25.1.tar.gz
 
 defaults:
   relocatable: true

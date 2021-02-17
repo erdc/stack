@@ -13,8 +13,8 @@ build_stages:
     extra: ['--disable-f77', '--disable-fc', '--disable-fortran']
 
 sources:
-- key: tar.gz:lw2tx4xn7krchdvwucs3ypjmftf7xmn2
-  url: http://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz
+- key: tar.gz:ra3jhgae55wusk6o47kuvox5mr35fpwk
+  url: http://www.mpich.org/static/downloads/3.4.1/mpich-3.4.1.tar.gz
 
 defaults:
   # bin/mpicc contains hard-coded path
