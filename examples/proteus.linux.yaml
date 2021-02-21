@@ -36,7 +36,6 @@ packages:
   mpi:
     use: mpich
   mpi4py:
-  coverage:
   hdf5:
   petsc:
     version: 3.14.4
