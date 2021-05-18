@@ -39,8 +39,9 @@ packages:
   py2gmsh:
   future:
   recordtype:
-  launcher:
   cmake:
+  openjpeg: #dependency of chrono
+    version: '2.1'
   openssl:
   python:
     host: false
@@ -56,42 +57,96 @@ packages:
     use: host-mpi
   mpi4py:
   nose:
+  coverage:
   hdf5:
   parmetis:
     without_check: true
   perl:
   petsc:
-    version: 3.11.3
+    version: 3.13.1
     openblas: true
     build_with: |
       parmetis, cmake, blas
     download: |
-      hypre, blacs, scalapack, mumps, ptscotch, superlu, superlu_dist
+      superlu, superlu_dist, hypre, blacs, scalapack, mumps
     coptflags: -O2
     link: shared
-    debug: true
+    debug: false
   petsc4py:
-    version: 3.11.0
+    version: 3.13.0
     with_conf: true
   pytables:
-  tetgen:
-  triangle:
+  tetgen: #3D simplex mesh generator
+  triangle: #2D simplex mesh generator
   memory_profiler:
-  boost:
-    toolset: gcc
-    address_model: 64
-    build_with: |
-      python
-#  cgal:
   scipy:
   h5py:
   pip:
-  zoltan:
   chrono:
   pytest:
   pytest-xdist:
-  gmsh:
-  scorec:
+  pytest-cov:
   pybind11:
+  gmsh:
+  zoltan:
+  scorec:
   xtensor:
   xtensor-python:
+  #matplotlib: # used in testing suite 
+  #pcs_api: #personal cloud storage api
+  #pyzmq:
+  #scandir:
+  #
+  ## Optional Packages
+  #buildbot-worker:
+  #doxygen: #for building documentation
+  #sphinx: #for building website
+  #sphinx-bootstrap-theme:
+  #clawpack:
+  #pydap:
+  #julia:
+  #pyjulia:
+  #jasper: 
+  #grib_api:
+  #cgal: computational geometric library
+  #pyproj:
+  #pygrib:
+  #rdp: #remote desktop package
+  #vapory:
+  #tornado:
+  #ipython:
+  #terminado:
+  #geojson:
+  #shapely:
+  #matlab:
+  #  use: host-matlab
+  #ipdb:
+  #jupyterlab:
+  #jupyter:
+  #ipyparallel:
+  #backports-abc:
+  #backports-shutil-get-terminal-size:
+  #configparser:
+  #rtree:
+  #ipython-d3plot:
+  #ipython-gridwidget:
+  #jupyter-pip:
+  #leafletwidget:
+  #ipywidgets:
+  #ipyleaflet:
+  #pythreejs:
+  #proteus:
+  #sympy: #symbolic math library
+  #ode: #library which has ode solvers
+  #pygments:
+  #pillow: #python imaging library
+  #launcher:
+  #netcdf4:
+  #netcdf4f:
+  #python-netcdf4:
+  #netcdf4cpp:
+  #pexpect:
+
+
+
+
