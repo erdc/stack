@@ -14,8 +14,8 @@ extends:
 # profile.
 
 parameters:
-  pyver: '3.7'
-  python_site_packages_rel: 'lib/python3.7/site-packages'
+  pyver: '3.9'
+  python_site_packages_rel: 'lib/python3.9/site-packages'
   python_host_packages:  '/app/unsupported/COST/python3/3.6.7/gnu/lib/python3.6/site-packages/'
   machine: SGIICEX
   HOST_MPI_DIR: /p/home/apps/hpe/mpt-2.19
@@ -41,7 +41,7 @@ packages:
   recordtype:
   cmake:
   openjpeg: #dependency of chrono
-    version: '2.1'
+    version: '2.4'
   openssl:
   python:
     host: false
@@ -63,7 +63,7 @@ packages:
     without_check: true
   perl:
   petsc:
-    version: 3.13.1
+    version: 3.14.4
     openblas: true
     build_with: |
       parmetis, cmake, blas
@@ -73,7 +73,7 @@ packages:
     link: shared
     debug: false
   petsc4py:
-    version: 3.13.0
+    version: 3.14.1
     with_conf: true
   pytables:
   tetgen: #3D simplex mesh generator
