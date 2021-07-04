@@ -18,13 +18,13 @@ for k,v in os.environ.items():
     else:
         PROLOGUE+='export {0}="{1}"; '.format(k,v)
 
-for p in ignored['PKG_CONFIG_PATH'].split(":"):
-    if os.environ['USER'] not in p and 'python' not  in p:
-        if len(PKG_CONFIG_PATH) != 0:
-            PKG_CONFIG_PATH+=":"
-        PKG_CONFIG_PATH+="{0}".format(p)
+#for p in ignored['PKG_CONFIG_PATH'].split(":"):
+#    if os.environ['USER'] not in p and 'python' not  in p:
+#        if len(PKG_CONFIG_PATH) != 0:
+#            PKG_CONFIG_PATH+=":"
+#        PKG_CONFIG_PATH+="{0}".format(p)
 #PROLOGUE="export PKG_CONFIG_PATH={0}; ".format(PKG_CONFIG_PATH)+PROLOGUE
-del ignored['PKG_CONFIG_PATH']
+#del ignored['PKG_CONFIG_PATH']
 for p in ignored['LD_LIBRARY_PATH'].split(":"):
     if os.environ['USER'] not in p and 'python' not  in p:
         if len(LD_LIBRARY_PATH) != 0:
@@ -53,7 +53,7 @@ except:
 PROLOGUE+="TMPDIR=${WORKDIR}; export CC=gcc; export CXX=g++; export F77=gfortran; export F90=gfortran; export FC=gfortran; export TERM=xterm; export GIT_SSL_NO_VERIFY=1;"
 print("  PATH: |\n    {0}".format(PATH))
 print("  LD_LIBRARY_PATH: |\n    {0}".format(LD_LIBRARY_PATH))
-print("  PKG_CONFIG_PATH: |\n    {0}".format(PKG_CONFIG_PATH))
+#print("  PKG_CONFIG_PATH: |\n    {0}".format(PKG_CONFIG_PATH))
 print("  PROLOGUE: |\n    {0}".format(PROLOGUE))
 
 

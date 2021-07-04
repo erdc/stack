@@ -5,8 +5,8 @@ dependencies:
   run: [mpi]
 
 sources:
-  - key: tar.gz:4pfwelppc5fxmvd4fhha2y5ocqd62gp4
-    url: https://github.com/QuantStack/xtl/archive/0.6.11.tar.gz
+- key: tar.gz:sxbcdpog5k5fskdybeermob6lojzbidw
+  url: https://github.com/xtensor-stack/xtl/archive/0.7.2.tar.gz
 
 defaults:
   relocatable: true

@@ -5,5 +5,5 @@ dependencies:
   run: []
 
 sources:
- - key: tar.gz:udqrmrpog7eqwqgenvqha4ge7vmd4lgu
-   url: https://files.pythonhosted.org/packages/69/81/52b68d0a4de760a2f1979b0931ba7889202f302072cc7a0d614211bc7579/pip-18.0.tar.gz
+- key: tar.gz:eurn2oml4lszfvuotpuua33264mulo4g
+  url: https://github.com/pypa/pip/archive/21.0.1.tar.gz
