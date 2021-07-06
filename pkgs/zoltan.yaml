@@ -3,8 +3,8 @@ dependencies:
   build: [mpi, parmetis, {{build_with}}]
 
 sources:
-- key: tar.gz:2dly7xvlpi4fzb6tmzvyvdohjcmu74cn
-  url: http://www.cs.sandia.gov/~kddevin/Zoltan_Distributions/zoltan_distrib_v3.83.tar.gz
+- key: tar.gz:gcshbl2ns7hqhksugtvquck7mj5dvaew
+  url: https://github.com/sandialabs/Zoltan/archive/refs/tags/v3.90.tar.gz
 
 defaults:
   #include/Makefile.export.zoltan.macros
@@ -26,6 +26,8 @@ build_stages:
     export CC=$MPICC
     export CXX=$MPICXX
     export FC=$MPIF90
+    export F90=$MPIF90
+    export F77=$MPIF77
 
 - name: configure
   after: setEnv

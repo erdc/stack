@@ -4,8 +4,8 @@ defaults:
   relocatable: false
 
 sources:
-- key: tar.gz:xcbczndwtywxlhecrqdpdftbje3mrdau
-  url: ftp://ftp.gnu.org/gnu/gdbm/gdbm-1.18.tar.gz
+- key: tar.gz:g7wreikbek4xfymkbwkjsubz4v3uqgiz
+  url: https://ftp.gnu.org/gnu/gdbm/gdbm-1.19.tar.gz
 
 build_stages:
 - name: setEnv
