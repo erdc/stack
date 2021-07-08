@@ -9,9 +9,9 @@ extends:
 - file: debian.yaml
 
 parameters:
-  pyver: '3.7'
-  python_site_packages_rel: 'lib/python3.7/site-packages'
-  python_host_packages: '/usr/lib/python3.7/site-packages'
+  pyver: '3.9'
+  python_site_packages_rel: 'lib/python3.9/site-packages'
+  python_host_packages: '/usr/lib/python3.9/site-packages'
   PATH: |
     /usr/local/compilers/gcc/9.2.0/bin:/usr/local/packages/Modules/3.2.10/bin:/usr/local/bin:/usr/local/sbin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/opt/ibutils/bin:/opt/dell/srvadmin/bin
   LD_LIBRARY_PATH: |
@@ -25,12 +25,18 @@ parameters:
 # profile.
 
 packages:
+  numpy:
+    build_with: |
+      binutils
+  scipy:
+    build_with: |
+      binutils
   py2gmsh:
   future:
   recordtype:
   cmake:
   openjpeg: #dependency of chrono
-    version: '2.1'
+    version: '2.4'
   openssl:
   python:
     host: false
@@ -49,7 +55,7 @@ packages:
   coverage:
   hdf5:
   petsc:
-    version: 3.13.1
+    version: 3.14.4
     openblas: true
     build_with: |
       parmetis, cmake, blas
@@ -59,20 +65,18 @@ packages:
     link: shared
     debug: false
   petsc4py:
-    version: 3.13.0
-    with_conf: true
-  #pytables:
-  tetgen: #3D simplex mesh generator
-  triangle: #2D simplex mesh generator
+    version: 3.14.1
+  tetgen:
+  triangle:
   memory_profiler:
-  scipy:
   h5py:
   pip:
   chrono:
-  pytest:
-  pytest-xdist:
-  pytest-cov:
+  #pytest:
+  #pytest-xdist:
+  #pytest-cov:
   pybind11:
+  pybind11_cmake:
   gmsh:
   zoltan:
   scorec:

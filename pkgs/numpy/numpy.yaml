@@ -5,8 +5,8 @@ dependencies:
   run: [blas, cython]
 
 sources:
-- key: tar.gz:mujd4u5abocnaos2dcxajh2gi7i72eam
-  url: https://github.com/numpy/numpy/archive/v1.19.1.tar.gz
+- key: tar.gz:y53fpecf4hkikkvnw36otisxygm4bdc6
+  url: https://github.com/numpy/numpy/archive/refs/tags/v1.21.0.tar.gz
 
 build_stages:
   - name: create-site.cfg

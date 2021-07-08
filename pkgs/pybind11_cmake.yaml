@@ -1,8 +1,8 @@
 extends: [cmake_package]
 
 dependencies:
-  build: [mpi, python, pytest]
-  run: [mpi, python, pytest]
+  build: [mpi, python]
+  run: [mpi, python]
 
 sources:
 - key: tar.gz:r7zp74rn6a4plticz2uk6vtcfpdh6w3e
