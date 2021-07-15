@@ -2,8 +2,8 @@ extends: [autotools_package]
 
 when pyver == '2.7':
     sources:
-    - key: tar.gz:qkjjxfx5nl6i3kbywfera4dyyax2c5cl
-      url: http://python.org/ftp/python/2.7.11/Python-2.7.11.tgz
+    - key: tar.gz:dbqx2hyvuoaksgovc5rqvhgyltqx5jqc
+      url: https://www.python.org/ftp/python/2.7.15/Python-2.7.15.tgz
 when pyver == '3.2':
     sources:
     - key: tar.gz:7qpecklofhkhn5uwga5mvyutvz5cgehq
@@ -24,7 +24,14 @@ when pyver == '3.6':
     sources:
     - key: tar.gz:pemureyquxyx66wlvnsnompenxfaoauh
       url: https://www.python.org/ftp/python/3.6.2/Python-3.6.2.tgz
-
+when pyver == '3.7' or pyver == '3.7m':
+    sources:
+    - key: tar.xz:7n4zcnfynamzsmfxl4tgpdyysmrbibbg
+      url: https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tar.xz
+when pyver == '3.9' or pyver == '3.9m':
+   sources:
+   - key: tar.xz:teod7cwjpgjphuyi737laote3ndck5hk
+     url: https://www.python.org/ftp/python/3.9.1/Python-3.9.1.tar.xz
 
 dependencies:
   build: [zlib, bzip2, sqlite, openssl, launcher, ncurses, readline, gdbm, {{build_with}}]
@@ -71,10 +78,15 @@ build_stages:
     append: {LDFLAGS: "-Wl,-rpath,${ARTIFACT}/lib"}
     extra: ['--enable-shared']
 
-  - when: pyver == '3.4' or pyver == '3.5'
+  - when: pyver == '3.4' or pyver == '3.5' or pyver == '3.6' or pyver=='3.7'
     name: configure
     mode: update
-    extra: ['--without-ensurepip']
+    extra: ['--without-ensurepip', '--without-pymalloc']
+
+  - when: pyver == '2.7'
+    name: configure
+    mode: update
+    extra: ['--enable-unicode=ucs4']
 
   - when: python_framework
     name: configure

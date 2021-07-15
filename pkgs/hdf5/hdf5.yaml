@@ -3,8 +3,8 @@ dependencies:
   build: [mpi, zlib, szip]
 
 sources:
-- key: tar.gz:uqzvqsprt6xirqte7ug7arv4ginhrrjw
-  url: https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.19/src/hdf5-1.8.19.tar.gz
+- key: tar.gz:uyw4wj3gldfxrztzlxjjx6jg5v5jxrhn
+  url: https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.0/src/hdf5-1.12.0.tar.gz
 
 defaults:
   # /bin/h5pcc contains hard-coded path
@@ -17,43 +17,39 @@ build_stages:
   handler: bash
   bash: |
     export CC=${MPICC}
+#    export CRAY_CPU_TARGET=interlagos
+#    export HOSTTYPE=x86_64
+#    export MACHTYPE=x86_64-suse-linux
+#    export CPU=x86_64
 
-- when: machine == 'CrayXE6'
+- when: machine == 'CrayXE6' or machine == 'CrayXC30' or machine == 'CrayXC40'
   name: make_exe_builds_static
   handler: bash
   after: configure
   before: make
   bash: |
-    for f in {test,testpar,tools/*,perform,hl/*,hl/*/*}/Makefile
-    do
+    for f in {test,testpar,tools/*,hl/*,hl/*/*}/Makefile 
+    do 
       sed -i 's/CCLD = $(CC)/CCLD = $(CC) -static/g' $f
+    done
+    for f in {src,test,testpar,tools/*,hl/*,hl/*/*}/Makefile 
+    do 
+      sed -i "s/sed -e 's\/-L\/:\/g' -e 's\/ \/\/g'/sed -e 's\/-L\/:\/g' -e 's\/-Wl,-rpath=\/:\/g' -e 's\/-Wl,\/\/g' -e 's\/ \/\/g'/g" $f
     done
 
 - name: configure
   extra: ['--with-zlib=${ZLIB_DIR}',
           '--with-szlib=${SZIP_DIR}',
+          '--with-pic',
           '--with-pthread',
+          '--with-pic',
           '--enable-unsupported',
           '--enable-shared',
-          '--enable-production=yes',
+          '--enable-static',
+          '--enable-build-mode=production',
           '--enable-parallel=yes',
           '--enable-largefile=yes',
           '--with-default-api-version=v18']
-
-- when: machine == 'CrayXE6'
-  name: configure
-  extra: ['--enable-static-exec',
-          '--with-zlib=${ZLIB_DIR}',
-          '--with-szlib=${SZIP_DIR}',
-          '--with-pthread',
-          '--enable-unsupported',
-          '--enable-shared',
-          '--enable-production=yes',
-          '--enable-parallel=yes',
-          '--enable-largefile=yes',
-          '--with-default-api-version=v18',
-          '--with-pic']
-
 
 when_build_dependency:
 - set: HDF5_ROOT

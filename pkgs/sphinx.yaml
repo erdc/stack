@@ -4,5 +4,5 @@ dependencies:
   run: [jinja2, pygments, alabaster, sphinx_rtd_theme, babel, snowballstemmer, docutils, pytz, imagesize]
 
 sources:
-- key: tar.gz:rzvhpiqlfx4vbxrsf7bs6o2qq2l5tvsu
-  url: https://pypi.python.org/packages/b2/d5/bb4bf7fbc2e6b85d1e3832716546ecd434632d9d434a01efe87053fe5f25/Sphinx-1.5.1.tar.gz
+- key: tar.gz:y5syvk3vzeqcrcum63yj6jcmnt624mgy
+  url: https://files.pythonhosted.org/packages/2a/86/8e1e8400bb6eca5ed960917952600fce90599e1cb0d20ddedd81ba163370/Sphinx-1.8.5.tar.gz

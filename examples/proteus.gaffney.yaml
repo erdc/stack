@@ -1,0 +1,99 @@
+# This profile file controls your <#> (HashDist) build environment.
+
+# In the future, we'll provide better incorporation of
+# automatic environment detection.  For now, have a look
+# at the YAML files in the top-level directory and choose
+# the most *specific* file that matches your environment.
+
+extends:
+- file: suse.yaml
+
+# The packages list specifies all the packages that you
+# require installed.  <#> will ensure that all packages
+# and their dependencies are installed when you build this
+# profile.
+
+parameters:
+  pyver: '3.9'
+  python_site_packages_rel: 'lib/python3.9/site-packages'
+  python_host_packages: '/p/app/python3/lib/python3.6/site-packages'
+  machine: SGIICEX
+  HOST_MPI_DIR: /p/app/hpe/mpt-2.21/
+  HOST_MPIEXEC: /p/app/hpe/mpt-2.21/bin/mpiexec_mpt
+  HOST_MPICC: /p/app/hpe/mpt-2.21/bin/mpicc
+  HOST_MPICXX: /p/app/hpe/mpt-2.21/bin/mpicxx
+  HOST_MPIF77: /p/app/hpe/mpt-2.21/bin/mpif77
+  HOST_MPIF90: /p/app/hpe/mpt-2.21/bin/mpif90
+  PATH: |
+    /p/app/hpe/mpt-2.21/bin:/p/app/gnu/10.1.0/bin:/usr/local/bin:/opt/sgi/sbin:/opt/sgi/bin:/usr/local/bin:/opt/sgi/sbin:/opt/sgi/bin:/usr/local/bin:/opt/sgi/sbin:/opt/sgi/bin:/usr/local/bin:/opt/sgi/sbin:/opt/sgi/bin:/usr/local/bin:/opt/sgi/sbin:/opt/sgi/bin:/usr/local/bin:/opt/sgi/sbin:/opt/sgi/bin:/p/app/mpscp-1.3a/bin:/usr/local/bin:/opt/sgi/sbin:/opt/sgi/bin:/usr/lib64/qt-3.3/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/openssh-7.5p1.RedHatEL/bin:/usr/local/bin:/usr/local/sbin:/opt/c3/bin:/opt/pbs/bin:/sbin:/bin:/p/app/BCT/bin:/p/app/SLB:/opt/pbs/bin:/sbin:/bin:/p/app/BCT/bin:/p/app/SLB:/opt/pbs/bin:/sbin:/bin:/p/app/BCT/bin:/p/app/SLB:/opt/pbs/bin:/sbin:/bin:/p/app/BCT/bin:/p/app/SLB:/opt/pbs/bin:/sbin:/bin:/p/app/BCT/bin:/p/app/SLB:/opt/pbs/bin:/sbin:/bin:/p/app/BCT/bin:/p/app/SLB:/opt/pbs/bin:/sbin:/bin:/p/app/BCT/bin:/p/app/SLB
+  LD_LIBRARY_PATH: |
+    /p/app/hpe/mpt-2.21/lib:/p/app/gnu/10.1.0/lib64
+  PROLOGUE: |
+    export export BC_ACCELERATOR_NODE_CORES="48"; export INFOPATH="/p/app/gnu/10.1.0/share/info"; export BC_NODE_TYPE="LOGIN"; export CSI_HOME="/p/app/COTS"; export MANPATH="/p/app/hpe/mpt-2.21/man:/p/app/gnu/10.1.0/share/man:/opt/c3/man:/opt/pbs/share/man:/opt/sgi/share/man:/p/app/BCT/man:/usr/share/catman:/usr/share/man:/usr/catman:/usr/man:/p/app/mpscp-1.3a/man:/opt/pbs/share/man:/opt/sgi/share/man:/p/app/BCT/man:/opt/pbs/share/man:/opt/sgi/share/man:/p/app/BCT/man:/opt/pbs/share/man:/opt/sgi/share/man:/p/app/BCT/man:/opt/pbs/share/man:/opt/sgi/share/man:/p/app/BCT/man:/opt/pbs/share/man:/opt/sgi/share/man:/p/app/BCT/man:/opt/pbs/share/man:/opt/sgi/share/man:/p/app/BCT/man"; export BC_BIGMEM_NODE_CORES="48"; export JAVA_HOME="/p/app/java/1.8"; export VENDOR="unknown"; export XDG_RUNTIME_DIR="/run/user/911778"; export FPATH="/p/app/hpe/mpt-2.21/include"; export MPSCP_BLOCKED_FILE="/p/app/mpscp-1.3a/etc/mpscp_blocked_ports"; export XDG_SESSION_ID="68125"; export CXX="/p/app/hpe/mpt-2.21/bin/mpicxx"; export HOSTNAME="gaffney01"; export PROTEUS_ARCH="gaffney"; export MACHTYPE="x86_64"; export GROUP="3411C002"; export OSCAR_HOME="/opt/oscar"; export LESSOPEN="||/usr/bin/lesspipe.sh %s"; export CPATH="/p/app/hpe/mpt-2.21/include:/p/app/gnu/10.1.0/include"; export I_MPI_F77="gfortran"; export PET_HOME="/p/app/PET"; export LANGUAGE="en_US.UTF-8"; export SHLVL="2"; export DISPLAY="localhost:19.0"; export EDITOR="emacs -nw"; export MODULESHOME="/usr/share/Modules"; export DAAC_HOME="/app/DAAC"; export CONTAINER_HOME="/p/app/projects/singularity/containers"; export MODULEPATH="/app/DAAC/modules:/p/app/modulefiles/devel:/p/app/modulefiles/apps:/p/app/modulefiles/unsupported:/app/DAAC/modules:/p/app/modulefiles/devel:/p/app/modulefiles/apps:/p/app/modulefiles/unsupported:/app/DAAC/modules:/p/app/modulefiles/devel:/p/app/modulefiles/apps:/p/app/modulefiles/unsupported:/app/DAAC/modules:/p/app/modulefiles/devel:/p/app/modulefiles/apps:/p/app/modulefiles/unsupported:/app/DAAC/modules:/p/app/modulefiles/devel:/p/app/modulefiles/apps:/p/app/modulefiles/unsupported:/app/DAAC/modules:/p/app/modulefiles/devel:/p/app/modulefiles/apps:/p/app/modulefiles/unsupported:/app/DAAC/modules:/p/app/modulefiles/devel:/p/app/modulefiles/apps:/p/app/modulefiles/unsupported:/usr/share/Modules/modulefiles:/etc/modulefiles"; export BC_HOST="gaffney"; export SSH_CONNECTION="173.235.23.125 58799 140.32.36.1 22"; export I_MPI_CXX="g++"; export _LMFILES_="/p/app/modulefiles/unsupported/mpscp/1.3a:/p/app/modulefiles/devel/gcc/10.1.0:/p/app/modulefiles/devel/mpt/2.21"; export REMOTEHOST="173.235.23.125"; export I_MPI_F90="gfortran"; export FC="/p/app/hpe/mpt-2.21/bin/mpif90"; export SINGULARITYENV_PSM2_PATH_SELECTION="static_dest"; export QTDIR="/usr/lib64/qt-3.3"; export LANG="en_US.UTF-8"; export QTLIB="/usr/lib64/qt-3.3/lib"; export LIBRARY_PATH="/p/app/hpe/mpt-2.21/lib"; export KRB5_HOME="/usr/local/krb5"; export QTINC="/usr/lib64/qt-3.3/include"; export SAMPLES_HOME="/p/app/Example_Codes"; export F90="/p/app/hpe/mpt-2.21/bin/mpif90"; export OSTYPE="linux"; export C3_RSH="ssh -oConnectTimeout=10 -oForwardX11=no"; export BC_CORES_PER_NODE="48"; export CC="/p/app/hpe/mpt-2.21/bin/mpicc"; export HOST="gaffney01"; export MPT_VERSION="2.21"; export QT_GRAPHICSSYSTEM_CHECKED="1"; export F77="/p/app/hpe/mpt-2.21/bin/mpif77"; export MPIF90_F90="gfortran"; export SSH_TTY="/dev/pts/39"; export MPSCP_CONFIG_FILENAME="/p/app/mpscp-1.3a/etc/mpscp.conf"; export MPICXX_CXX="g++"; export PROJECTS_HOME="/p/app/projects"; export HOSTTYPE="x86_64-linux"; export SSH_CLIENT="173.235.23.125 58799 22"; export TERM="xterm-256color"; export BC_STANDARD_NODE_CORES="48"; export MPICC_CC="gcc"; export COST_HOME="/p/app/COST"; export I_MPI_FC="gfortran"; export MPI_ROOT="/p/app/hpe/mpt-2.21"; export KRB5CCNAME="PIPE:1023"; export BC_PHI_NODE_CORES="0"; export LOADEDMODULES="mpscp/1.3a:gcc/10.1.0:mpt/2.21"; export LS_COLORS="rs=0:di=38;5;27:ln=38;5;51:mh=44;38;5;15:pi=40;38;5;11:so=38;5;13:do=38;5;5:bd=48;5;232;38;5;11:cd=48;5;232;38;5;3:or=48;5;232;38;5;9:mi=05;48;5;232;38;5;15:su=48;5;196;38;5;15:sg=48;5;11;38;5;16:ca=48;5;196;38;5;226:tw=48;5;10;38;5;16:ow=48;5;10;38;5;21:st=48;5;21;38;5;15:ex=38;5;34:*.tar=38;5;9:*.tgz=38;5;9:*.arc=38;5;9:*.arj=38;5;9:*.taz=38;5;9:*.lha=38;5;9:*.lz4=38;5;9:*.lzh=38;5;9:*.lzma=38;5;9:*.tlz=38;5;9:*.txz=38;5;9:*.tzo=38;5;9:*.t7z=38;5;9:*.zip=38;5;9:*.z=38;5;9:*.Z=38;5;9:*.dz=38;5;9:*.gz=38;5;9:*.lrz=38;5;9:*.lz=38;5;9:*.lzo=38;5;9:*.xz=38;5;9:*.bz2=38;5;9:*.bz=38;5;9:*.tbz=38;5;9:*.tbz2=38;5;9:*.tz=38;5;9:*.deb=38;5;9:*.rpm=38;5;9:*.jar=38;5;9:*.war=38;5;9:*.ear=38;5;9:*.sar=38;5;9:*.rar=38;5;9:*.alz=38;5;9:*.ace=38;5;9:*.zoo=38;5;9:*.cpio=38;5;9:*.7z=38;5;9:*.rz=38;5;9:*.cab=38;5;9:*.jpg=38;5;13:*.jpeg=38;5;13:*.gif=38;5;13:*.bmp=38;5;13:*.pbm=38;5;13:*.pgm=38;5;13:*.ppm=38;5;13:*.tga=38;5;13:*.xbm=38;5;13:*.xpm=38;5;13:*.tif=38;5;13:*.tiff=38;5;13:*.png=38;5;13:*.svg=38;5;13:*.svgz=38;5;13:*.mng=38;5;13:*.pcx=38;5;13:*.mov=38;5;13:*.mpg=38;5;13:*.mpeg=38;5;13:*.m2v=38;5;13:*.mkv=38;5;13:*.webm=38;5;13:*.ogm=38;5;13:*.mp4=38;5;13:*.m4v=38;5;13:*.mp4v=38;5;13:*.vob=38;5;13:*.qt=38;5;13:*.nuv=38;5;13:*.wmv=38;5;13:*.asf=38;5;13:*.rm=38;5;13:*.rmvb=38;5;13:*.flc=38;5;13:*.avi=38;5;13:*.fli=38;5;13:*.flv=38;5;13:*.gl=38;5;13:*.dl=38;5;13:*.xcf=38;5;13:*.xwd=38;5;13:*.yuv=38;5;13:*.cgm=38;5;13:*.emf=38;5;13:*.axv=38;5;13:*.anx=38;5;13:*.ogv=38;5;13:*.ogx=38;5;13:*.aac=38;5;45:*.au=38;5;45:*.flac=38;5;45:*.mid=38;5;45:*.midi=38;5;45:*.mka=38;5;45:*.mp3=38;5;45:*.mpc=38;5;45:*.ogg=38;5;45:*.ra=38;5;45:*.wav=38;5;45:*.axa=38;5;45:*.oga=38;5;45:*.spx=38;5;45:*.xspf=38;5;45:"; export WORKDIR=/p/work1/$(whoami); TMPDIR=${WORKDIR}; export CC=gcc; export CXX=g++; export F77=gfortran; export F90=gfortran; export FC=gfortran; export TERM=xterm; export GIT_SSL_NO_VERIFY=1;
+  DYNAMIC_EXE_LINKER_FLAGS: -Bdynamic
+packages:
+  future:
+  recordtype:
+  launcher:
+  cmake:
+  openssl:
+    use: host-openssl
+  python:
+    host: false
+    link: shared
+    build_with: |
+      libffi, bzip2, sqlite, openssl
+  blas:
+    use: openblas
+  lapack:
+    use: openblas-lapack
+  daetk:
+  mpi:
+    use: host-mpi
+  mpi4py:
+  nose:
+  hdf5:
+  parmetis:
+    without_check: true
+  perl:
+    use: host-perl
+  petsc:
+    version: 3.13.3
+    openblas: true
+    build_with: |
+      parmetis, cmake, blas
+    download: |
+      hypre, blacs, scalapack, mumps, ptscotch, superlu, superlu_dist
+    coptflags: -O2
+    link: shared
+    debug: true
+  petsc4py:
+    version: 3.13.0
+    with_conf: true
+  pytables:
+  tetgen:
+  triangle:
+  memory_profiler:
+  boost:
+    toolset: gcc
+    address_model: 64
+    build_with: |
+      python
+#  cgal:
+  numpy:
+    build_with: |
+      binutils
+  scipy:
+    build_with: |
+      binutils
+  h5py:
+  pip:
+  zoltan:
+  chrono:
+  pytest:
+  pytest-xdist:
+  gmsh:
+  scorec:
+  pybind11:
+  xtensor:
+  xtensor-python:

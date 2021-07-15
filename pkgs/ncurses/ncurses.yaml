@@ -1,8 +1,8 @@
 extends: [autotools_package]
 
 sources:
-- key: tar.gz:aypl4sgsa3ku3slsagxhpf7deeh6z5mz
-  url: https://github.com/hashdist/pkg-ncurses/archive/2031c7bde2dfb2189b9c724946f19c089596eac4.tar.gz
+- key: tar.gz:gayg4ddw4d47d4g6tb6pdsbklqq6dttf
+  url: https://ftp.gnu.org/pub/gnu/ncurses/ncurses-6.2.tar.gz
 
 defaults:
   relocatable: false
@@ -10,7 +10,4 @@ defaults:
 build_stages:
   - name: configure
     mode: override
-    extra: ['--with-shared', '--without-profile', '--without-debug',
-        '--without-ada', '--without-tests',
-        '--with-ticlib=tic', '--with-termlib=tinfo','--enable-rpath']
-
+    extra: ['--with-shared', '--without-profile', '--without-debug', '--without-ada', '--without-tests', '--with-ticlib=tic', '--with-termlib=tinfo', '--enable-rpath', '--with-versioned-syms']

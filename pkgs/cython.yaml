@@ -5,5 +5,5 @@ dependencies:
   run: []
 
 sources:
- - key: tar.gz:6fa5d6ocpid3lkj7pxcthfdsaz7c24ka
-   url: https://pypi.python.org/packages/b7/67/7e2a817f9e9c773ee3995c1e15204f5d01c8da71882016cac10342ef031b/Cython-0.25.2.tar.gz
+- key: tar.gz:4lry4hyfolffjvqilxz55sfwa7ja5akr
+  url: https://github.com/cython/cython/archive/0.29.21.tar.gz

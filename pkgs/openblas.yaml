@@ -1,8 +1,8 @@
 extends: [base_package]
 
 sources:
-- key: tar.gz:l3zywfozyzjjqv3uq2pp2velry7jolq6
-  url: https://github.com/xianyi/OpenBLAS/archive/v0.2.20.tar.gz
+- key: tar.gz:gcuz33exowklhb5bp5ezarjd426i3wel
+  url: https://github.com/xianyi/OpenBLAS/archive/refs/tags/v0.3.15.tar.gz
 
 defaults:
   # cmake/OpenBLASConfig.cmake contains hard-coded path
@@ -31,10 +31,10 @@ build_stages:
   after: prologue
   handler: bash
   bash: |
-    make DYNAMIC_ARCH=1 USE_THREAD=${USE_THREAD} {{extra_flags}} -j${HASHDIST_CPU_COUNT}
+    make USE_THREAD=${USE_THREAD} {{extra_flags}} -j${HASHDIST_CPU_COUNT}
     make {{extra_flags}} PREFIX=${ARTIFACT} install
 
 when_build_dependency:
-- {set: 'BLAS_LDFLAGS', value: '-Wl,-rpath,${ARTIFACT}/lib -L${ARTIFACT}/lib -lopenblas'}
-- {set: 'LAPACK_LDFLAGS', value: '-Wl,-rpath,${ARTIFACT}/lib -L${ARTIFACT}/lib -lopenblas'}
+- {set: 'BLAS_LDFLAGS', value: '-lopenblas'}
+- {set: 'LAPACK_LDFLAGS', value: '-lopenblas'}
 - {set: 'OPENBLAS_DIR', value: '${ARTIFACT}'}

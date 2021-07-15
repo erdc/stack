@@ -1,0 +1,142 @@
+# This profile file controls your <#> (HashDist) build environment.
+
+# In the future, we'll provide better incorporation of
+# automatic environment detection.  For now, have a look
+# at the YAML files in the top-level directory and choose
+# the most *specific* file that matches your environment.
+
+extends:
+- file: debian.yaml
+
+parameters:
+  pyver: '3.9'
+  python_site_packages_rel: 'lib/python3.9/site-packages'
+  python_host_packages: '/usr/lib/python3.9/site-packages'
+  PATH: |
+    /usr/local/compilers/gcc/9.2.0/bin:/usr/local/packages/Modules/3.2.10/bin:/usr/local/bin:/usr/local/sbin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/opt/ibutils/bin:/opt/dell/srvadmin/bin
+  LD_LIBRARY_PATH: |
+    /usr/local/compilers/gcc/9.2.0/lib/gcc/x86_64-pc-linux-gnu/9.2.0:/usr/local/compilers/gcc/9.2.0/lib64:/usr/local/compilers/gcc/9.2.0/lib
+  PROLOGUE: |
+    export SSH_ASKPASS="/usr/libexec/openssh/gnome-ssh-askpass"; export MODULE_VERSION="3.2.10"; export INTEL_LICENSE_FILE="/usr/local/compilers/Intel"; export LESSOPEN="||/usr/bin/lesspipe.sh %s"; export CUDA_NIC_INTEROP="1"; export SSH_CLIENT="167.96.155.143 50614 22"; export CPATH="/usr/local/compilers/gcc/9.2.0/include"; export QTDIR="/usr/lib64/qt-3.3"; export LOADEDMODULES="gcc/9.2.0"; export LANG="en_US.UTF-8"; export QTLIB="/usr/lib64/qt-3.3/lib"; export TERM="xterm-256color"; export LIBRARY_PATH="/usr/local/compilers/gcc/9.2.0/lib64:/usr/local/compilers/gcc/9.2.0/lib"; export QTINC="/usr/lib64/qt-3.3/include"; export G_BROKEN_FILENAMES="1"; export HISTSIZE="90000"; export MANPATH="/usr/local/compilers/gcc/9.2.0/share/man:/usr/local/share/man:"; export MODULESHOME="/usr/local/packages/Modules/3.2.10"; export MODULE_VERSION_STACK="3.2.10"; export LHPC_DEVELGCC="/usr/local/compilers/gcc/9.2.0/easybuild/gcc-9.2.0-easybuild-devel"; export LHPC_ROOTGCC="/usr/local/compilers/gcc/9.2.0"; export LHPC_VERSIONGCC="9.2.0"; export MODULEPATH="/usr/local/packages/Modules/3.2.10/modulefiles/admin:/usr/local/packages/Modules/3.2.10/modulefiles/apps"; export PERL5LIB="/usr/local/lib/perl5"; export _LMFILES_="/usr/local/packages/Modules/3.2.10/modulefiles/apps/gcc/9.2.0"; export SSH_TTY="/dev/pts/7"; export HOSTNAME="mike2"; export SSH_CONNECTION="167.96.155.143 50614 204.90.44.22 22"; export MOABHOMEDIR="/usr/moab"; export HISTCONTROL="ignoredups"; export SHLVL="1"; export CVS_RSH="ssh"; export LS_COLORS="rs=0:di=38;5;27:ln=38;5;51:mh=44;38;5;15:pi=40;38;5;11:so=38;5;13:do=38;5;5:bd=48;5;232;38;5;11:cd=48;5;232;38;5;3:or=48;5;232;38;5;9:mi=05;48;5;232;38;5;15:su=48;5;196;38;5;15:sg=48;5;11;38;5;16:ca=48;5;196;38;5;226:tw=48;5;10;38;5;16:ow=48;5;10;38;5;21:st=48;5;21;38;5;15:ex=38;5;34:*.tar=38;5;9:*.tgz=38;5;9:*.arj=38;5;9:*.taz=38;5;9:*.lzh=38;5;9:*.lzma=38;5;9:*.tlz=38;5;9:*.txz=38;5;9:*.zip=38;5;9:*.z=38;5;9:*.Z=38;5;9:*.dz=38;5;9:*.gz=38;5;9:*.lz=38;5;9:*.xz=38;5;9:*.bz2=38;5;9:*.tbz=38;5;9:*.tbz2=38;5;9:*.bz=38;5;9:*.tz=38;5;9:*.deb=38;5;9:*.rpm=38;5;9:*.jar=38;5;9:*.rar=38;5;9:*.ace=38;5;9:*.zoo=38;5;9:*.cpio=38;5;9:*.7z=38;5;9:*.rz=38;5;9:*.jpg=38;5;13:*.jpeg=38;5;13:*.gif=38;5;13:*.bmp=38;5;13:*.pbm=38;5;13:*.pgm=38;5;13:*.ppm=38;5;13:*.tga=38;5;13:*.xbm=38;5;13:*.xpm=38;5;13:*.tif=38;5;13:*.tiff=38;5;13:*.png=38;5;13:*.svg=38;5;13:*.svgz=38;5;13:*.mng=38;5;13:*.pcx=38;5;13:*.mov=38;5;13:*.mpg=38;5;13:*.mpeg=38;5;13:*.m2v=38;5;13:*.mkv=38;5;13:*.ogm=38;5;13:*.mp4=38;5;13:*.m4v=38;5;13:*.mp4v=38;5;13:*.vob=38;5;13:*.qt=38;5;13:*.nuv=38;5;13:*.wmv=38;5;13:*.asf=38;5;13:*.rm=38;5;13:*.rmvb=38;5;13:*.flc=38;5;13:*.avi=38;5;13:*.fli=38;5;13:*.flv=38;5;13:*.gl=38;5;13:*.dl=38;5;13:*.xcf=38;5;13:*.xwd=38;5;13:*.yuv=38;5;13:*.cgm=38;5;13:*.emf=38;5;13:*.axv=38;5;13:*.anx=38;5;13:*.ogv=38;5;13:*.ogx=38;5;13:*.aac=38;5;45:*.au=38;5;45:*.flac=38;5;45:*.mid=38;5;45:*.midi=38;5;45:*.mka=38;5;45:*.mp3=38;5;45:*.mpc=38;5;45:*.ogg=38;5;45:*.ra=38;5;45:*.wav=38;5;45:*.axa=38;5;45:*.oga=38;5;45:*.spx=38;5;45:*.xspf=38;5;45:"; TMPDIR=${WORKDIR}; export CC=gcc; export CXX=g++; export F77=gfortran; export F90=gfortran; export FC=gfortran; export TERM=xterm; export GIT_SSL_NO_VERIFY=1;
+
+# The packages list specifies all the packages that you
+# require installed.  <#> will ensure that all packages
+# and their dependencies are installed when you build this
+# profile.
+
+packages:
+  numpy:
+    build_with: |
+      binutils
+  scipy:
+    build_with: |
+      binutils
+  py2gmsh:
+  future:
+  recordtype:
+  cmake:
+  openjpeg: #dependency of chrono
+    version: '2.4'
+  openssl:
+  python:
+    host: false
+    link: shared
+    build_with: |
+      bzip2, sqlite, openssl, libffi
+  blas:
+    use: openblas
+  lapack:
+    use: openblas-lapack
+  daetk:
+  mpi:
+    use: mpich
+  mpi4py:
+  nose:
+  coverage:
+  hdf5:
+  petsc:
+    version: 3.14.4
+    openblas: true
+    build_with: |
+      parmetis, cmake, blas
+    download: |
+      superlu, superlu_dist, hypre, blacs, scalapack, mumps
+    coptflags: -O2
+    link: shared
+    debug: false
+  petsc4py:
+    version: 3.14.1
+  tetgen:
+  triangle:
+  memory_profiler:
+  h5py:
+  pip:
+  chrono:
+  #pytest:
+  #pytest-xdist:
+  #pytest-cov:
+  pybind11:
+  pybind11_cmake:
+  gmsh:
+  zoltan:
+  scorec:
+  xtensor:
+  xtensor-python:
+  #matplotlib: # used in testing suite 
+  #pcs_api: #personal cloud storage api
+  #pyzmq:
+  #scandir:
+  #
+  ## Optional Packages
+  #buildbot-worker:
+  #doxygen: #for building documentation
+  #sphinx: #for building website
+  #sphinx-bootstrap-theme:
+  #clawpack:
+  #pydap:
+  #julia:
+  #pyjulia:
+  #jasper: 
+  #grib_api:
+  #cgal: computational geometric library
+  #pyproj:
+  #pygrib:
+  #rdp: #remote desktop package
+  #vapory:
+  #tornado:
+  #ipython:
+  #terminado:
+  #geojson:
+  #shapely:
+  #matlab:
+  #  use: host-matlab
+  #ipdb:
+  #jupyterlab:
+  #jupyter:
+  #ipyparallel:
+  #backports-abc:
+  #backports-shutil-get-terminal-size:
+  #configparser:
+  #rtree:
+  #ipython-d3plot:
+  #ipython-gridwidget:
+  #jupyter-pip:
+  #leafletwidget:
+  #ipywidgets:
+  #ipyleaflet:
+  #pythreejs:
+  #proteus:
+  #sympy: #symbolic math library
+  #ode: #library which has ode solvers
+  #pygments:
+  #pillow: #python imaging library
+  #launcher:
+  #netcdf4:
+  #netcdf4f:
+  #python-netcdf4:
+  #netcdf4cpp:
+  #pexpect:
+
+
+
+

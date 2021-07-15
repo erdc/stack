@@ -15,6 +15,10 @@ when version == '2.1':
   sources:
   - key: tar.gz:cizlxakp3cgy5uyuzfhqx7v3appikwky
     url: http://sourceforge.net/projects/openjpeg.mirror/files/2.1.0/openjpeg-2.1.0.tar.gz
+when version == '2.4':
+  sources:
+  - key: tar.gz:q4blu2fuijsx6enk5mvthbcdzkgv7ok3
+    url: https://github.com/uclouvain/openjpeg/archive/v2.4.0.tar.gz
 
 # grib_api, at least, expects not to find this namespaced
 build_stages:

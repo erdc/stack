@@ -3,9 +3,18 @@ dependencies:
   build: [libxml2, pkg-config]
 
 build_stages:
+  - name: unset_extra_fortran
+    after: prologue
+    before: configure
+    mode: replace
+    handler: bash
+    bash: |
+      unset F77
+      unset F90
+
   - name: configure
     mode: update
-    extra: ['--enable-shared']
+    extra: ['--enable-shared', '--with-device=ch4:ofi']
 
   - when: not fortran
     name: configure
@@ -13,8 +22,8 @@ build_stages:
     extra: ['--disable-f77', '--disable-fc', '--disable-fortran']
 
 sources:
-- key: tar.gz:lw2tx4xn7krchdvwucs3ypjmftf7xmn2
-  url: http://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz
+- key: tar.gz:ra3jhgae55wusk6o47kuvox5mr35fpwk
+  url: http://www.mpich.org/static/downloads/3.4.1/mpich-3.4.1.tar.gz
 
 defaults:
   # bin/mpicc contains hard-coded path

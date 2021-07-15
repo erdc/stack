@@ -1,24 +1,37 @@
-when platform != 'linux':
-  extends: [distutils_package]
-when platform == 'linux':
-  extends: [setuptools_package, libflags]
+extends: [setuptools_package]
+
 dependencies:
-  build: [blas, lapack, numpy]
-  run: [blas, lapack, numpy]
+  build: [blas, lapack, numpy, pybind11, pybind11_cmake, {{build_with}}]
+  run: [blas, lapack, numpy, pybind11, pybind11_cmake]
 
 sources:
-- key: tar.gz:xfuqmoqvx7msdrqquqksb4idwd3jsigs
-  url: https://pypi.python.org/packages/14/34/a66c289e70e727698cd1dd3d3680c59a60fdc42eb52a22ebb0e3484e9f7f/scipy-1.0.0rc1.tar.gz
+- key: tar.xz:3udnaluky3qt5fz4xkz5uy4irwxsnjh6
+  url: https://github.com/scipy/scipy/releases/download/v1.6.0/scipy-1.6.0.tar.xz
 
 build_stages:
-  - when: platform == 'linux'
-    name: set-lapack-paths
-    after: libflags
-    before: install
-    handler: bash
-    bash: |
-      export LDFLAGS="$LDFLAGS -shared $LAPACK_LDFLAGS $BLAS_LDFLAGS"
-      export ATLAS=None
-      export OPENBLAS=$OPENBLAS_DIR
-      export LAPACK=$LAPACK_LDFLAGS
-      export BLAS=$BLAS_LDFLAGS
+- name: create-site.cfg
+  after: prologue
+  before: install
+  handler: bash
+  bash: |
+    cat > site.cfg << EOF
+    [ALL]
+    extra_link_args = -shared
+    [openblas]
+    libraries = openblas
+    library_dirs = ${OPENBLAS_DIR}/lib
+    include_dirs = ${OPENBLAS_DIR}/include
+    runtime_library_dirs = ${OPENBLAS_DIR}/lib
+    EOF
+
+- name: set-LDFLAGS
+  after: prologue
+  before: install
+  handler: bash
+  bash: |
+    export NPY_DISTUTILS_APPEND_FLAGS=1
+    export CPPFLAGS="${CPPFLAGS} -I$(${PYTHON} -c "import numpy; print(numpy.get_include())") -I${PYBIND11_CMAKE_DIR}/include"
+    echo $CPPFLAGS
+    export LDFLAGS="-shared -Wl,-rpath=${PYTHON_DIR}/lib -Wl,-rpath=${OPENBLAS_DIR}/lib $(${PYTHON_DIR}/bin/python3-config --ldflags)"
+    export LAPACK=None
+    export BLAS=None

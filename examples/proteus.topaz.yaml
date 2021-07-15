@@ -15,65 +15,75 @@ extends:
 
 parameters:
   machine: SGIICEX
-  HOST_MPI_DIR: /p/home/apps/sgi/mpt-2.12-sgi712r26
+  HOST_MPI_DIR: /p/home/apps/sgi/mpt-2.15_sgi715r20
   HOST_MPIEXEC: mpiexec_mpt
-  HOST_MPICC: /p/home/cekees/bin/mpicc
-  HOST_MPICXX: /p/home/cekees/bin/mpicxx
-  HOST_MPIF77: /p/home/cekees/bin/mpif77
-  HOST_MPIF90: /p/home/cekees/bin/mpif90
+  HOST_MPICC: mpicc
+  HOST_MPICXX: mpicxx
+  HOST_MPIF77: mpif77
+  HOST_MPIF90: mpif90
   PATH: |
-    /p/home/cekees/bin:/p/home/cekees/proteus/topaz/bin:/apps/gnu_compiler/4.9.3/bin:/usr/local/krb5/bin:/opt/pbs/12.2.7.152442/bin:/p/home/apps/sgi/mpt-2.12-sgi712r26/bin:/opt/sgi/sbin:/opt/sgi/bin:/usr/lib64/mpi/gcc/openmpi/bin:/p/home/cekees/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/krb5.20150813/bin:/usr/local/bin:/usr/bin/X11:/usr/X11R6/bin:/usr/games:/opt/c3/bin:/usr/lib/mit/bin:/usr/lib/mit/sbin:/pbs/SLB:/app/unsupported/local/bin:/app/unsupported/local/fta/bin:.
+    /app/unsupported/COST/git/2.4.4/gnu//bin:/app/unsupported/COST/tcltk/8.6.4/gnu//bin:/apps/gnu_compiler/4.9.3/bin:/usr/local/krb5/bin:/opt/pbs/13.1.1.162303/bin:/p/home/apps/sgi/mpt-2.15_sgi715r20/bin:/app/java/1.8/bin:/opt/sgi/sbin:/opt/sgi/bin:/usr/lib64/mpi/gcc/openmpi/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/krb5.20161121/bin:/usr/local/bin:/usr/bin/X11:/usr/X11R6/bin:/usr/games:/opt/c3/bin:/usr/lib/mit/bin:/usr/lib/mit/sbin:/sbin:/bin:/pbs/SLB:/app/unsupported/local/bin:/app/unsupported/local/fta/bin:.
   PROLOGUE: |
-    export HOSTTYPE=x86_64; export VENDOR=unknown; export OSTYPE=linux; export MACHTYPE=x86_64-suse-linux; export CPU=x86_64; export  INPUTRC=/etc/inputrc; export JAVA_BINDIR=/usr/lib64/jvm/jre/bin; export JAVA_ROOT=/usr/lib64/jvm/jre; export JAVA_HOME=/usr/lib64/jvm/jre; export JRE_HOME=/usr/lib64/jvm/jre; export MODULESHOME=/p/home/apps/modules_dest/Modules/3.2.10; export LD_LIBRARY_PATH=/p/home/apps/sgi/mpt-2.12-sgi712r26/lib:/p/home/cekees/proteus/topaz/lib:/p/home/cekees/proteus/topaz/lib:/app/unsupported/COST/lapack/3.5.0/gnu/lib:/apps/gnu_compiler/4.9.3/lib64:/p/home/apps/sgi/mpt-2.12-sgi712r26/lib:/usr/lib64/mpi/gcc/openmpi/lib64; export MODULE_VERSION=3.2.10; export MODULE_VERSION_STACK=3.2.10; export MODULEPATH=/p/home/apps/modules_dest/Modules/versions:/p/home/apps/modules_dest/Modules/$MODULE_VERSION/modulefiles:/p/home/apps/modules_dest/Modules/modulefiles:/p/home/apps/modulefiles/devel:/p/home/apps/modulefiles/modulefiles:/p/home/apps/modulefiles/apps:/p/home/apps/modulefiles/unsupported; export LOADEDMODULES=mpi/sgimpt/2.12-11218:pbs/12.2.7.152442:compiler/gcc/4.9.3:costinit:lapack/gnu/3.5.0; export BC_HOST=topaz; export CPATH=/p/home/apps/sgi/mpt-2.12-sgi712r26/include; export _LMFILES_=/p/home/apps/modulefiles/devel/mpi/sgimpt/2.12-11218:/p/home/apps/modulefiles/modulefiles/pbs/12.2.7.152442:/p/home/apps/modulefiles/devel/compiler/gcc/4.9.3; export FPATH=/p/home/apps/sgi/mpt-2.12-sgi712r26/include; export LIBRARY_PATH=/p/home/apps/sgi/mpt-2.12-sgi712r26/lib; export MPI_ROOT=/p/home/apps/sgi/mpt-2.12-sgi712r26; export MPT_VERSION=2.12; export ENV=/etc/bash.bashrc; export CC=gcc; export CXX=g++; export F77=gfortran; export F90=gfortran; export I_MPI_CC=gcc; export I_MPI_CXX=g++; export I_MPI_F77=gfortran; export I_MPI_F90=gfortran; export I_MPI_FC=gfortran; export MPICC_CC=gcc; export MPICXX_CXX=g++; export MPIF90_F90=gfortran; export FC=gfortran;
+    export PATH=/app/unsupported/COST/git/2.4.4/gnu//bin:/app/unsupported/COST/tcltk/8.6.4/gnu//bin:/apps/gnu_compiler/4.9.3/bin:/usr/local/krb5/bin:/opt/pbs/13.1.1.162303/bin:/p/home/apps/sgi/mpt-2.15_sgi715r20/bin:/app/java/1.8/bin:/opt/sgi/sbin:/opt/sgi/bin:/usr/lib64/mpi/gcc/openmpi/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/krb5.20161121/bin:/usr/local/bin:/usr/bin/X11:/usr/X11R6/bin:/usr/games:/opt/c3/bin:/usr/lib/mit/bin:/usr/lib/mit/sbin:/sbin:/bin:/pbs/SLB:/app/unsupported/local/bin:/app/unsupported/local/fta/bin:.; export LD_LIBRARY_PATH=/p/home/apps/intel/parallel_studio_2016/compilers_and_libraries_2016.0.109/linux/mkl/lib/intel64/:/p/home/apps/sgi/mpt-2.12-sgi712r26/lib:/app/unsupported/COST/gotoblas2/1.13/gnu/lib:/app/unsupported/COST/lapack/3.5.0/gnu:/app/unsupported/COST/dependencies/openssl/1.0.2n/gnu/lib:/app/unsupported/COST/dependencies/curl/7.43.0/gnu/lib:/app/unsupported/COST/git/2.4.4/gnu//lib:/app/unsupported/COST/tcltk/8.6.4/gnu//lib:/app/unsupported/COST/lapack/3.5.0/gnu//lib:/apps/gnu_compiler/4.9.3/lib64:/p/home/apps/sgi/mpt-2.15_sgi715r20/lib:/usr/lib64/mpi/gcc/openmpi/lib64; export CPPFLAGS="-I/app/unsupported/COST/tcltk/8.6.4/gnu//include -I/app/unsupported/COST/lapack/3.5.0/gnu//include"; export I_MPI_CC="gcc"; export ARCHIVE_HOST="gold.erdc.hpc.mil"; export LESS="-M -I"; export CPU="x86_64"; export INFOPATH="/apps/gnu_compiler/4.9.3/share/info:/usr/local/info:/usr/share/info:/usr/info"; export SHELL="/bin/tcsh"; export XDG_DATA_DIRS="/usr/local/share:/usr/share:/etc/opt/kde3/share:/opt/kde3/share:/usr/share/gnome"; export CSI_HOME="/app"; export LESS_ADVANCED_PREPROCESSOR="no"; export MANPATH="/app/unsupported/COST/tcltk/8.6.4/gnu//man:/app/unsupported/COST/lapack/3.5.0/gnu//man:/apps/gnu_compiler/4.9.3/share/man:/usr/local/krb5/share/man:/opt/pbs/13.1.1.162303/man:/p/home/apps/sgi/mpt-2.15_sgi715r20/man:/app/java/1.8/man:/usr/lib64/mpi/gcc/openmpi/man:/usr/share/man:/usr/local/man:/usr/local/share/man:/opt/c3/man:/opt/sgi/share/man:/app/unsupported/local/man:/app/unsupported/local/fta/man:/usr/share/catman:/usr/catman:/usr/man"; export JAVA_HOME="/app/java/1.8"; export VENDOR="unknown"; export FPATH="/p/home/apps/sgi/mpt-2.15_sgi715r20/include"; export MPIF90_F90="gfortran"; export MPSCP_BLOCKED_FILE="/app/unsupported/local/etc/mpscp_blocked_ports"; export SDK_HOME="/usr/lib64/jvm/java"; export CXX="mpicxx"; export HOSTNAME="topaz07.ice-x.erdc.hpc.mil"; export FC="mpif90"; export CSHRCREAD="true"; export SSH_CONNECTION="173.235.23.125 38038 140.31.13.248 22"; export GROUP="0089JR40"; export JAVA_ROOT="/app/java/1.8"; export MINICOM="-c on"; export OSCAR_HOME="/opt/oscar"; export CSHEDIT="emacs"; export LESSOPEN="lessopen.sh %s"; export CVS_RSH="ssh"; export I_MPI_F77="gfortran"; export PET_HOME="/app/unsupported/PETtools/CE"; export JDK_HOME="/usr/lib64/jvm/java"; export LANGUAGE="en_US.UTF-8"; export SHLVL="1"; export DISPLAY="140.31.13.248:16.0"; export EDITOR="emacs -nw"; export MODULESHOME="/p/home/apps/modules_dest/Modules/3.2.10"; export JAVA_BINDIR="/app/java/1.8/bin"; export KRB5HOME="/usr/local/krb5"; export DAAC_HOME="/app/DAAC"; export JAVA_PATH="/app/java/1.8"; export ENV="/etc/bash.bashrc"; export PROJECTS_HOME="/app/unsupported"; export PKG_CONFIG_PATH="/app/unsupported/COST/tcltk/8.6.4/gnu//lib/pkgconfig:/app/unsupported/COST/lapack/3.5.0/gnu//lib/pkgconfig"; export LS_OPTIONS="-N --color=none -T 0"; export XNLSPATH="/usr/share/X11/nls"; export MODULEPATH="/app/unsupported/COST/modules:/p/home/apps/modules_dest/Modules/versions:/p/home/apps/modules_dest/Modules/$MODULE_VERSION/modulefiles:/p/home/apps/modules_dest/Modules/modulefiles:/p/home/apps/modulefiles/devel:/p/home/apps/modulefiles/modulefiles:/p/home/apps/modulefiles/apps:/p/home/apps/modulefiles/unsupported"; export BC_HOST="topaz"; export MACHTYPE="x86_64-suse-linux"; export XDG_CONFIG_DIRS="/etc/xdg"; export I_MPI_CXX="g++"; export JAVA_VERSION="1.8"; export WINDOWMANAGER="/usr/bin/gnome"; export CMAKE_LIBRARY_PATH="/app/unsupported/COST/git/2.4.4/gnu//lib:/app/unsupported/COST/tcltk/8.6.4/gnu//lib:/app/unsupported/COST/lapack/3.5.0/gnu//lib"; export COST_MODULES_DIR="/app/unsupported/COST/modules"; export MPSCP_PORTS="tcp[9000-9999]"; export COLORTERM="1"; export _LMFILES_="/p/home/apps/modulefiles/apps/java/1.8:/p/home/apps/modulefiles/devel/mpi/sgimpt/2.15:/p/home/apps/modulefiles/modulefiles/pbs/13.1.1.162303:/p/home/apps/modulefiles/devel/compiler/gcc/4.9.3:/p/home/apps/modulefiles/unsupported/costinit:/app/unsupported/COST/modules/lapack/gnu/3.5.0:/app/unsupported/COST/modules/tcltk/gnu/8.6.4:/app/unsupported/COST/modules/git/gnu/2.4.4"; export PAGER="less"; export ACCOUNT="ERDCV00898ENQ"; export MODULE_VERSION="3.2.10"; export LAPACK_HOME="/app/unsupported/COST/lapack/3.5.0/gnu/"; export I_MPI_F90="gfortran"; export PROTEUS_ARCH="topaz"; export LANG="en_US.UTF-8"; export LIBRARY_PATH="/p/home/apps/sgi/mpt-2.15_sgi715r20/lib"; export KRB5_HOME="/usr/local/krb5"; export G_BROKEN_FILENAMES="1"; export SAMPLES_HOME="/usr/local/cac/Example_Codes"; export F90="mpif90"; export OSTYPE="linux"; export C3_RSH="ssh -oConnectTimeout=10 -oForwardX11=no"; export BC_CORES_PER_NODE="36"; export CC="mpicc"; export NNTPSERVER="news"; export XCURSOR_THEME="crystalwhite"; export G_FILENAME_ENCODING="@locale,UTF-8,ISO-8859-1,CP1252"; export HOST="topaz07.erdc.hpc.mil"; export MPT_VERSION="2.15"; export GIT_HOME="/app/unsupported/COST/git/2.4.4/gnu/"; export F77="mpif90"; export FROM_HEADER=""; export LESSCLOSE="lessclose.sh %s %s"; export SSH_TTY="/dev/pts/14"; export MPSCP_CONFIG_FILENAME="/app/unsupported/local/etc/mpscp_config.topaz07"; export CPATH="/apps/gnu_compiler/4.9.3/include:/p/home/apps/sgi/mpt-2.15_sgi715r20/include"; export FTAINFOFILE="/app/unsupported/local/fta/etc/ftainfo"; export MPICXX_CXX="g++"; export JRE_HOME="/app/java/1.8/jre"; export XKEYSYMDB="/usr/share/X11/XKeysymDB"; export MORE="-sl"; export INPUTRC="/etc/inputrc"; export GIT_SSL_NO_VERIFY="true"; export HOSTTYPE="x86_64"; export SSH_CLIENT="173.235.23.125 38038 22"; export PETTT_HOME="/app/unsupported/PETtools/CE"; export TERM="xterm-256color"; export CMAKE_INCLUDE_PATH="/app/unsupported/COST/tcltk/8.6.4/gnu//include:/app/unsupported/COST/lapack/3.5.0/gnu//include"; export LDFLAGS="-L/app/unsupported/COST/git/2.4.4/gnu//lib -L/app/unsupported/COST/tcltk/8.6.4/gnu//lib -L/app/unsupported/COST/lapack/3.5.0/gnu//lib"; export MPICC_CC="gcc"; export COST_HOME="/app/unsupported/COST"; export MODULE_VERSION_STACK="3.2.10"; export INFODIR="/usr/local/info:/usr/share/info:/usr/info"; export I_MPI_FC="gfortran"; export MPI_ROOT="/p/home/apps/sgi/mpt-2.15_sgi715r20"; export QT_HOME_DIR="/usr/share/desktop-data"; export KRB5CCNAME="PIPE:1023"; export LESSKEY="/etc/lesskey.bin"; export PYTHONSTARTUP="/etc/pythonstart"; export LOADEDMODULES="java/1.8:mpi/sgimpt/2.15:pbs/13.1.1.162303:compiler/gcc/4.9.3:costinit:lapack/gnu/3.5.0:tcltk/gnu/8.6.4:git/gnu/2.4.4"; export LS_COLORS="no=00:fi=00:di=01;34:ln=00;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=41;33;01:ex=00;32:*.cmd=00;32:*.exe=01;32:*.com=01;32:*.bat=01;32:*.btm=01;32:*.dll=01;32:*.tar=00;31:*.tbz=00;31:*.tgz=00;31:*.rpm=00;31:*.deb=00;31:*.arj=00;31:*.taz=00;31:*.lzh=00;31:*.lzma=00;31:*.zip=00;31:*.zoo=00;31:*.z=00;31:*.Z=00;31:*.gz=00;31:*.bz2=00;31:*.tb2=00;31:*.tz2=00;31:*.tbz2=00;31:*.avi=01;35:*.bmp=01;35:*.fli=01;35:*.gif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mng=01;35:*.mov=01;35:*.mpg=01;35:*.pcx=01;35:*.pbm=01;35:*.pgm=01;35:*.png=01;35:*.ppm=01;35:*.tga=01;35:*.tif=01;35:*.xbm=01;35:*.xpm=01;35:*.dl=01;35:*.gl=01;35:*.wmv=01;35:*.aiff=00;32:*.au=00;32:*.mid=00;32:*.mp3=00;32:*.ogg=00;32:*.voc=00;32:*.wav=00;32:"; export WORKDIR=/p/work1/${USER}; export CC=gcc; export CXX=g++; export F77=gfortran; export F90=gfortran; export FC=gfortran; TERM=xterm; 
 
   DYNAMIC_EXE_LINKER_FLAGS: -Bdynamic
 
 packages:
+  future:
+  recordtype:
   launcher:
   cmake:
+  openssl:
+    use: host-openssl
   python:
     host: false
+    link: shared
     build_with: |
-      openssl,bzip2,sqlite
+      bzip2, sqlite, openssl
   blas:
-    use: host-blas
+    use: openblas
   lapack:
-    use: host-lapack
+    use: openblas-lapack
   daetk:
   mpi:
     use: host-mpi
   mpi4py:
   nose:
   hdf5:
-  ipython:
-  matplotlib:
   parmetis:
     without_check: true
+  perl:
+    use: host-perl
   petsc:
-    version: 3.6.1
+    version: 3.10.2
+    openblas: true
     build_with: |
-      parmetis
+      parmetis, cmake, blas
+    download: |
+      hypre, blacs, scalapack, mumps, ptscotch, zoltan, superlu, superlu_dist
     coptflags: -O2
     link: shared
-    debug: false
-    fortran: false
+    debug: true
   petsc4py:
-    version: 3.6.0
+    version: 3.10.0
     with_conf: true
   pytables:
-  sphinx:
-  superlu:
-  sympy:
   tetgen:
   triangle:
   memory_profiler:
-  scipy:
-  netcdf4f:
-  python-netcdf4:
+  boost:
+    toolset: gcc
+    address_model: 64
+    build_with: |
+      python
+#  cgal:
+#  scipy:
   h5py:
-  ode:
   pip:
-  buildbot-worker:
- # pyode:
- # vtk:
- # pyvtk:
+  zoltan:
+    use: petsc-zoltan
+  chrono:
+  pytest:
+  pytest-xdist:
+#  gmsh:
+  scorec:

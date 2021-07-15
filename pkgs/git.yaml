@@ -4,8 +4,8 @@ dependencies:
   build: [curl, pcre, openssl, libiconv, gettext, expat, zlib, perl]
 
 sources:
-- key: tar.gz:2wghm2ua3bvf4gcgybghiymotc76yfmh
-  url: https://www.kernel.org/pub/software/scm/git/git-2.4.0.tar.gz
+- key: tar.gz:st5pfqfqfj4sbmfun5ewdwhjzlii5akb
+  url: https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.18.0.tar.gz
 
 defaults:
   # /bin/git contains hard-coded path

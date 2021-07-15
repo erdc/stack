@@ -1,0 +1,9 @@
+extends: [setuptools_package]
+
+dependencies:
+  build: []
+  run: []
+
+sources:
+ - key: tar.gz:ojjixltxeytcnugkzhtwxt6dnntx3k6e
+   url: https://github.com/tridelat/py2gmsh/tarball/v4.2.3.1

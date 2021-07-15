@@ -9,8 +9,8 @@ dependencies:
 # Also, openssl.org urls are not stable, they move old packages
 # whenever an update appears. Use github to download.
 sources:
-- key: tar.gz:46x7fev6ehbftrvpezdjy6u3horg5gv2
-  url: https://www.openssl.org/source/openssl-1.0.2j.tar.gz
+- key: tar.gz:ellfrdskprnnjd6kyl57dubvxvbsldbc
+  url: https://github.com/openssl/openssl/archive/OpenSSL_1_1_1j.tar.gz
 
 defaults:
   relocatable: false
@@ -45,13 +45,6 @@ build_stages:
   bash: |
     #./config --prefix=$ARTIFACT shared zlib-dynamic -I$ZLIB_DIR/include -Wl,-rpath=$ARTIFACT/lib -Wl,-rpath=$ZLIB_DIR/lib
     ./Configure --prefix=$ARTIFACT shared zlib-dynamic -I$ZLIB_DIR/include darwin64-x86_64-cc enable-ec_nistp-64_gcc_128
-
-- when: platform == 'linux'
-  name: fix_rpath
-  after: install
-  handler: bash
-  bash: |
-    $PATCHELF --set-rpath $ARTIFACT/lib:$ZLIB_DIR/lib $ARTIFACT/lib/engines/libgost.so
 
 - name: link_ca_bundle
   handler: bash

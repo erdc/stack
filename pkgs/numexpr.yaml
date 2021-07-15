@@ -1,10 +1,9 @@
 extends: [setuptools_package]
 
 dependencies:
-  build: [numpy]
-  run: [numpy]
+  build: [blas,numpy]
+  run: [blas,numpy]
 
 sources:
- - key: tar.gz:3mxoolzhpmr4qljaigessdvew6jptpk3
-   url: https://pypi.python.org/packages/c6/f0/11628fa4d332d8fe9ab0ba8e9bfe0e065fb6b5324859171ee72d84e079c0/numexpr-2.6.1.tar.gz
-
+ - key: tar.gz:7qqyw5343oyu7kgp7dzic5pommn2zk55
+   url: https://files.pythonhosted.org/packages/82/a0/42e0f42d79e0db81e78424828dee1aea08a06da66c2bc06068742e9b860f/numexpr-2.6.9.tar.gz

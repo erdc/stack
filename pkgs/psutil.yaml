@@ -1,10 +1,9 @@
-extends: [distutils_package, libflags]
+extends: [setuptools_package]
 
 dependencies:
   build: []
   run: []
 
 sources:
-- key: zip:kqi6elddc2bcb5fyzrbp2bpks323lzs6
-  url: https://pypi.python.org/packages/93/7f/347309562d30c688299727e65f4d76ef34180c406dfb6f2c7b6c8d746e13/psutil-5.0.0.zip
-
+ - key: tar.gz:nbpmc3fbjudzivmjf4s32esn6jx7se3w
+   url: https://files.pythonhosted.org/packages/c4/b8/3512f0e93e0db23a71d82485ba256071ebef99b227351f0f5540f744af41/psutil-5.7.0.tar.gz

@@ -8,20 +8,23 @@
 extends:
 - file: debian.yaml
 
+parameters:
+  pyver: '3.7'
+  python_site_packages_rel: 'lib/python3.7/site-packages'
+  python_host_packages: '/usr/lib/python3.7/dist-packages'
+
 # The packages list specifies all the packages that you
 # require installed.  <#> will ensure that all packages
 # and their dependencies are installed when you build this
 # profile.
 
 packages:
+  future:
   recordtype:
-#  clawpack:
-  launcher:
   cmake:
-  openjpeg:
+  openjpeg: #dependency of chrono
     version: '2.1'
   openssl:
-    use: host-openssl
   python:
     host: false
     link: shared
@@ -38,11 +41,8 @@ packages:
   nose:
   coverage:
   hdf5:
-  pygments:
-  parmetis:
-  pillow:
   petsc:
-    version: 3.7.6
+    version: 3.10.2
     openblas: true
     build_with: |
       parmetis, cmake, blas
@@ -52,64 +52,56 @@ packages:
     link: shared
     debug: false
   petsc4py:
-    version: 3.7.0
+    version: 3.10.0
     with_conf: true
   pytables:
-  sympy:
-  tetgen:
-  triangle:
+  tetgen: #3D simplex mesh generator
+  triangle: #2D simplex mesh generator
   memory_profiler:
-  boost:
-    toolset: gcc
-    address_model: 64
-    build_with: |
-      python
-  cgal:
-  netcdf4:
-  netcdf4f:
-  python-netcdf4:
-  netcdf4cpp:
-  jasper:
-  grib_api:
-  pyproj:
-  pygrib:
   scipy:
   h5py:
-#  pydap:
-  rdp:
-  ode:
   pip:
-  pexpect:
-  pcs_api:
-  zoltan:
   chrono:
   pytest:
   pytest-xdist:
   pytest-cov:
   pybind11:
-  doxygen:
-  gmsh:
+  gmsh: #used for mesh generation
+  zoltan:
   scorec:
-  matplotlib:
-  sphinx:
-  sphinx-bootstrap-theme:
-  pyzmq:
-  vapory:
+  #matplotlib: # used in testing suite 
+  #pcs_api: #personal cloud storage api
+  #pyzmq:
+  #scandir:
+  #
+  ## Optional Packages
+  #buildbot-worker:
+  #doxygen: #for building documentation
+  #sphinx: #for building website
+  #sphinx-bootstrap-theme:
+  #clawpack:
+  #pydap:
+  #julia:
+  #pyjulia:
+  #jasper: 
+  #grib_api:
+  #cgal: computational geometric library
+  #pyproj:
+  #pygrib:
+  #rdp: #remote desktop package
+  #vapory:
   #tornado:
   #ipython:
   #terminado:
-  geojson:
-  shapely:
-  matlab:
-    use: host-matlab
+  #geojson:
+  #shapely:
+  #matlab:
+  #  use: host-matlab
   #ipdb:
   #jupyterlab:
   #jupyter:
   #ipyparallel:
-  buildbot-worker:
-  julia:
-  pyjulia:
-  scandir:
+  #backports-abc:
   #backports-shutil-get-terminal-size:
   #configparser:
   #rtree:
@@ -121,3 +113,17 @@ packages:
   #ipyleaflet:
   #pythreejs:
   #proteus:
+  #sympy: #symbolic math library
+  #ode: #library which has ode solvers
+  #pygments:
+  #pillow: #python imaging library
+  #launcher:
+  #netcdf4:
+  #netcdf4f:
+  #python-netcdf4:
+  #netcdf4cpp:
+  #pexpect:
+
+
+
+
