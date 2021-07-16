@@ -1,12 +1,15 @@
 extends: [setuptools_package]
 
 dependencies:
-  build: [blas, lapack, numpy, pybind11, pybind11_cmake, {{build_with}}]
-  run: [blas, lapack, numpy, pybind11, pybind11_cmake]
+  build: [blas, lapack, numpy, pybind11, pybind11_cmake, cython, {{build_with}}]
+  run: [blas, lapack, numpy, pybind11, pybind11_cmake, cython]
 
 sources:
 - key: tar.xz:3udnaluky3qt5fz4xkz5uy4irwxsnjh6
   url: https://github.com/scipy/scipy/releases/download/v1.6.0/scipy-1.6.0.tar.xz
+#requires pythran
+#- key: tar.gz:6eetffx43iljflxbncaffd3hmoqklpcf
+#  url: https://github.com/scipy/scipy/archive/refs/tags/v1.7.0.tar.gz
 
 build_stages:
 - name: create-site.cfg
@@ -18,10 +21,10 @@ build_stages:
     [ALL]
     extra_link_args = -shared
     [openblas]
-    libraries = openblas
-    library_dirs = ${OPENBLAS_DIR}/lib
+    libraries = openblas,sci_gnu
+    library_dirs = ${OPENBLAS_DIR}/lib:/opt/cray/pe/libsci/20.09.1/gnu/8.1/broadwell/lib/
     include_dirs = ${OPENBLAS_DIR}/include
-    runtime_library_dirs = ${OPENBLAS_DIR}/lib
+    runtime_library_dirs = ${OPENBLAS_DIR}/lib:/opt/cray/pe/libsci/20.09.1/gnu/8.1/broadwell/lib/
     EOF
 
 - name: set-LDFLAGS

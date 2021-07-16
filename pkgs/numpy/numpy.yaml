@@ -32,8 +32,8 @@ build_stages:
       export NPY_DISTUTILS_APPEND_FLAGS=1
       export LDFLAGS="-shared -Wl,-rpath=${PYTHON_DIR}/lib -Wl,-rpath=${OPENBLAS_DIR}/lib $(${PYTHON_DIR}/bin/python3-config --ldflags)"
       #export ATLAS=None
-      export LAPACK=None
-      export BLAS=None
+      #export LAPACK=None
+      #export BLAS=None
 
 #   - when: machine == 'CrayXE6' or machine == 'CrayXC30' or machine == 'CrayXC40'
 #     name: create-site.cfg

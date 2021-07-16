@@ -1,8 +1,8 @@
 extends: [base_package]
 
 sources:
-- key: tar.gz:gcuz33exowklhb5bp5ezarjd426i3wel
-  url: https://github.com/xianyi/OpenBLAS/archive/refs/tags/v0.3.15.tar.gz
+- key: tar.gz:34utj6rt2bh5qtmdtstjqkan6vogsdeg
+  url: https://github.com/xianyi/OpenBLAS/archive/refs/tags/v0.3.17.tar.gz
 
 defaults:
   # cmake/OpenBLASConfig.cmake contains hard-coded path
@@ -31,8 +31,8 @@ build_stages:
   after: prologue
   handler: bash
   bash: |
-    make USE_THREAD=${USE_THREAD} {{extra_flags}} -j${HASHDIST_CPU_COUNT}
-    make {{extra_flags}} PREFIX=${ARTIFACT} install
+    make USE_THREAD=${USE_THREAD} {{extra_flags}} -j${HASHDIST_CPU_COUNT} TARGET=HASWELL NO_SHARED=1 NO_FORTRAN=1
+    make {{extra_flags}} PREFIX=${ARTIFACT} TARGET=HASWELL  NO_SHARED=1 NO_FORTRAN=1 install
 
 when_build_dependency:
 - {set: 'BLAS_LDFLAGS', value: '-lopenblas'}

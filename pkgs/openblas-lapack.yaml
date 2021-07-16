@@ -4,6 +4,6 @@ dependencies:
 
 when_build_dependency:
 - {set: 'BLAS_LDFLAGS', value: '-lopenblas'}
-- {set: 'LAPACK_LDFLAGS', value: '-lopenblas'}
+- {set: 'LAPACK_LDFLAGS', value: '-lopenblas -llapack'}
 - {set: 'OPENBLAS_DIR', value: '${BLAS_DIR}'}
 - {set: 'LAPACK_DIR', value: '${BLAS_DIR}'}
