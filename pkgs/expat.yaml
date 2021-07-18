@@ -1,8 +1,8 @@
 extends: [autotools_package]
 
 sources:
-- url: https://sourceforge.net/projects/expat/files/expat/2.2.3/expat-2.2.3.tar.bz2
-  key: tar.bz2:wmmjb6yc7boaakthjemsh6e33jicrkea
+- key: tar.gz:uaforjvznnr2hein3qiqbmnh55inyjw4
+  url: https://github.com/libexpat/libexpat/releases/download/R_2_4_1/expat-2.4.1.tar.gz
 
 build_stages:
 - name: setEnv
