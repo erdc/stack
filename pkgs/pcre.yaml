@@ -1,8 +1,8 @@
 extends: [autotools_package]
 
 sources:
-- key: zip:lnyjvjc6uo4lw4yfffdsacwrq73fdiqe
-  url: https://ftp.pcre.org/pub/pcre/pcre-8.45.zip
+- key: tar.gz:jzwoapqdg3ulji6wyk3qwhc6dbmquvtt
+  url: https://ftp.pcre.org/pub/pcre/pcre-8.45.tar.gz
 
 build_stages:
 - name: configure
