@@ -1,6 +1,6 @@
 extends: [autotools_package]
 dependencies:
-  build: [pcre, aclocal, python, {{build_with}}]
+  build: [pcre, python, {{build_with}}]
   run: [pcre, python]
   
 sources:
