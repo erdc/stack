@@ -1,11 +1,11 @@
 extends: [autotools_package]
 dependencies:
-  build: [pcre, python, {{build_with}}]
+  build: [pcre, aclocal, python, {{build_with}}]
   run: [pcre, python]
   
 sources:
 - key: tar.gz:wx2d2x4uyv7n42kp7zpiawwmli5eci4h
-  url: https://github.com/swig/swig/archive/v4.0.2.tar.gz
+  url: https://github.com/swig/swig/archive/refs/tags/v4.0.2.tar.gz
 
 defaults:
   relocatable: false
