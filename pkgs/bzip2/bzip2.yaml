@@ -5,8 +5,8 @@ when platform == 'linux':
     build: [patchelf]
 
 sources:
-- key: tar.gz:ukci6nh42xlm6r666acgd7fvfcqeqtmo
-  url: https://sourceforge.net/projects/bzip2/files/bzip2-1.0.6.tar.gz
+- key: tar.gz:vnnagf3o4ednh4h2sdrydwshrxnoibmr
+  url: https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz
 
 build_stages:
 

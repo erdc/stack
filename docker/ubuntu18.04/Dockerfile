@@ -27,6 +27,7 @@ RUN git clone https://github.com/erdc/stack && \
     git log | head -1 && \
     git submodule update --init --recursive && \
     ./hit/bin/hit init-home && \
+    export PYTHONHTTPSVERIFY=0 && \
     ./hit/bin/hit remote add https://proteus.cee.lsu.edu/hashdist_src --objects="source" && \
     ln -s examples/proteus.linux.yaml default.yaml && \
     ./hit/bin/hit build default.yaml -v && \
