@@ -30,7 +30,8 @@ RUN git clone https://github.com/erdc/stack && \
     export PYTHONHTTPSVERIFY=0 && \
     ./hit/bin/hit remote add https://proteus.cee.lsu.edu/hashdist_src --objects="source" && \
     ln -s examples/proteus.linux.yaml default.yaml && \
-    ./hit/bin/hit build default.yaml && \
+    export NCORES=`nproc --all` && \
+    ./hit/bin/hit build -j $NCORES default.yaml && \
     cd /home/$NB_USER && \
     chmod u+rwX -R /home/$NB_USER/.hashdist/src && \
     rm -rf /home/$NB_USER/.hashdist/src && \
