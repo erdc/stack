@@ -68,7 +68,7 @@ packages:
     build_with: |
       parmetis, cmake, blas
     download: |
-      superlu, superlu_dist, hypre, blacs, scalapack, mumps
+      superlu, superlu_dist, hypre, blacs, scalapack
     coptflags: -O2
     link: shared
     debug: false
