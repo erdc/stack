@@ -9,8 +9,13 @@ defaults:
   relocatable: false
 
 sources:
-- key: tar.bz2:yqfhovb74xdslg4bh5yn3lzctqtwbisq
-  url: http://rabbit.dereferenced.org/~nenolod/distfiles/pkgconf-0.9.6.tar.bz2
+- key: tar.gz:263p3njc3aobd5na4cqgfgu7ksaibhwj
+  url: https://distfiles.dereferenced.org/pkgconf/pkgconf-1.8.0.tar.gz
+
+#sources:
+#- key: tar.bz2:yqfhovb74xdslg4bh5yn3lzctqtwbisq
+#  url: http://rabbit.dereferenced.org/~nenolod/distfiles/pkgconf-0.9.6.tar.bz2
+
 
 build_stages:
 - name: install_wrapper

@@ -30,8 +30,12 @@ when pyver == '3.7' or pyver == '3.7m':
       url: https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tar.xz
 when pyver == '3.9' or pyver == '3.9m':
    sources:
-   - key: tar.xz:teod7cwjpgjphuyi737laote3ndck5hk
-     url: https://www.python.org/ftp/python/3.9.1/Python-3.9.1.tar.xz
+   - key: tar.xz:cjnqywmpdyk5fktfibxih54s356rohg7
+     url: https://www.python.org/ftp/python/3.9.13/Python-3.9.13.tar.xz
+
+#   sources:
+#   - key: tar.xz:teod7cwjpgjphuyi737laote3ndck5hk
+#     url: https://www.python.org/ftp/python/3.9.1/Python-3.9.1.tar.xz
 
 dependencies:
   build: [zlib, bzip2, sqlite, openssl, launcher, ncurses, readline, gdbm, {{build_with}}]

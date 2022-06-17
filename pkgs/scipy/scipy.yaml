@@ -8,6 +8,10 @@ sources:
 - key: tar.xz:3udnaluky3qt5fz4xkz5uy4irwxsnjh6
   url: https://github.com/scipy/scipy/releases/download/v1.6.0/scipy-1.6.0.tar.xz
 
+#sources:
+#- key: tar.xz:afan2jgrjtqzj7nt35ewyimq6cewzkck
+#  url: https://github.com/scipy/scipy/releases/download/v1.8.1/scipy-1.8.1.tar.xz
+
 build_stages:
 - name: create-site.cfg
   after: prologue
@@ -23,7 +27,6 @@ build_stages:
     include_dirs = ${OPENBLAS_DIR}/include
     runtime_library_dirs = ${OPENBLAS_DIR}/lib
     EOF
-
 - name: set-LDFLAGS
   after: prologue
   before: install
