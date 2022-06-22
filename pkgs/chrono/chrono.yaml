@@ -1,8 +1,11 @@
 extends: [cmake_package]
 
 sources:
-- key: tar.gz:gnmsgrmpy5icjoxsiwgjjwose7ng52i7
-  url: https://github.com/projectchrono/chrono/archive/refs/tags/7.0.3.tar.gz
+- key: zip:npiu25bebzitgmnygp7pdymx77y3hedg
+  url: https://github.com/projectchrono/chrono/archive/ee58b43540b6dda157e92f143da345993b3a0301.zip
+#sources:
+#- key: tar.gz:gnmsgrmpy5icjoxsiwgjjwose7ng52i7
+#  url: https://github.com/projectchrono/chrono/archive/refs/tags/7.0.3.tar.gz
 
 defaults:
   relocatable: false

@@ -1,16 +1,12 @@
 extends: [setuptools_package]
 
 dependencies:
-  build: [blas, lapack, numpy, pybind11, pybind11_cmake, {{build_with}}]
-  run: [blas, lapack, numpy, pybind11, pybind11_cmake]
+  build: [blas, lapack, numpy, pybind11, pybind11_cmake, cython, ninja, pythran, meson, gast, beniget, ply, {{build_with}}]
+  run: [blas, lapack, numpy, pybind11, pybind11_cmake, cython, ninja, pythran, meson, gast, beniget, ply]
 
 sources:
-- key: tar.xz:3udnaluky3qt5fz4xkz5uy4irwxsnjh6
-  url: https://github.com/scipy/scipy/releases/download/v1.6.0/scipy-1.6.0.tar.xz
-
-#sources:
-#- key: tar.xz:afan2jgrjtqzj7nt35ewyimq6cewzkck
-#  url: https://github.com/scipy/scipy/releases/download/v1.8.1/scipy-1.8.1.tar.xz
+- key: tar.xz:afan2jgrjtqzj7nt35ewyimq6cewzkck
+  url: https://github.com/scipy/scipy/releases/download/v1.8.1/scipy-1.8.1.tar.xz
 
 build_stages:
 - name: create-site.cfg
@@ -38,3 +34,13 @@ build_stages:
     export LDFLAGS="-shared -Wl,-rpath=${PYTHON_DIR}/lib -Wl,-rpath=${OPENBLAS_DIR}/lib $(${PYTHON_DIR}/bin/python3-config --ldflags)"
     export LAPACK=None
     export BLAS=None
+- name: install
+  after: setup_dirs
+  mode: replace
+  handler: bash
+  bash: |
+    PATH=$MESON_DIR/bin:$CYTHON_DIR/bin:$PYTHRAN_DIR/bin:$PATH PYTHONPATH=$PYTHONPATH:$SETUPTOOLS_DIR/lib/python{{pyver}}/site-packages ${PYTHON} -c 'import setuptools; __file__="setup.py"; exec(open(__file__).read())' \
+       ${SETUPTOOLS_PACKAGE_EXTRA_OPTIONS} \
+       install \
+       --prefix=. --root=${ARTIFACT} \
+       --single-version-externally-managed

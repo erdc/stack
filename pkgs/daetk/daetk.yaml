@@ -5,7 +5,7 @@ dependencies:
   build: [petsc, parmetis, mpi]
 
 defaults:
-  petscversion: '3.7.5'
+  petscversion: '3.17.2'
 
 when petscversion == '3.7.5':
   sources:
@@ -19,6 +19,10 @@ when petscversion == '3.5.2':
   sources:
   - url: https://github.com/erdc-cm/daetk.git
     key: git:e05b9975a2d413148ce122a274be675b27f9450d
+when petscversion == '3.17.2':
+  sources:
+  - key: tar.gz:rpgdo62zz6sfqmb2psc3khnxkgychozw
+    url: https://github.com/erdc/daetk/archive/refs/tags/1.0.2.tar.gz
 
 build_stages:
 - when: platform == 'Darwin'
