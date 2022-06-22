@@ -5,7 +5,7 @@ dependencies:
   run: [blas, cython]
 
 sources:
-- key: tar.gz:yifosdgfxm3okhz2tvlkurewnj5zubiy
+- key: tar.gz:lcdi5koqp3mtsqigwnb66akwy5hfv3f3
   url: https://github.com/numpy/numpy/archive/refs/tags/v1.23.0.tar.gz
 
 build_stages:
