@@ -51,3 +51,13 @@ build_stages:
   after: prologue
   extra: ['--enable-shared']
 
+- name: setEnv
+  before: configure
+  handler: bash
+  bash: |
+    unset CC CFLAGS
+
+- name: configure
+  after: prologue
+  extra: ['--enable-shared']
+

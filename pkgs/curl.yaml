@@ -30,10 +30,17 @@ sources:
 #    key: tar.gz:dl6tespqw6zufuqodtfmxpasggdziyrs
 
 build_stages:
-- when: test
-  name: configure
+- name: setEnv
+  after: prologue
+  before: configure
+  handler: bash
+  bash: |
+    export CFLAGS="-fPIC"
+    export CXXFLAGS="-fPIC"
+
+- name: configure
   mode: override
-  extra: ['--with-openssl']
+  extra: ['--with-openssl', '--enable-shared', '--with-pic']
 
 - when: use_ca_bundle
   name: configure

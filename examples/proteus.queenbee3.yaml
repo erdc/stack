@@ -9,9 +9,9 @@ extends:
 - file: debian.yaml
 
 parameters:
-  pyver: '3.7'
-  python_site_packages_rel: 'lib/python3.7/site-packages'
-  python_host_packages: '/usr/lib/python3.7/site-packages'
+  pyver: '3.10'
+  python_site_packages_rel: 'lib/python3.10/site-packages'
+  python_host_packages: '/usr/lib/python3.10/site-packages'
   HOST_MPICC: mpicc
   HOST_MPICXX: mpicxx
   HOST_MPIF77: mpif77
@@ -35,7 +35,7 @@ packages:
   recordtype:
   cmake:
   openjpeg: #dependency of chrono
-    version: '2.1'
+    version: '2.4'
   openssl:
   python:
     host: false
@@ -54,7 +54,7 @@ packages:
   coverage:
   hdf5:
   petsc:
-    version: 3.13.1
+    version: 3.17.2
     openblas: true
     build_with: |
       parmetis, cmake, blas
@@ -64,11 +64,9 @@ packages:
     link: shared
     debug: false
   petsc4py:
-    version: 3.13.0
-    with_conf: true
-  pytables:
-  tetgen: #3D simplex mesh generator
-  triangle: #2D simplex mesh generator
+    version: 3.17.2
+  tetgen:
+  triangle:
   memory_profiler:
   scipy:
   h5py:
