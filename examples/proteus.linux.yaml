@@ -9,9 +9,9 @@ extends:
 - file: debian.yaml
 
 parameters:
-  pyver: '3.9'
-  python_site_packages_rel: 'lib/python3.9/site-packages'
-  python_host_packages: '/usr/lib/python3.9/site-packages'
+  pyver: '3.10'
+  python_site_packages_rel: 'lib/python3.10/site-packages'
+  python_host_packages: '/usr/lib/python3.10/site-packages'
 
 # The packages list specifies all the packages that you
 # require installed.  <#> will ensure that all packages
@@ -38,7 +38,7 @@ packages:
   mpi4py:
   hdf5:
   petsc:
-    version: 3.14.4
+    version: 3.17.2
     openblas: true
     build_with: |
       parmetis, cmake, blas
@@ -48,7 +48,7 @@ packages:
     link: shared
     debug: false
   petsc4py:
-    version: 3.14.1
+    version: 3.17.2
   tetgen:
   triangle:
   memory_profiler:

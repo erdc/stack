@@ -1,7 +1,7 @@
 extends: [autotools_package]
 
 dependencies:
-  build: [autoconf, gnu-sed]
+  build: [autoconf, gnu-sed, texinfo]
 
 defaults:
   relocatable: false
@@ -19,6 +19,7 @@ build_stages:
     before: configure
     handler: bash
     bash: |
+      export PATH=${TEXINFO_DIR}/bin:${PATH}
       ./autogen.sh
       sed -i 's:@toolexeclibdir@:$(libdir):g' Makefile.in && \
       sed -e '/^includesdir/ s/$(libdir).*$/$(includedir)/' -i include/Makefile.in && \

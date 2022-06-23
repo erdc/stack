@@ -1,8 +1,8 @@
 extends:  [autotools_package]
 
 sources:
-- key: tar.gz:ist2vnrvxnzbz3xwx3wmjve57umupazf
-  url: http://ftp.gnu.org/gnu/libidn/libidn-1.33.tar.gz
+- key: tar.gz:3yalqqhxk7gtxmkn3gra2wjwi4zdlxol
+  url: http://ftp.gnu.org/gnu/libidn/libidn-1.38.tar.gz
 
 defaults:
   relocatable: false

@@ -19,19 +19,30 @@ when not use_ca_bundle:
 
 defaults:
   use_ca_bundle: false
-
+  test: true
+  
 sources:
-  - url: http://curl.haxx.se/download/curl-7.37.0.tar.gz
-    key: tar.gz:dl6tespqw6zufuqodtfmxpasggdziyrs
+  - url: http://curl.haxx.se/download/curl-7.83.1.tar.gz
+    key: tar.gz:sp5szvfyqbswwtufrherfkp5betvaftn
+
+#sources:
+#  - url: http://curl.haxx.se/download/curl-7.37.0.tar.gz
+#    key: tar.gz:dl6tespqw6zufuqodtfmxpasggdziyrs
 
 build_stages:
+- when: test
+  name: configure
+  mode: override
+  extra: ['--with-openssl']
+
 - when: use_ca_bundle
   name: configure
   mode: override
-  extra: ['--with-ca-bundle=${CA_BUNDLE_DIR}/etc/ca-bundle/ca-bundle.crt']
+  extra: ['--with-openssl']
+#  extra: ['--with-ca-bundle=${CA_BUNDLE_DIR}/etc/ca-bundle/ca-bundle.crt']
 
-- name: install_mk-ca-bundle.pl
-  after: install
-  handler: bash
-  bash:
-    cp lib/mk-ca-bundle.pl ${ARTIFACT}/lib/
+#- name: install_mk-ca-bundle.pl
+#  after: install
+#  handler: bash
+#  bash:
+#    cp lib/mk-ca-bundle.pl ${ARTIFACT}/lib/

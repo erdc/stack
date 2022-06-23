@@ -5,8 +5,8 @@ dependencies:
   run: [blas, cython]
 
 sources:
- - key: zip:46eupe7g5bka3pvmo7ehwse6gmmupajv
-   url: https://files.pythonhosted.org/packages/84/1e/ff467ac56bfeaea51d4a2e72d315c1fe440b20192fea7e460f0f248acac8/numpy-1.18.2.zip
+- key: tar.gz:lcdi5koqp3mtsqigwnb66akwy5hfv3f3
+  url: https://github.com/numpy/numpy/archive/refs/tags/v1.23.0.tar.gz
 
 build_stages:
   - name: create-site.cfg
@@ -14,6 +14,7 @@ build_stages:
     before: install
     handler: bash
     bash: |
+      export NPY_DISABLE_SVML=1
       cat > site.cfg << EOF
       [ALL]
       extra_link_args = -shared

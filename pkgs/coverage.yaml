@@ -6,4 +6,4 @@ dependencies:
 
 sources:
 - key: tar.gz:ai4moaahi7ry7ndhkme3gmsvckg4exjp
-  url: https://github.com/nedbat/coveragepy/archive/coverage-5.4.tar.gz
+  url: https://github.com/nedbat/coveragepy/archive/coverage-6.4.1.tar.gz

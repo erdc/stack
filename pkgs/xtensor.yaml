@@ -5,8 +5,8 @@ dependencies:
   run: [xtl, mpi]
 
 sources:
-- key: tar.gz:xg6o5je5wjakwzho3y3xnuaqhoyfapm5
-  url: https://github.com/xtensor-stack/xtensor/archive/0.23.1.tar.gz
+- key: tar.gz:3un7jrhlux546odkxorge76ljkkh2ffi
+  url: https://github.com/xtensor-stack/xtensor/archive/0.24.1.tar.gz
 
 defaults:
   relocatable: true

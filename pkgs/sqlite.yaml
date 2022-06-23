@@ -3,8 +3,8 @@ dependencies:
   build: [readline]
 
 sources:
-- key: tar.gz:hakmn5rj76jznczlg6tqjf6p5gftm27v
-  url: http://sqlite.org/2017/sqlite-autoconf-3200000.tar.gz
+- key: tar.gz:llyh32mcxjsy7wi2amlqzfc7thexd5uv
+  url: http://sqlite.org/2022/sqlite-autoconf-3380500.tar.gz
 
 defaults:
   # /bin/h5pcc contains hard-coded path
