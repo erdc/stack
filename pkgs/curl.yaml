@@ -25,10 +25,6 @@ sources:
   - url: http://curl.haxx.se/download/curl-7.83.1.tar.gz
     key: tar.gz:sp5szvfyqbswwtufrherfkp5betvaftn
 
-#sources:
-#  - url: http://curl.haxx.se/download/curl-7.37.0.tar.gz
-#    key: tar.gz:dl6tespqw6zufuqodtfmxpasggdziyrs
-
 build_stages:
 - when: test
   name: configure
