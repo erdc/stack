@@ -12,9 +12,6 @@ build_stages:
     extra: ['--without-python']
 
 sources:
-#  - url: http://xmlsoft.org/sources/libxml2-2.9.12.tar.gz ##This is the most recent version but doesnt compile.
-#    key: tar.gz:zdlgqhryyvxrokeszbo5yccs4h6uwu5u
-
   - url: http://xmlsoft.org/sources/libxml2-2.9.9.tar.gz
     key: tar.gz:st5xbcibipr4mve7ezoo5e7mazgibkcm
 

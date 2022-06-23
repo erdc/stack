@@ -6,11 +6,6 @@ sources:
 - key: tar.gz:7dhlj3qtdyzdeitkc72rwfsk7rdm2c46
   url: http://ftp.gnu.org/gnu/readline/readline-8.1.tar.gz
 
-#sources:
-#- key: tar.gz:ougug4mffbxubi3j4hspi5so3kjsxfcz
-#  url: http://ftp.gnu.org/gnu/readline/readline-7.0.tar.gz
-
-
 defaults:
   relocatable: false
 

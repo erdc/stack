@@ -4,10 +4,6 @@ sources:
 - key: tar.gz:s76fdlblbbouzxrr55gsymjcyinlyil6
   url: https://ftp.gnu.org/pub/gnu/ncurses/ncurses-6.3.tar.gz
 
-#- key: tar.gz:gayg4ddw4d47d4g6tb6pdsbklqq6dttf
-#  url: https://ftp.gnu.org/pub/gnu/ncurses/ncurses-6.2.tar.gz
-
-
 defaults:
   relocatable: false
 
