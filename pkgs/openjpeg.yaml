@@ -4,7 +4,7 @@ dependencies:
   build: []
 
 defaults:
-  version: 1.5
+  version: 2.5
   relocatable: false
 
 when version == '1.5':
@@ -20,9 +20,14 @@ when version == '2.4':
   - key: tar.gz:q4blu2fuijsx6enk5mvthbcdzkgv7ok3
     url: https://github.com/uclouvain/openjpeg/archive/v2.4.0.tar.gz
 
+when version == '2.5':
+  sources:
+  - key: tar.gz:amzya3lk33gg66ureq5sxa476tjakobd
+    url: https://github.com/uclouvain/openjpeg/archive/v2.5.0.tar.gz
+
 # grib_api, at least, expects not to find this namespaced
 build_stages:
-- when: version == '1.5'
+- when: version == '2.5'
   name: fix_include
   after: install
   handler: bash

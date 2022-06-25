@@ -5,5 +5,5 @@ defaults:
   relocatable: false
 
 sources:
-- key: tar.bz2:b6s4v7ty6zwswua3imawqwahbvjlur55
-  url: https://gitlab.com/libeigen/eigen/-/archive/3.3.9/eigen-3.3.9.tar.bz2
+- key: tar.bz2:wtazqrqoxjxsru2istr2k4ijtcaykfiq
+  url: https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.tar.bz2
