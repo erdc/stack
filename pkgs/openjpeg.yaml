@@ -1,7 +1,7 @@
 extends: [cmake_package]
 
 dependencies:
-  build: []
+  build: [libjbig]
 
 defaults:
   version: 2.5
