@@ -45,11 +45,11 @@ build_stages:
 - when: use_ca_bundle
   name: configure
   mode: override
-  extra: ['--with-openssl']
-#  extra: ['--with-ca-bundle=${CA_BUNDLE_DIR}/etc/ca-bundle/ca-bundle.crt']
+  extra: ['--with-ca-bundle=${CA_BUNDLE_DIR}/etc/ca-bundle/ca-bundle.crt','--with-openssl']
 
-#- name: install_mk-ca-bundle.pl
-#  after: install
-#  handler: bash
-#  bash:
-#    cp lib/mk-ca-bundle.pl ${ARTIFACT}/lib/
+- when: use_ca_bundle
+  name: install_mk-ca-bundle.pl
+  after: install
+  handler: bash
+  bash:
+    cp lib/mk-ca-bundle.pl ${ARTIFACT}/lib/
