@@ -6,6 +6,15 @@ sources:
 
 
 build_stages:
+- name: setEnv
+  before: configure
+  handler: bash
+  bash: |
+    export CFLAGS="-fPIC"
+
+- name: configure
+  after: prologue
+  extra: ['--enable-shared']
 
 - when: platform == 'Cygwin'
   files: [zlib-cygwin.patch]
@@ -35,15 +44,14 @@ build_stages:
   bash: |
     make install -fwin32/Makefile.gcc SHARED_MODE=1 SHAREDLIB=cygz.dll DESTDIR=${ARTIFACT}/ BINARY_PATH=bin INCLUDE_PATH=include LIBRARY_PATH=lib
 
-- when: machine == 'CrayXC40'
-  name: setEnv
+
+- name: setEnv
   before: configure
   handler: bash
   bash: |
     unset CC CFLAGS
 
-- when: machine == 'CrayXC40'
-  name: configure
+- name: configure
   after: prologue
   extra: ['--enable-shared']
 
