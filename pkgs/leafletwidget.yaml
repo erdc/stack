@@ -9,7 +9,7 @@ dependencies:
     - ipython
 
 sources:
-  - url: https://github.com/erdc-cm/leafletwidget
+  - url: https://github.com/erdc/leafletwidget
     key: git:f9147c5b13a69b80bc28d3574f7ba6b2c576aed2
 
 
