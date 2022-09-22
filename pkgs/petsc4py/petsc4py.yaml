@@ -48,6 +48,10 @@ build_stages:
 #      PATH=$PATH:$PETSC_DIR/bin \
 #      $PYTHON runtests.py)
 
+when version == '3.17.2':
+  sources:
+  - key: tar.gz:pysw4eybhtqszdss5xxdleqohuwb32vo
+    url: https://pypi.io/packages/source/p/petsc4py/petsc4py-3.17.2.tar.gz
 when version == '3.14.1':
   sources:
   - key: tar.gz:6x4nv45ezuo7zfcyo2ynqoqfwjptyvha

@@ -4,5 +4,5 @@ defaults:
   relocatable: false
 
 sources:
-- key: tar.xz:5rb4uw6pyyreflgli237cipww2co4ipm
-  url: http://ftp.gnu.org/gnu/coreutils/coreutils-8.23.tar.xz
+- key: tar.xz:mgq7iegxrot6p432ljhvbzwrgifmumzx
+  url: http://ftp.gnu.org/gnu/coreutils/coreutils-9.1.tar.xz

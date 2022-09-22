@@ -7,8 +7,8 @@ defaults:
   relocatable: false
 
 sources:
-  - url: http://ftp.gnu.org/gnu/m4/m4-1.4.17.tar.bz2
-    key: tar.bz2:rzhb7frzgijw5vc5zvnpwddoen7jnjx4
+- key: tar.xz:moxn4xdngo3ntmjvchgqxywkybdpfzyp
+  url: http://ftp.gnu.org/gnu/m4/m4-1.4.19.tar.xz
 
 when_build_dependency:
   - prepend_path: PATH

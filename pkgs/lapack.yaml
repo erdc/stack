@@ -10,7 +10,7 @@
 extends: [cmake_package]
 
 sources:
-- url: http://www.netlib.org/lapack/lapack-3.4.2.tgz
+- url: http://www.netlib.org/lapack/lapack-3.10.01.tar.gz
   key: tar.gz:mctf3kxrn3brka2gowkcmgfcemcsd2t2
 
 defaults:

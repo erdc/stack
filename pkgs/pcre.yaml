@@ -4,6 +4,8 @@ sources:
 - key: tar.gz:jzwoapqdg3ulji6wyk3qwhc6dbmquvtt
   url: https://ftp.pcre.org/pub/pcre/pcre-8.45.tar.gz
 
+#PCRE 8.45 is at end of life, PCRE2 is the new project
+
 build_stages:
 - name: configure
   handler: bash

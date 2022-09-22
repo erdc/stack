@@ -4,5 +4,6 @@ defaults:
   relocatable: false
 
 sources:
-- key: tar.gz:s7vyhn3d3hs22nptkh7fkf7gw4ksdv5k
-  url: http://ftp.heanet.ie/mirrors/ftp.gnu.org/gnu/gzip/gzip-1.6.tar.gz
+- key: tar.xz:zzpahziz6y36d6auaenm4noe7b5thqf3
+  url: https://ftp.gnu.org/gnu/gzip/gzip-1.12.tar.xz
+
