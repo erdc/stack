@@ -29,5 +29,4 @@ packages:
   mpi:
     use: mpich
   parmetis:
-  sympy:
   adh:

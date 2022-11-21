@@ -4,8 +4,10 @@ dependencies:
   run: [blas]
 
 sources:
-  - url: http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-4.0.2.tar.gz
-    key: tar.gz:so2zfcmh7yaqqcft7x7t47w66qx3fwgp
+ - key: tar.gz:mqqhqmwbf45c7ybkrximxaojsd6fy37s
+   url: https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/refs/tags/v4.4.1.tar.gz
+#  - key: tar.gz:a32vubcjo5or6q6yum52rscbp2um65wc
+#    url: https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/refs/tags/v6.0.1.tar.gz
 
 build_stages:
   - name: configure
