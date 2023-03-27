@@ -18,6 +18,7 @@ build_stages:
   after: prologue
   handler: bash
   bash: |
+    export MPI_DIR=${MPI_ROOT}
     mkdir -p _build_metis
     mkdir -p _build_parmetis
 
