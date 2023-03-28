@@ -14,34 +14,30 @@ extends:
 # profile.
 
 parameters:
-  pyver: '3.7'
-  python_site_packages_rel: 'lib/python3.7/site-packages'
+  pyver: '3.10'
+  python_site_packages_rel: 'lib/python3.10/site-packages'
   python_host_packages: '/p/app/COST/python3/3.6.7/gnu/lib/python3.6/site-packages'
   machine: SGIICEX
-  HOST_MPI_DIR: /p/app/hpe/mpt-2.20
+  HOST_MPI_DIR: /p/app/hpe/mpt-2.21
   HOST_MPIEXEC: mpiexec_mpt
   HOST_MPICC: mpicc
   HOST_MPICXX: mpicxx
   HOST_MPIF77: mpif77
   HOST_MPIF90: mpif90
   PATH: |
-    /p/app/hpe/mpt-2.20/bin:/p/app/COST/git/2.4.4/gnu//bin:/p/app/COST/valgrind/3.12.0/gnu//bin:/p/app/gnu/7.3.0/bin:/usr/local/ossh/bin:/usr/local/krb5/bin:/usr/local/krb5/bin:/opt/sgi/sbin:/opt/sgi/bin:/usr/lib64/qt-3.3/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/opt/c3/bin:/opt/pbs/default/bin:/sbin:/bin:/p/app/BCT/bin:/p/app/SLB/default:/p/app/local/bin:/usr/local/bin:/p/app/java/1.8/latest/bin:.
+    /p/app/COST/git/2.4.4/gnu//bin:/p/app/COST/valgrind/3.12.0/gnu//bin:/p/app/hpe/mpt-2.21/bin:/p/app/gnu/10.1.0/bin:/usr/local/krb5/bin:/usr/local/ossh/bin:/app/Modules/4.6.0/bin:/opt/sgi/sbin:/opt/sgi/bin:/usr/lib64/qt-3.3/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/opt/c3/bin:/opt/pbs/bin:/sbin:/bin:/p/app/local/bin:/usr/local/bin:/p/app/java/1.8/latest/bin:.
   LD_LIBRARY_PATH: |
-    /p/app/hpe/mpt-2.20/lib:/p/app/COST/dependencies/tcltk/8.6.8/gnu/lib:/p/app/COST/valgrind/3.12.0/gnu//lib:/p/app/gnu/7.3.0/lib64
-  PKG_CONFIG_PATH: |
-    /p/app/COST/valgrind/3.12.0/gnu//lib/pkgconfig
+    /p/app/COST/dependencies/tcltk/8.6.8/gnu/lib:/p/app/COST/valgrind/3.12.0/gnu//lib:/p/app/hpe/mpt-2.21/lib:/p/app/gnu/10.1.0/lib64
   PROLOGUE: |
-    export ARCHIVE_HOST="ms2.afrl.hpc.mil"; export PSM2_PATH_SELECTION="static_dest"; export BC_NODE_TYPE="LOGIN"; export CPU="x86_64"; export BC_ACCELERATOR_NODE_CORES="48"; export MPSCP_DATA_IP="140.31.133.143"; export CSI_HOME="/p/app/COTS"; export BC_BIGMEM_NODE_CORES="48"; export JAVA_HOME="/p/app/java/1.8/latest"; export VENDOR="unknown"; export XDG_RUNTIME_DIR="/run/user/902691"; export FPATH="/p/app/hpe/mpt-2.20/include"; export MPSCP_BLOCKED_FILE="/usr/local/ossh/etc/mpscp_blocked_ports"; export XDG_SESSION_ID="4056"; export HOSTNAME="mustang04"; export LS_COLORS="rs=0:di=38;5;27:ln=38;5;51:mh=44;38;5;15:pi=40;38;5;11:so=38;5;13:do=38;5;5:bd=48;5;232;38;5;11:cd=48;5;232;38;5;3:or=48;5;232;38;5;9:mi=05;48;5;232;38;5;15:su=48;5;196;38;5;15:sg=48;5;11;38;5;16:ca=48;5;196;38;5;226:tw=48;5;10;38;5;16:ow=48;5;10;38;5;21:st=48;5;21;38;5;15:ex=38;5;34:*.tar=38;5;9:*.tgz=38;5;9:*.arc=38;5;9:*.arj=38;5;9:*.taz=38;5;9:*.lha=38;5;9:*.lz4=38;5;9:*.lzh=38;5;9:*.lzma=38;5;9:*.tlz=38;5;9:*.txz=38;5;9:*.tzo=38;5;9:*.t7z=38;5;9:*.zip=38;5;9:*.z=38;5;9:*.Z=38;5;9:*.dz=38;5;9:*.gz=38;5;9:*.lrz=38;5;9:*.lz=38;5;9:*.lzo=38;5;9:*.xz=38;5;9:*.bz2=38;5;9:*.bz=38;5;9:*.tbz=38;5;9:*.tbz2=38;5;9:*.tz=38;5;9:*.deb=38;5;9:*.rpm=38;5;9:*.jar=38;5;9:*.war=38;5;9:*.ear=38;5;9:*.sar=38;5;9:*.rar=38;5;9:*.alz=38;5;9:*.ace=38;5;9:*.zoo=38;5;9:*.cpio=38;5;9:*.7z=38;5;9:*.rz=38;5;9:*.cab=38;5;9:*.jpg=38;5;13:*.jpeg=38;5;13:*.gif=38;5;13:*.bmp=38;5;13:*.pbm=38;5;13:*.pgm=38;5;13:*.ppm=38;5;13:*.tga=38;5;13:*.xbm=38;5;13:*.xpm=38;5;13:*.tif=38;5;13:*.tiff=38;5;13:*.png=38;5;13:*.svg=38;5;13:*.svgz=38;5;13:*.mng=38;5;13:*.pcx=38;5;13:*.mov=38;5;13:*.mpg=38;5;13:*.mpeg=38;5;13:*.m2v=38;5;13:*.mkv=38;5;13:*.webm=38;5;13:*.ogm=38;5;13:*.mp4=38;5;13:*.m4v=38;5;13:*.mp4v=38;5;13:*.vob=38;5;13:*.qt=38;5;13:*.nuv=38;5;13:*.wmv=38;5;13:*.asf=38;5;13:*.rm=38;5;13:*.rmvb=38;5;13:*.flc=38;5;13:*.avi=38;5;13:*.fli=38;5;13:*.flv=38;5;13:*.gl=38;5;13:*.dl=38;5;13:*.xcf=38;5;13:*.xwd=38;5;13:*.yuv=38;5;13:*.cgm=38;5;13:*.emf=38;5;13:*.axv=38;5;13:*.anx=38;5;13:*.ogv=38;5;13:*.ogx=38;5;13:*.aac=38;5;45:*.au=38;5;45:*.flac=38;5;45:*.mid=38;5;45:*.midi=38;5;45:*.mka=38;5;45:*.mp3=38;5;45:*.mpc=38;5;45:*.ogg=38;5;45:*.ra=38;5;45:*.wav=38;5;45:*.axa=38;5;45:*.oga=38;5;45:*.spx=38;5;45:*.xspf=38;5;45:"; export msas="ms2.afrl.hpc.mil"; export GROUP="proteus"; export OSCAR_HOME="/opt/oscar"; export LESSOPEN="||/usr/bin/lesspipe.sh %s"; export MACHTYPE="x86_64"; export CPATH="/p/app/hpe/mpt-2.20/include:/p/app/gnu/7.3.0/include"; export QTDIR="/usr/lib64/qt-3.3"; export PET_HOME="/p/app/PET"; export LANGUAGE="en_US.UTF-8"; export SHLVL="1"; export MODULESHOME="/app/apptools/platforms/Modules/3.2.12"; export DAAC_HOME="/p/app/DAAC"; export MODULEPATH="/p/app/COST/modules:/p/app/DAAC/modules:/p/app/modulefiles/devel:/p/app/modulefiles/apps:/p/app/modulefiles/unsupported:/usr/share/Modules/modulefiles:/etc/modulefiles"; export BC_HOST="mustang"; export SSH_CONNECTION="173.235.23.125 33878 140.31.133.143 22"; export COST_MODULES_DIR="/p/app/COST/modules"; export VALGRIND_HOME="/p/app/COST/valgrind/3.12.0/gnu/"; export ACCOUNT="WPrERDCV00898ENQ"; export MODULE_VERSION="3.2.12"; export REMOTEHOST="173.235.23.125"; export PROTEUS_ARCH="mustang"; export SINGULARITYENV_PSM2_PATH_SELECTION="static_dest"; export DISPLAY="localhost:10.0"; export LANG="en_US.UTF-8"; export QTLIB="/usr/lib64/qt-3.3/lib"; export LIBRARY_PATH="/p/app/hpe/mpt-2.20/lib"; export KRB5_HOME="/usr/local/krb5"; export QTINC="/usr/lib64/qt-3.3/include"; export SAMPLES_HOME="/p/app/Example_Codes"; export OSTYPE="linux"; export C3_RSH="ssh -oConnectTimeout=10 -oForwardX11=no"; export BC_CORES_PER_NODE="48"; export HOST="mustang04"; export MPT_VERSION="2.20"; export QT_GRAPHICSSYSTEM_CHECKED="1"; export GIT_HOME="/p/app/COST/git/2.4.4/gnu/"; export NLSPATH="/p/app/intel/parallel_studio_xe_2018_update3/debugger_2018/gdb/intel64/share/locale/%l_%t/%N"; export SSH_TTY="/dev/pts/0"; export LINK_TIMEOUT="3"; export MPSCP_CONFIG_FILENAME="/usr/local/ossh/etc/mpscp_config.sample"; export PROJECTS_HOME="/p/work1/projects"; export HOSTTYPE="x86_64-linux"; export SSH_CLIENT="173.235.23.125 33878 22"; export BC_MEM_PER_NODE="196608"; export TERM="xterm-256color"; export BC_STANDARD_NODE_CORES="48"; export KRB5_CONFIG="/etc/krb5.conf"; export COST_HOME="/p/app/COST"; export MODULE_VERSION_STACK="3.2.12"; export LoginVersion="5.49"; export MPI_ROOT="/p/app/hpe/mpt-2.20"; export KRB5CCNAME="PIPE:1023"; export ShellVersion="5.108"; export LC_ALL="C"; export LM_PROJECT="mustang.afrl.hpc.mil"; export BC_PHI_NODE_CORES="0"; export RLM_PROJECT="mustang.afrl.hpc.mil"; export WORKDIR=/p/work1/$(whoami); TMPDIR=${WORKDIR}; export CC=gcc; export CXX=g++; export F77=gfortran; export F90=gfortran; export FC=gfortran; export TERM=xterm; export GIT_SSL_NO_VERIFY=1;
+    export PYTHONHTTPSVERIFY=0; export I_MPI_CC="gcc"; export ARCHIVE_HOST="wp-dm1.afrl.hpc.mil"; export MPSCP_DATA_IP="140.31.133.140"; export CPU="x86_64"; export BC_ACCELERATOR_NODE_CORES="48"; export INFOPATH="/p/app/gnu/10.1.0/share/info"; export BC_NODE_TYPE="LOGIN"; export HISTSIZE="1000"; export CSI_HOME="/p/app/COTS"; export BC_BIGMEM_NODE_CORES="48"; export JAVA_HOME="/p/app/java/1.8/latest"; export PROJECTS_ARCHIVE="/p/afrl/projects"; export FPATH="/p/app/hpe/mpt-2.21/include"; export MPSCP_BLOCKED_FILE="/usr/local/ossh/etc/mpscp_blocked_ports"; export CXX="g++"; export HOSTNAME="mustang01"; export LS_COLORS="rs=0:di=38;5;27:ln=38;5;51:mh=44;38;5;15:pi=40;38;5;11:so=38;5;13:do=38;5;5:bd=48;5;232;38;5;11:cd=48;5;232;38;5;3:or=48;5;232;38;5;9:mi=05;48;5;232;38;5;15:su=48;5;196;38;5;15:sg=48;5;11;38;5;16:ca=48;5;196;38;5;226:tw=48;5;10;38;5;16:ow=48;5;10;38;5;21:st=48;5;21;38;5;15:ex=38;5;34:*.tar=38;5;9:*.tgz=38;5;9:*.arc=38;5;9:*.arj=38;5;9:*.taz=38;5;9:*.lha=38;5;9:*.lz4=38;5;9:*.lzh=38;5;9:*.lzma=38;5;9:*.tlz=38;5;9:*.txz=38;5;9:*.tzo=38;5;9:*.t7z=38;5;9:*.zip=38;5;9:*.z=38;5;9:*.Z=38;5;9:*.dz=38;5;9:*.gz=38;5;9:*.lrz=38;5;9:*.lz=38;5;9:*.lzo=38;5;9:*.xz=38;5;9:*.bz2=38;5;9:*.bz=38;5;9:*.tbz=38;5;9:*.tbz2=38;5;9:*.tz=38;5;9:*.deb=38;5;9:*.rpm=38;5;9:*.jar=38;5;9:*.war=38;5;9:*.ear=38;5;9:*.sar=38;5;9:*.rar=38;5;9:*.alz=38;5;9:*.ace=38;5;9:*.zoo=38;5;9:*.cpio=38;5;9:*.7z=38;5;9:*.rz=38;5;9:*.cab=38;5;9:*.jpg=38;5;13:*.jpeg=38;5;13:*.gif=38;5;13:*.bmp=38;5;13:*.pbm=38;5;13:*.pgm=38;5;13:*.ppm=38;5;13:*.tga=38;5;13:*.xbm=38;5;13:*.xpm=38;5;13:*.tif=38;5;13:*.tiff=38;5;13:*.png=38;5;13:*.svg=38;5;13:*.svgz=38;5;13:*.mng=38;5;13:*.pcx=38;5;13:*.mov=38;5;13:*.mpg=38;5;13:*.mpeg=38;5;13:*.m2v=38;5;13:*.mkv=38;5;13:*.webm=38;5;13:*.ogm=38;5;13:*.mp4=38;5;13:*.m4v=38;5;13:*.mp4v=38;5;13:*.vob=38;5;13:*.qt=38;5;13:*.nuv=38;5;13:*.wmv=38;5;13:*.asf=38;5;13:*.rm=38;5;13:*.rmvb=38;5;13:*.flc=38;5;13:*.avi=38;5;13:*.fli=38;5;13:*.flv=38;5;13:*.gl=38;5;13:*.dl=38;5;13:*.xcf=38;5;13:*.xwd=38;5;13:*.yuv=38;5;13:*.cgm=38;5;13:*.emf=38;5;13:*.axv=38;5;13:*.anx=38;5;13:*.ogv=38;5;13:*.ogx=38;5;13:*.aac=38;5;45:*.au=38;5;45:*.flac=38;5;45:*.mid=38;5;45:*.midi=38;5;45:*.mka=38;5;45:*.mp3=38;5;45:*.mpc=38;5;45:*.ogg=38;5;45:*.ra=38;5;45:*.wav=38;5;45:*.axa=38;5;45:*.oga=38;5;45:*.spx=38;5;45:*.xspf=38;5;45:"; export msas="wp-dm1.afrl.hpc.mil"; export BC_PHI_NODE_CORES="0"; export OSCAR_HOME="/opt/oscar"; export LESSOPEN="||/usr/bin/lesspipe.sh %s"; export CPATH="/p/app/hpe/mpt-2.21/include:/p/app/gnu/10.1.0/include"; export I_MPI_F77="gfortran"; export PET_HOME="/p/app/PET"; export LANGUAGE="en_US.UTF-8"; export SHLVL="1"; export DISPLAY="localhost:21.0"; export MODULESHOME="/p/app/Modules/4.6.0"; export DAAC_HOME="/p/app/DAAC"; export ENV="/app/Modules/4.6.0/init/profile.sh"; export BASH_ENV="/app/Modules/4.6.0/init/bash"; export MODULEPATH="/p/app/COST/modules:/p/app/DAAC/modules:/p/app/modulefiles:/p/app/modulefiles/devel:/p/app/modulefiles/apps:/p/app/modulefiles/unsupported:/usr/share/Modules/modulefiles:/etc/modulefiles"; export BC_HOST="mustang"; export SSH_CONNECTION="167.96.130.184 38304 140.31.133.140 22"; export I_MPI_CXX="g++"; export COST_MODULES_DIR="/p/app/COST/modules"; export VALGRIND_HOME="/p/app/COST/valgrind/3.12.0/gnu/"; export ACCOUNT="WPrARONC46303630"; export MODULE_VERSION=""; export MPI_CUSTOM_FORTRAN_MODULES_PATH="/p/app/hpe/mpt-2.21/include/gfortran_10.1.0"; export I_MPI_F90="gfortran"; export PROTEUS_ARCH="mustang"; export QTDIR="/usr/lib64/qt-3.3"; export LANG="en_US.UTF-8"; export QTLIB="/usr/lib64/qt-3.3/lib"; export LIBRARY_PATH="/p/app/hpe/mpt-2.21/lib"; export KRB5_HOME="/usr/local/krb5"; export QTINC="/usr/lib64/qt-3.3/include"; export NLSPATH="/p/app/intel/parallel_studio_xe_2018_update3/debugger_2018/gdb/intel64/share/locale/%l_%t/%N"; export SAMPLES_HOME="/p/app/Example_Codes"; export F90="gfortran"; export C3_RSH="ssh -oConnectTimeout=10 -oForwardX11=no"; export BC_CORES_PER_NODE="48"; export CC="gcc"; export MPT_VERSION="2.21"; export QT_GRAPHICSSYSTEM_CHECKED="1"; export GIT_HOME="/p/app/COST/git/2.4.4/gnu/"; export F77="gfortran"; export MPIF90_F90="gfortran"; export MODULES_USE_COMPAT_VERSION="1"; export SSH_TTY="/dev/pts/9"; export LINK_TIMEOUT="3"; export MPSCP_CONFIG_FILENAME="/usr/local/ossh/etc/mpscp_config.sample"; export MPICXX_CXX="g++"; export PROJECTS_HOME="/p/work1/projects"; export MODULES_CMD="/app/Modules/4.6.0/libexec/modulecmd-compat"; export SSH_CLIENT="167.96.130.184 38304 22"; export BC_MEM_PER_NODE="196608"; export TERM="xterm-256color"; export BC_STANDARD_NODE_CORES="48"; export KRB5_CONFIG="/etc/krb5.conf"; export MPICC_CC="gcc"; export COST_HOME="/p/app/COST"; export LoginVersion="5.49"; export I_MPI_FC="gfortran"; export MPI_ROOT="/p/app/hpe/mpt-2.21"; export KRB5CCNAME="PIPE:4095"; export ShellVersion="5.108"; export LC_ALL="C"; export LM_PROJECT="mustang.afrl.hpc.mil"; export RLM_PROJECT="mustang.afrl.hpc.mil"; export HISTCONTROL="ignoredups"; export WORKDIR=/p/work1/$(whoami); TMPDIR=${WORKDIR}; export CC=gcc; export CXX=g++; export F77=gfortran; export F90=gfortran; export FC=gfortran; export TERM=xterm; export GIT_SSL_NO_VERIFY=1;
 
   DYNAMIC_EXE_LINKER_FLAGS: -Bdynamic
 
 packages:
   future:
-  recordtype:
   launcher:
   cmake:
   openssl:
-    use: host-openssl
   python:
     host: false
     link: shared
@@ -55,26 +51,24 @@ packages:
   mpi:
     use: host-mpi
   mpi4py:
-  nose:
   hdf5:
   parmetis:
     without_check: true
   perl:
     use: host-perl
   petsc:
-    version: 3.13.3
+    version: 3.17.2
     openblas: true
     build_with: |
-      parmetis, cmake, blas
+      cmake, blas
     download: |
-      hypre, blacs, scalapack, mumps, ptscotch, zoltan, superlu, superlu_dist
+      hypre, blacs, scalapack, mumps, superlu
     coptflags: -O2
     link: shared
-    debug: true
+    debug: false
   petsc4py:
-    version: 3.13.0
+    version: 3.17.2
     with_conf: true
-  pytables:
   tetgen:
   triangle:
   memory_profiler:
@@ -92,7 +86,6 @@ packages:
       binutils
   h5py:
   pip:
-  zoltan:
   chrono:
   pytest:
   pytest-xdist:

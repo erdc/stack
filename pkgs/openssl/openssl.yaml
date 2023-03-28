@@ -8,9 +8,12 @@ dependencies:
 #
 # Also, openssl.org urls are not stable, they move old packages
 # whenever an update appears. Use github to download.
+#sources:
+#- key: tar.gz:samfle7mks4mgbhudjs73hs2axb7lbci
+#  url: https://github.com/openssl/openssl/archive/refs/tags/openssl-3.0.4.tar.gz
 sources:
-- key: tar.gz:ellfrdskprnnjd6kyl57dubvxvbsldbc
-  url: https://github.com/openssl/openssl/archive/OpenSSL_1_1_1j.tar.gz
+- key: tar.gz:zugm4hpgzgtnvd4dxj5oeefdmyxkwioe
+  url: https://github.com/openssl/openssl/archive/refs/tags/OpenSSL_1_1_1p.tar.gz
 
 defaults:
   relocatable: false
