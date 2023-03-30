@@ -5,8 +5,8 @@ dependencies:
   run: [python]
 
 sources:
-- key: tar.gz:fa7jov4oxyjf33t3ms6fwewxzmjffjqs
-  url: https://github.com/pypa/setuptools/archive/refs/tags/v57.0.0.tar.gz
+- key: tar.gz:dchcv4whyepoc2c625diaaqkme5yeiub
+  url: https://github.com/pypa/setuptools/archive/refs/tags/v62.0.0.tar.gz
 
 build_stages:
   - name: install

@@ -3,9 +3,9 @@ dependencies:
   build: [mpi, zlib, szip]
 
 sources:
-- key: tar.gz:uyw4wj3gldfxrztzlxjjx6jg5v5jxrhn
-  url: https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.0/src/hdf5-1.12.0.tar.gz
-
+- key: tar.bz2:4ttzim2fb3nofbs2jrrsqgelwrjzdmu5
+  url: https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.14/hdf5-1.14.0/src/hdf5-1.14.0.tar.bz2
+  
 defaults:
   # /bin/h5pcc contains hard-coded path
   relocatable: false

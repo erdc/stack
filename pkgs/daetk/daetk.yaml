@@ -5,20 +5,24 @@ dependencies:
   build: [petsc, parmetis, mpi]
 
 defaults:
-  petscversion: '3.7.5'
+  petscversion: '3.17.2'
 
 when petscversion == '3.7.5':
   sources:
   - key: tar.gz:ggkr3upxu74syj5bq22fx4ha2ewzzyun
-    url: https://github.com/erdc-cm/daetk/archive/1.0.0.tar.gz
+    url: https://github.com/erdc/daetk/archive/1.0.0.tar.gz
 when petscversion == '3.6.1':
   sources:
-  - url: https://github.com/erdc-cm/daetk.git
+  - url: https://github.com/erdc/daetk.git
     key: git:9c4107d441bc9a0e1d5a603f79874997062349e3
 when petscversion == '3.5.2':
   sources:
-  - url: https://github.com/erdc-cm/daetk.git
+  - url: https://github.com/erdc/daetk.git
     key: git:e05b9975a2d413148ce122a274be675b27f9450d
+when petscversion == '3.17.2':
+  sources:
+  - key: tar.gz:rpgdo62zz6sfqmb2psc3khnxkgychozw
+    url: https://github.com/erdc/daetk/archive/refs/tags/1.0.2.tar.gz
 
 build_stages:
 - when: platform == 'Darwin'

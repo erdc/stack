@@ -4,5 +4,5 @@ defaults:
   relocatable: false
 
 sources:
-- key: tar.gz:inhtfulrzpaklzzm7rjxfrx4jsyonapy
-  url: http://ftp.heanet.ie/mirrors/ftp.gnu.org/gnu/findutils/findutils-4.4.2.tar.gz
+- key: tar.xz:uk73rqe5intxb3oft5ipusb6pbnrmgr3
+  url: http://ftp.heanet.ie/mirrors/ftp.gnu.org/gnu/findutils/findutils-4.9.0.tar.xz

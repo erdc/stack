@@ -1,12 +1,12 @@
 extends: [setuptools_package]
 
 dependencies:
-  build: []
-  run: []
+  build: [numpy, blas, beniget, ply, gast]
+  run: [numpy, blas, beniget, ply, gast]
 
 sources:
-- key: tar.gz:6hahqsg6nqn35gk4fpn6en7fld6qq5dv
-  url: https://github.com/cython/cython/archive/refs/tags/0.29.33.tar.gz
+- key: tar.gz:4ck2d2me7d2ez7omxdoxs6xmj44ntcuq
+  url: https://github.com/serge-sans-paille/pythran/archive/refs/tags/0.11.0.tar.gz
 
 when_build_dependency:
   - prepend_path: PATH

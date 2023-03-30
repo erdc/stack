@@ -7,5 +7,5 @@ defaults:
   relocatable: false
 
 sources:
-- key: tar.gz:nogkgdu3n4etwvh6arbz4vkf4vsmmnuy
-  url: http://ftp.heanet.ie/mirrors/ftp.gnu.org/gnu/texinfo/texinfo-5.2.tar.gz
+- key: tar.xz:r23vh3jixsrb7d2wygqyanrk5v4jekn5
+  url: https://ftp.gnu.org/gnu/texinfo/texinfo-6.8.tar.xz

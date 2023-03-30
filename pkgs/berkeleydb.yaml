@@ -3,8 +3,8 @@ dependencies:
   build: []
 
 sources:
-  - url: http://download.oracle.com/berkeley-db/db-4.8.30.tar.gz
-    key: tar.gz:4berub6nwip3tkuco453x3now5rzzpio
+- key: tar.gz:btwlf3ymm6ywnxutomtwtk66xicvkcdn
+  url: http://download.oracle.com/berkeley-db/db-18.1.40.tar.gz
 
 build_stages:
 - name: configure

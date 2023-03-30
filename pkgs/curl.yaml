@@ -19,18 +19,36 @@ when not use_ca_bundle:
 
 defaults:
   use_ca_bundle: false
-
+  test: true
+  
 sources:
-  - url: http://curl.haxx.se/download/curl-7.37.0.tar.gz
-    key: tar.gz:dl6tespqw6zufuqodtfmxpasggdziyrs
+  - url: http://curl.haxx.se/download/curl-7.83.1.tar.gz
+    key: tar.gz:sp5szvfyqbswwtufrherfkp5betvaftn
+
+#sources:
+#  - url: http://curl.haxx.se/download/curl-7.37.0.tar.gz
+#    key: tar.gz:dl6tespqw6zufuqodtfmxpasggdziyrs
 
 build_stages:
+- name: setEnv
+  after: prologue
+  before: configure
+  handler: bash
+  bash: |
+    export CFLAGS="-fPIC"
+    export CXXFLAGS="-fPIC"
+
+- name: configure
+  mode: override
+  extra: ['--with-openssl', '--enable-shared', '--with-pic']
+
 - when: use_ca_bundle
   name: configure
   mode: override
-  extra: ['--with-ca-bundle=${CA_BUNDLE_DIR}/etc/ca-bundle/ca-bundle.crt']
+  extra: ['--with-ca-bundle=${CA_BUNDLE_DIR}/etc/ca-bundle/ca-bundle.crt','--with-openssl']
 
-- name: install_mk-ca-bundle.pl
+- when: use_ca_bundle
+  name: install_mk-ca-bundle.pl
   after: install
   handler: bash
   bash:
