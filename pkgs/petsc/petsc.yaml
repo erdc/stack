@@ -2,6 +2,10 @@ extends: [autotools_package]
 dependencies:
   build: [blas, mpi, python, numpy, cmake, cython, {{build_with}}]
 
+when version == '3.21.0':
+  sources:
+  - key: tar.gz:dygc7esrjrzpqdkkjuhgiondvoqm5wt2
+    url: https://web.cels.anl.gov/projects/petsc/download/release-snapshots/petsc-3.21.0.tar.gz
 when version == '3.17.2':
   sources:
   - key: tar.gz:emj52hfedpykzzugohvg7dkkx6iachwy
