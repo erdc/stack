@@ -14,7 +14,7 @@ build_stages:
   mode: replace
   handler: bash
   bash: |
-       HDF5_VERSION=1.13.0 HDF5_MPI="ON"  \
+       HDF5_VERSION=1.13.1 HDF5_MPI="ON"  \
        CC=${MPICC} CXX=${MPICXX} ${PYTHON} -c 'import setuptools; __file__="setup.py"; exec(open(__file__).read())' \
        ${SETUPTOOLS_PACKAGE_EXTRA_OPTIONS} \
        install \

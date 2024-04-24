@@ -1,15 +1,20 @@
 extends: [autotools_package]
 
-#sources:
-#- key: tar.gz:yps6t7ovabg4wvbp5ws64typ6b2emkf2
-#  url: https://zlib.net/zlib-1.2.11.tar.gz
-
 sources:
 - key: tar.gz:sgceqcctfzoogfvtyaijffetyase6pjx
   url: https://zlib.net/zlib-1.2.12.tar.gz
 
 
 build_stages:
+- name: setEnv
+  before: configure
+  handler: bash
+  bash: |
+    export CFLAGS="-fPIC"
+
+- name: configure
+  after: prologue
+  extra: ['--enable-shared']
 
 - when: platform == 'Cygwin'
   files: [zlib-cygwin.patch]
@@ -48,4 +53,3 @@ build_stages:
 - name: configure
   after: prologue
   extra: ['--enable-shared']
-

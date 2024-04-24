@@ -30,19 +30,26 @@ sources:
 #    key: tar.gz:dl6tespqw6zufuqodtfmxpasggdziyrs
 
 build_stages:
-- when: test
-  name: configure
+- name: setEnv
+  after: prologue
+  before: configure
+  handler: bash
+  bash: |
+    export CFLAGS="-fPIC"
+    export CXXFLAGS="-fPIC"
+
+- name: configure
   mode: override
-  extra: ['--with-openssl']
+  extra: ['--with-openssl', '--enable-shared', '--with-pic']
 
 - when: use_ca_bundle
   name: configure
   mode: override
-  extra: ['--with-openssl']
-#  extra: ['--with-ca-bundle=${CA_BUNDLE_DIR}/etc/ca-bundle/ca-bundle.crt']
+  extra: ['--with-ca-bundle=${CA_BUNDLE_DIR}/etc/ca-bundle/ca-bundle.crt','--with-openssl']
 
-#- name: install_mk-ca-bundle.pl
-#  after: install
-#  handler: bash
-#  bash:
-#    cp lib/mk-ca-bundle.pl ${ARTIFACT}/lib/
+- when: use_ca_bundle
+  name: install_mk-ca-bundle.pl
+  after: install
+  handler: bash
+  bash:
+    cp lib/mk-ca-bundle.pl ${ARTIFACT}/lib/

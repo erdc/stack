@@ -5,8 +5,8 @@ dependencies:
   run: [mpi, python]
 
 sources:
-- key: tar.gz:r7zp74rn6a4plticz2uk6vtcfpdh6w3e
-  url: https://github.com/pybind/pybind11/archive/v2.6.2.tar.gz
+- key: tar.gz:npksrrg34itwmno4pb5wwhzokmlm622j
+  url: https://github.com/pybind/pybind11/archive/v2.9.2.tar.gz
 
 defaults:
   relocatable: true

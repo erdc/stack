@@ -1,0 +1,13 @@
+extends: [base_package]
+
+sources:
+- key: tar.gz:3zyqnnv7v5ev22dfy7oxvrwkcoa32exa
+  url: https://www.cl.cam.ac.uk/~mgk25/jbigkit/download/jbigkit-2.1.tar.gz
+
+build_stages:
+  - name: make
+    after: prologue
+    handler: bash
+    bash: |
+      make lib
+      cp -r libjbig ${ARTIFACT}/lib

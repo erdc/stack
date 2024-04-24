@@ -37,10 +37,6 @@ when pyver == '3.10' or pyver == '3.10m':
     - key: tar.xz:qq367vnra3xqu5nkx67shweamjisbjz2
       url: https://www.python.org/ftp/python/3.10.5/Python-3.10.5.tar.xz
 
-#   sources:
-#   - key: tar.xz:teod7cwjpgjphuyi737laote3ndck5hk
-#     url: https://www.python.org/ftp/python/3.9.1/Python-3.9.1.tar.xz
-
 dependencies:
   build: [zlib, bzip2, sqlite, openssl, launcher, ncurses, readline, gdbm, {{build_with}}]
   run: []

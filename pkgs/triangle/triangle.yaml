@@ -2,7 +2,7 @@ extends: [autotools_package]
 
 sources:
 - key: zip:ukx6sgjrlf6eh2e3sc4llkzdj2lq2q2m
-  url: https://github.com/erdc-cm/triangle/archive/master.zip
+  url: https://github.com/erdc/triangle/archive/master.zip
 
 build_stages: 
 - when: platform == 'Darwin'

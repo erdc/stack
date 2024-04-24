@@ -5,5 +5,5 @@ dependencies:
   run: [nose]
 
 sources:
- - key: tar.gz:g2c3uavjw4tfjj3ew4ulkwpte7q5xv64
-   url: https://pypi.python.org/packages/9d/ba/80910bbed2b4e646a6adab4474d2e506744c260c7002a0e6b41ef8750d8d/pkgconfig-1.2.2.tar.gz
+ - key: tar.gz:322bmpxrd523kigyelmvaxa7iytwdnbq
+   url: https://files.pythonhosted.org/packages/c4/e0/e05fee8b5425db6f83237128742e7e5ef26219b687ab8f0d41ed0422125e/pkgconfig-1.5.5.tar.gz
