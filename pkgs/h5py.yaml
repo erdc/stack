@@ -5,8 +5,8 @@ dependencies:
   run: [numpy, mpi4py, pkgconfig, cython]
 
 sources:
-- key: tar.gz:elg4feze6oiqfsevikcfwared6gfu6yy
-  url: https://github.com/h5py/h5py/releases/download/3.7.0/h5py-3.7.0.tar.gz
+- key: tar.gz:anhmehzi6lzo3rcueuk2tlsfgvvclo2f
+  url: https://github.com/h5py/h5py/archive/refs/tags/3.11.0.tar.gz
 
 build_stages:
 - name: install
@@ -14,7 +14,7 @@ build_stages:
   mode: replace
   handler: bash
   bash: |
-       HDF5_VERSION=1.13.1 HDF5_MPI="ON"  \
+       HDF5_VERSION=1.14.3 HDF5_MPI="ON"  \
        CC=${MPICC} CXX=${MPICXX} ${PYTHON} -c 'import setuptools; __file__="setup.py"; exec(open(__file__).read())' \
        ${SETUPTOOLS_PACKAGE_EXTRA_OPTIONS} \
        install \

@@ -1,12 +1,12 @@
 extends: [setuptools_package]
 
 dependencies:
-  build: [blas, lapack, numpy, pybind11, pybind11_cmake, cython, ninja, pythran, meson, gast, beniget, ply, {{build_with}}]
+  build: [pip, blas, lapack, numpy, pybind11, pybind11_cmake, cython, ninja, pythran, meson, gast, beniget, ply, {{build_with}}]
   run: [blas, lapack, numpy, pybind11, pybind11_cmake, cython, ninja, pythran, meson, gast, beniget, ply]
 
 sources:
-- key: tar.xz:afan2jgrjtqzj7nt35ewyimq6cewzkck
-  url: https://github.com/scipy/scipy/releases/download/v1.8.1/scipy-1.8.1.tar.xz
+- key: tar.gz:hthrylnihwqjlj24pnc7mzmnvliozgyg
+  url: https://github.com/scipy/scipy/archive/refs/tags/v1.13.0.tar.gz
 
 build_stages:
 - name: create-site.cfg
@@ -32,15 +32,14 @@ build_stages:
     export CPPFLAGS="${CPPFLAGS} -I$(${PYTHON} -c "import numpy; print(numpy.get_include())") -I${PYBIND11_CMAKE_DIR}/include"
     echo $CPPFLAGS
     export LDFLAGS="-shared -Wl,-rpath=${PYTHON_DIR}/lib -Wl,-rpath=${OPENBLAS_DIR}/lib $(${PYTHON_DIR}/bin/python3-config --ldflags)"
-    export LAPACK=None
-    export BLAS=None
+#    export LAPACK=None
+#    export BLAS=None
 - name: install
   after: setup_dirs
   mode: replace
   handler: bash
   bash: |
-    PATH=$MESON_DIR/bin:$CYTHON_DIR/bin:$PYTHRAN_DIR/bin:$PATH PYTHONPATH=$PYTHONPATH:$SETUPTOOLS_DIR/lib/python{{pyver}}/site-packages ${PYTHON} -c 'import setuptools; __file__="setup.py"; exec(open(__file__).read())' \
+    PATH=$MESON_DIR/bin:$CYTHON_DIR/bin:$PYTHRAN_DIR/bin:$PATH PYTHONPATH=$PYTHONPATH:$SETUPTOOLS_DIR/lib/python{{pyver}}/site-packages ${PIP_DIR}/bin/pip \
        ${SETUPTOOLS_PACKAGE_EXTRA_OPTIONS} \
        install \
-       --prefix=. --root=${ARTIFACT} \
-       --single-version-externally-managed
+       --prefix=. --root=${ARTIFACT} .
