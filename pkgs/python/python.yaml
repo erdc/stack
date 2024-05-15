@@ -36,6 +36,14 @@ when pyver == '3.10' or pyver == '3.10m':
     sources:
     - key: tar.xz:qq367vnra3xqu5nkx67shweamjisbjz2
       url: https://www.python.org/ftp/python/3.10.5/Python-3.10.5.tar.xz
+when pyver == '3.11' or pyver == '3.11m':
+    sources:
+    - key: tar.xz:tmpiszjd7riqneisnsdeibwzgyfd2huy
+      url: https://www.python.org/ftp/python/3.11.9/Python-3.11.9.tar.xz
+when pyver == '3.12' or pyver == '3.12m':
+    sources:
+    - key: tar.xz:xyubclnmqe6sau2ulqkl6e5bmqa2egdx
+      url: https://www.python.org/ftp/python/3.12.2/Python-3.12.2.tar.xz
 
 dependencies:
   build: [zlib, bzip2, sqlite, openssl, launcher, ncurses, readline, gdbm, {{build_with}}]

@@ -39,9 +39,9 @@ for p in ignored['PATH'].split(":"):
         PATH+="{0}".format(p)
 #PROLOGUE="export PATH={0}; ".format(PATH)+PROLOGUE
 del ignored['PATH']
-print "Ignoring these paths"
+print("Ignoring these paths")
 for k,v in ignored.items():
-    print k+"="+v
+    print(k+"="+v)
 try:
     PROLOGUE+= "export WORKDIR={0}; ".format(
         ignored['WORKDIR'].replace(
