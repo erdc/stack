@@ -37,13 +37,13 @@ when pyver == '3.10' or pyver == '3.10m':
     - key: tar.xz:qq367vnra3xqu5nkx67shweamjisbjz2
       url: https://www.python.org/ftp/python/3.10.5/Python-3.10.5.tar.xz
 when pyver == '3.11' or pyver == '3.11m':
-    sources:
-    - key: tar.xz:tmpiszjd7riqneisnsdeibwzgyfd2huy
-      url: https://www.python.org/ftp/python/3.11.9/Python-3.11.9.tar.xz
+  sources:
+  - key: tar.gz:47pdeqfixqvr4g5fzan7sq7qnbq76skl
+    url: https://www.python.org/ftp/python/3.11.9/Python-3.11.9.tgz
 when pyver == '3.12' or pyver == '3.12m':
-    sources:
-    - key: tar.xz:xyubclnmqe6sau2ulqkl6e5bmqa2egdx
-      url: https://www.python.org/ftp/python/3.12.2/Python-3.12.2.tar.xz
+  sources:
+  - key: tar.gz:u24ulh2fu3v3xqnpit2xmjrd7i2vudeh
+    url: https://www.python.org/ftp/python/3.12.3/Python-3.12.3.tgz
 
 dependencies:
   build: [zlib, bzip2, sqlite, openssl, launcher, ncurses, readline, gdbm, {{build_with}}]
@@ -100,6 +100,11 @@ build_stages:
     mode: update
     extra: ['--enable-unicode=ucs4']
 
+  - when: pyver >= '3.11'
+    name: configure
+    mode: update
+    extra: ['--with-openssl-rpath=auto']
+    
   - when: python_framework
     name: configure
     mode: update

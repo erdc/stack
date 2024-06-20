@@ -1,15 +1,15 @@
 extends: [cmake_package]
 
 sources:
-- key: tar.gz:6r7je7ze6nkphdke4jwcdisjlrgnxxb5
-  url: http://gmsh.info/src/gmsh-4.10.4-source.tgz
+- key: tar.gz:zbpqk3xfjgsdh2auuyodqxexsuv37ziu
+  url: https://gmsh.info/src/gmsh-4.13.0-source.tgz
 
 defaults:
   relocatable: false
 
 dependencies:
-  build: [swig, pcre, python, numpy, mpi, petsc, petsc4py, tetgen, lapack, blas, parmetis, hdf5]
-  run: [swig, pcre, python, numpy, mpi, petsc, petsc4py, tetgen, lapack, blas, parmetis, hdf5]
+  build: [swig, pcre, python, numpy, mpi, petsc, petsc4py, tetgen, lapack, blas, parmetis, hdf5, eigen]
+  run: [swig, pcre, python, numpy, mpi, petsc, petsc4py, tetgen, lapack, blas, parmetis, hdf5, eigen]
 
 build_stages:
 - name: configure

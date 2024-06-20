@@ -1,0 +1,85 @@
+# This profile file controls your <#> (HashDist) build environment.
+
+# In the future, we'll provide better incorporation of
+# automatic environment detection.  For now, have a look
+# at the YAML files in the top-level directory and choose
+# the most *specific* file that matches your environment.
+
+extends:
+- file: debian.yaml
+
+parameters:
+  pyver: '3.11'
+  python_site_packages_rel: 'lib/python3.11/site-packages'
+  python_host_packages: '/usr/lib/python3.11/site-packages'
+  HOST_MPI_DIR: /home/packages/compilers/intel/mpi/2021.5.1
+  HOST_MPICC: mpicc
+  HOST_MPICXX: mpicxx
+  HOST_MPIF77: mpif77
+  HOST_MPIF90: mpif90
+  HOST_MPIEXEC: mpiexec
+  PATH: |
+    /usr/local/packages/compilers/gcc/13.2.0/bin:/usr/local/packages/conda/24.3.0/condabin:/usr/share/Modules/bin:/home/packages/compilers/intel/mpi/2021.5.1/libfabric/bin:/home/packages/compilers/intel/mpi/2021.5.1/bin:/usr/local/packages/Modules/5.3.1/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/local/bin:/home/packages/compilers/intel/mkl/2022.0.2/bin/intel64:/home/packages/compilers/intel/compiler/2022.0.2/linux/lib/oclfpga/bin:/home/packages/compilers/intel/compiler/2022.0.2/linux/bin/intel64:/home/packages/compilers/intel/compiler/2022.0.2/linux/bin:/opt/dell/srvadmin/bin
+  LD_LIBRARY_PATH: |
+    /home/packages/compilers/intel/mpi/2021.5.1//libfabric/lib:/home/packages/compilers/intel/mpi/2021.5.1//lib/release:/home/packages/compilers/intel/mpi/2021.5.1//lib:/home/packages/compilers/intel/mkl/2022.0.2/lib/intel64:/home/packages/compilers/intel/compiler/2022.0.2/linux/lib:/home/packages/compilers/intel/compiler/2022.0.2/linux/lib/x64:/home/packages/compilers/intel/compiler/2022.0.2/linux/lib/oclfpga/host/linux64/lib:/home/packages/compilers/intel/compiler/2022.0.2/linux/compiler/lib/intel64_lin
+  PROLOGUE: |
+    export LOADEDMODULES_modshare="conda/24.3.0:1:intel/2021.5.0:1:intel-mpi/2021.5.1:1:gcc/13.2.0:1"; export CPATH_modshare="/usr/local/packages/conda/24.3.0/include:1:/home/packages/compilers/intel/mpi/2021.5.1//include:1:/home/packages/compilers/intel/mkl/2022.0.2/include:1"; export CMPLR_ROOT="/home/packages/compilers/intel/compiler/2022.0.2"; export XDG_RUNTIME_DIR="/run/user/30276"; export CONDA_PROMPT_MODIFIER="(py27) "; export PKG_CONFIG_PATH_modshare="/home/packages/compilers/intel/compiler/2022.0.2/lib/pkgconfig:1:/home/packages/compilers/intel/mkl/2022.0.2/lib/pkgconfig:1:/usr/local/packages/conda/24.3.0/lib/pkgconfig:1:/home/packages/compilers/intel/mpi/2021.5.1/lib/pkgconfig:1"; export XDG_SESSION_ID="1272"; export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/30276/bus"; export __MODULES_LMINIT="module use --append /usr/local/packages/Modules/default/modulefiles/containers:module use --append /usr/local/packages/Modules/default/modulefiles/linux-rhel8-icelake"; export MKLROOT="/home/packages/compilers/intel/mkl/2022.0.2"; export CXX="/usr/local/packages/compilers/gcc/13.2.0/bin/g++"; export __MODULES_LMCONFLICT="intel/2021.5.0&intel:intel-mpi/2021.5.1&intel-mpi&mvapich2&mpich&openmpi"; export MOABHOMEDIR="/usr/moab"; export SSH_CONNECTION="99.14.200.115 60043 104.141.120.21 22"; export SSH_ASKPASS="/usr/libexec/openssh/gnome-ssh-askpass"; export _CE_M=""; export LESSOPEN="||/usr/bin/lesspipe.sh %s"; export __MODULES_LMALTNAME="intel/2021.5.0&as|intel/default&as|intel/latest:intel-mpi/2021.5.1&as|intel-mpi/default&as|intel-mpi/latest"; export CPATH="/usr/local/packages/conda/24.3.0/include:/home/packages/compilers/intel/mpi/2021.5.1//include:/home/packages/compilers/intel/mkl/2022.0.2/include"; export CMAKE_PREFIX_PATH="/usr/local/packages/compilers/gcc/13.2.0/.:/home/packages/compilers/intel/compiler/2022.0.2/linux/IntelDPCPP"; export SHLVL="1"; export MODULESHOME="/usr/share/Modules"; export CLASSPATH="/home/packages/compilers/intel/mpi/2021.5.1//lib/mpi.jar"; export PKG_CONFIG_PATH="/usr/local/packages/conda/24.3.0/lib/pkgconfig:/home/packages/compilers/intel/mpi/2021.5.1/lib/pkgconfig:/home/packages/compilers/intel/mkl/2022.0.2/lib/pkgconfig:/home/packages/compilers/intel/compiler/2022.0.2/lib/pkgconfig"; export MODULEPATH="/etc/scl/modulefiles:/usr/local/packages/Modules/default/modulefiles/containers:/usr/local/packages/Modules/default/modulefiles/linux-rhel8-icelake"; export LS_COLORS="rs=0:di=38;5;33:ln=38;5;51:mh=00:pi=40;38;5;11:so=38;5;13:do=38;5;5:bd=48;5;232;38;5;11:cd=48;5;232;38;5;3:or=48;5;232;38;5;9:mi=01;05;37;41:su=48;5;196;38;5;15:sg=48;5;11;38;5;16:ca=48;5;196;38;5;226:tw=48;5;10;38;5;16:ow=48;5;10;38;5;21:st=48;5;21;38;5;15:ex=38;5;40:*.tar=38;5;9:*.tgz=38;5;9:*.arc=38;5;9:*.arj=38;5;9:*.taz=38;5;9:*.lha=38;5;9:*.lz4=38;5;9:*.lzh=38;5;9:*.lzma=38;5;9:*.tlz=38;5;9:*.txz=38;5;9:*.tzo=38;5;9:*.t7z=38;5;9:*.zip=38;5;9:*.z=38;5;9:*.dz=38;5;9:*.gz=38;5;9:*.lrz=38;5;9:*.lz=38;5;9:*.lzo=38;5;9:*.xz=38;5;9:*.zst=38;5;9:*.tzst=38;5;9:*.bz2=38;5;9:*.bz=38;5;9:*.tbz=38;5;9:*.tbz2=38;5;9:*.tz=38;5;9:*.deb=38;5;9:*.rpm=38;5;9:*.jar=38;5;9:*.war=38;5;9:*.ear=38;5;9:*.sar=38;5;9:*.rar=38;5;9:*.alz=38;5;9:*.ace=38;5;9:*.zoo=38;5;9:*.cpio=38;5;9:*.7z=38;5;9:*.rz=38;5;9:*.cab=38;5;9:*.wim=38;5;9:*.swm=38;5;9:*.dwm=38;5;9:*.esd=38;5;9:*.jpg=38;5;13:*.jpeg=38;5;13:*.mjpg=38;5;13:*.mjpeg=38;5;13:*.gif=38;5;13:*.bmp=38;5;13:*.pbm=38;5;13:*.pgm=38;5;13:*.ppm=38;5;13:*.tga=38;5;13:*.xbm=38;5;13:*.xpm=38;5;13:*.tif=38;5;13:*.tiff=38;5;13:*.png=38;5;13:*.svg=38;5;13:*.svgz=38;5;13:*.mng=38;5;13:*.pcx=38;5;13:*.mov=38;5;13:*.mpg=38;5;13:*.mpeg=38;5;13:*.m2v=38;5;13:*.mkv=38;5;13:*.webm=38;5;13:*.ogm=38;5;13:*.mp4=38;5;13:*.m4v=38;5;13:*.mp4v=38;5;13:*.vob=38;5;13:*.qt=38;5;13:*.nuv=38;5;13:*.wmv=38;5;13:*.asf=38;5;13:*.rm=38;5;13:*.rmvb=38;5;13:*.flc=38;5;13:*.avi=38;5;13:*.fli=38;5;13:*.flv=38;5;13:*.gl=38;5;13:*.dl=38;5;13:*.xcf=38;5;13:*.xwd=38;5;13:*.yuv=38;5;13:*.cgm=38;5;13:*.emf=38;5;13:*.ogv=38;5;13:*.ogx=38;5;13:*.aac=38;5;45:*.au=38;5;45:*.flac=38;5;45:*.m4a=38;5;45:*.mid=38;5;45:*.midi=38;5;45:*.mka=38;5;45:*.mp3=38;5;45:*.mpc=38;5;45:*.ogg=38;5;45:*.ra=38;5;45:*.wav=38;5;45:*.oga=38;5;45:*.opus=38;5;45:*.spx=38;5;45:*.xspf=38;5;45:"; export FI_PROVIDER_PATH="/home/packages/compilers/intel/mpi/2021.5.1//libfabric/lib/prov:/usr/lib64/libfabric"; export _LMFILES__modshare="/usr/local/packages/Modules/default/modulefiles/linux-rhel8-icelake/gcc/13.2.0:1:/usr/local/packages/Modules/default/modulefiles/linux-rhel8-icelake/conda/24.3.0:1:/usr/local/packages/Modules/default/modulefiles/linux-rhel8-icelake/intel/2021.5.0:1:/usr/local/packages/Modules/default/modulefiles/linux-rhel8-icelake/intel-mpi/2021.5.1:1"; export _LMFILES_="/usr/local/packages/Modules/default/modulefiles/linux-rhel8-icelake/intel/2021.5.0:/usr/local/packages/Modules/default/modulefiles/linux-rhel8-icelake/intel-mpi/2021.5.1:/usr/local/packages/Modules/default/modulefiles/linux-rhel8-icelake/gcc/13.2.0:/usr/local/packages/Modules/default/modulefiles/linux-rhel8-icelake/conda/24.3.0"; export INTEL_LICENSE_FILE="/usr/local/compilers/Intel"; export which_declare="declare -f"; export FC="/usr/local/packages/compilers/gcc/13.2.0/bin/gfortran"; export HISTSIZE="90000"; export LANG="en_US.UTF-8"; export OCL_ICD_FILENAMES="libintelocl_emu.so:libalteracl.so:/home/packages/compilers/intel/compiler/2022.0.2/linux/lib/x64/libintelocl.so"; export CONDA_SHLVL="2"; export LIBRARY_PATH="/home/packages/compilers/intel/mpi/2021.5.1//libfabric/lib:/home/packages/compilers/intel/mpi/2021.5.1//lib/release:/home/packages/compilers/intel/mpi/2021.5.1//lib:/home/packages/compilers/intel/mkl/2022.0.2/lib/intel64:/home/packages/compilers/intel/compiler/2022.0.2/linux/compiler/lib/intel64_lin:/home/packages/compilers/intel/compiler/2022.0.2/linux/lib"; export NLSPATH="/home/packages/compilers/intel/mkl/2022.0.2/lib/intel64/locale/%l_%t/%N:/home/packages/compilers/intel/compiler/2022.0.2/linux/compiler/lib/intel64_lin/locale/%l_%t/%N"; export CONDA_DEFAULT_ENV="py27"; export CONDA_PREFIX_1="/usr/local/packages/conda/24.3.0"; export MANPATH="/usr/local/packages/conda/24.3.0/share/man:/usr/local/packages/compilers/gcc/13.2.0/share/man:/usr/share/man:/home/packages/compilers/intel/mpi/2021.5.1/man:/home/packages/compilers/intel/compiler/2022.0.2/documentation/en/man/common:"; export CC="/usr/local/packages/compilers/gcc/13.2.0/bin/gcc"; export S_COLORS="auto"; export F77="/usr/local/packages/compilers/gcc/13.2.0/bin/gfortran"; export SQUEUE_FORMAT2="jobid:11,partition:11,name,username:10,statecompact:4,timelimit:13,timeused:13,numcpus:6,numnodes:7,reasonlist"; export SSH_TTY="/dev/pts/12"; export MODULES_CMD="/usr/share/Modules/libexec/modulecmd.tcl"; export __MODULES_LMTAG="intel/2021.5.0&auto-loaded"; export CUDA_NIC_INTEROP="1"; export SSH_CLIENT="99.14.200.115 60043 22"; export TERM="xterm-256color"; export MANPATH_modshare="/usr/local/packages/compilers/gcc/13.2.0/share/man:1:/home/packages/compilers/intel/mpi/2021.5.1/man:1::1:/home/packages/compilers/intel/compiler/2022.0.2/documentation/en/man/common:1:/usr/local/packages/conda/24.3.0/share/man:1:/usr/share/man:1"; export CMAKE_PREFIX_PATH_modshare="/usr/local/packages/compilers/gcc/13.2.0/.:1:/home/packages/compilers/intel/compiler/2022.0.2/linux/IntelDPCPP:1"; export MODULES_RUN_QUARANTINE="LD_LIBRARY_PATH LD_PRELOAD"; export _CE_CONDA=""; export I_MPI_PMI_LIBRARY="/usr/lib64/libpmi2.so"; export __MODULES_LMPREREQ="intel-mpi/2021.5.1&intel/2021.5.0"; export I_MPI_ROOT="/home/packages/compilers/intel/mpi/2021.5.1"; export LOADEDMODULES="intel/2021.5.0:intel-mpi/2021.5.1:gcc/13.2.0:conda/24.3.0"; export HISTCONTROL="ignoredups"; export HOSTNAME="qbd1"; export CONDA_EXE="/usr/local/packages/conda/24.3.0/bin/conda"; export CC=gcc; export CXX=g++; export F77=gfortran; export F90=gfortran; export FC=gfortran; export TERM=xterm; export GIT_SSL_NO_VERIFY=1;
+
+# The packages list specifies all the packages that you
+# require installed.  <#> will ensure that all packages
+# and their dependencies are installed when you build this
+# profile.
+
+packages:
+  curl:
+    use: host-curl
+  py2gmsh:
+  future:
+  cmake:
+  openjpeg: #dependency of chrono
+    version: '2.5'
+  openssl:
+  python:
+    host: false
+    link: shared
+    build_with: |
+      bzip2, sqlite, openssl
+  blas:
+    use: openblas
+  lapack:
+    use: openblas-lapack
+  #daetk:
+  #  petscversion: 3.21.1
+  mpi:
+    use: host-mpi
+  mpi4py:
+  nose:
+  coverage:
+  hdf5:
+  petsc:
+    version: 3.21.1
+    openblas: true
+    build_with: |
+      parmetis, cmake, blas
+    download: |
+      superlu, superlu_dist, hypre, blacs, scalapack, mumps, zoltan
+    coptflags: -O2
+    link: shared
+    debug: false
+  petsc4py:
+    version: 3.21.1
+  tetgen:
+  triangle:
+  memory_profiler:
+  #scipy:
+  h5py:
+  pip:
+  chrono:
+  pytest:
+  pytest-xdist:
+  pytest-cov:
+  pybind11:
+  gmsh:
+  scorec:
+  xtensor:
+  xtensor-python:
