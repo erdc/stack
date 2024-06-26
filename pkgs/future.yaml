@@ -5,5 +5,5 @@ dependencies:
   run: []
 
 sources:
- - key: tar.gz:4ooo2gvxm62zgzsgz3n2rpgolarzqiz5
-   url: https://pypi.python.org/packages/00/2b/8d082ddfed935f3608cc61140df6dcbf0edea1bc3ab52fb6c29ae3e81e85/future-0.16.0.tar.gz
+- key: tar.gz:gsqxinxnd2lgs6ug7hpd2fndwc7adwf4
+  url: https://files.pythonhosted.org/packages/8f/2e/cf6accf7415237d6faeeebdc7832023c90e0282aa16fd3263db0eb4715ec/future-0.18.3.tar.gz

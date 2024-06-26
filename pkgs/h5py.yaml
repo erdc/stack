@@ -5,8 +5,8 @@ dependencies:
   run: [numpy, mpi4py, pkgconfig, cython]
 
 sources:
-- key: tar.gz:pn7i66ahfixn5sd4ta3pexzuea75jeve
-  url: https://files.pythonhosted.org/packages/52/8f/e557819155a282da36fb21f8de4730cfd10a964b52b3ae8d20157ac1c668/h5py-3.11.0.tar.gz
+- key: tar.gz:hcu72vlfvbvlqfadvdp7tfxuyn3gvcyu
+  url: https://github.com/h5py/h5py/releases/download/3.11.0/h5py-3.11.0.tar.gz
 
 build_stages:
 - name: install

@@ -60,6 +60,10 @@ when version == '3.21.0':
   sources:
   - key: tar.gz:wiaaup4o6yesbypyf6shoi3s26kbxrzx
     url: https://web.cels.anl.gov/projects/petsc/download/release-snapshots/petsc4py-3.21.0.tar.gz
+when version == '3.19.2':
+  sources:
+  - key: tar.gz:l4qh5ok7q7o27izcffubvfnpmgisq4on
+    url: https://pypi.io/packages/source/p/petsc4py/petsc4py-3.19.2.tar.gz
 when version == '3.17.2':
   sources:
   - key: tar.gz:pysw4eybhtqszdss5xxdleqohuwb32vo

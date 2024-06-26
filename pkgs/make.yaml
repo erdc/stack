@@ -4,8 +4,8 @@ defaults:
   relocatable: false
 
 sources:
-- key: tar.bz2:4ydinr5p5xtczsginljqclhqqhverb62
-  url: http://ftp.heanet.ie/mirrors/ftp.gnu.org/gnu/make/make-4.0.tar.bz2
+- key: tar.gz:lapu2tuhfwtuwokbzb2ccweyu7jvqaxq
+  url: https://ftp.gnu.org/gnu/make/make-4.4.tar.gz
 
 when_build_dependency:
 - prepend_path: PATH
