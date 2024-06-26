@@ -55,7 +55,7 @@ packages:
   coverage:
   hdf5:
   petsc:
-    version: 3.21.0
+    version: 3.21.1
     openblas: true
     build_with: |
       parmetis, cmake, blas
@@ -65,7 +65,7 @@ packages:
     link: shared
     debug: false
   petsc4py:
-    version: 3.21.0
+    version: 3.21.1
   tetgen:
   triangle:
   memory_profiler:
