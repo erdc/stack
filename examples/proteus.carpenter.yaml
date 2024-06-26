@@ -49,7 +49,7 @@ packages:
     host: false
     link: shared
     build_with: |
-      bzip2, sqlite, openssl, ncurses
+      bzip2, sqlite, openssl
   blas:
     use: openblas
   lapack:
