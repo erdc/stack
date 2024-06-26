@@ -9,15 +9,16 @@ extends:
 - file: debian.yaml
 
 parameters:
-  pyver: '3.11'
-  python_site_packages_rel: 'lib/python3.11/site-packages'
-  python_host_packages: '/usr/lib/python3.11/site-packages'
+  pyver: '3.12'
+  python_site_packages_rel: 'lib/python3.12/site-packages'
+  python_host_packages: '/usr/lib/python3.12/site-packages'
   HOST_MPI_DIR: /home/packages/compilers/intel/mpi/2021.5.1
   HOST_MPICC: mpicc
   HOST_MPICXX: mpicxx
   HOST_MPIF77: mpif77
   HOST_MPIF90: mpif90
   HOST_MPIEXEC: mpiexec
+  HOST_CMAKE: cmake
   machine: CrayXC40
   PATH: |
     /opt/cray/pe/pals/1.2.12/bin:/opt/cray/pe/mpich/8.1.26/ofi/gnu/9.1/bin:/opt/cray/pe/mpich/8.1.26/bin:/opt/cray/pe/craype/2.7.21/bin:/opt/cray/pe/gcc/12.2.0/snos/bin:/opt/cray/pe/cce/16.0.0/binutils/cross/x86_64-aarch64/bin:/opt/cray/pe/perftools/23.05.0/bin:/opt/cray/pe/papi/7.0.0.2/bin:/opt/cray/libfabric/1.15.2.0/bin:/usr/local/ossh/bin:/usr/local/krb5/bin:/opt/clmgr/sbin:/opt/clmgr/bin:/opt/sgi/sbin:/opt/sgi/bin:/usr/local/bin:/usr/bin:/bin:/opt/c3/bin:/usr/lib/mit/bin:/opt/pbs/bin:/sbin:/bin:/app/SLB:/p/app/unsupported/local/bin:/opt/cray/pe/bin:/p/app/unsupported/cmake/3.28.1-intel-2023.0.0/bin/cmake
@@ -48,7 +49,7 @@ packages:
     host: false
     link: shared
     build_with: |
-      bzip2, sqlite, openssl, ncurses
+      bzip2, sqlite, openssl
   blas:
     use: openblas
   lapack:

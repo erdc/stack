@@ -5,7 +5,7 @@ dependencies:
   run: [mpmath, fastcache]
 
 defaults:
-  version: 1.0.0
+  version: 1.12.0
 
 when version == '0.7.6':
     sources:
@@ -19,3 +19,7 @@ when version == '1.0.0':
     sources:
     - key: tar.gz:h2wneegyhhsnxei5efvjewfdvrxzg2ms
       url: https://pypi.python.org/packages/f3/ae/585ca7545c7e8d3a8130cc3d0cf53cfa489c137f8257e743fd3e18d7c401/sympy-1.0.tar.gz
+when version == '1.12.0':
+    sources:
+    - key: tar.gz:5p2zlsg2ypqp3ravfriypc2jqoloy7zq
+      url: https://github.com/sympy/sympy/releases/download/sympy-1.12/sympy-1.12.tar.gz
