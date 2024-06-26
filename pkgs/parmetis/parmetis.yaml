@@ -4,9 +4,9 @@ dependencies:
   build: [cmake, mpi]
 
 sources:
-- url: http://ftp.debian.org/debian/pool/non-free/p/parmetis/parmetis_4.0.3.orig.tar.gz
-  key: tar.gz:6lm2emnxz6l7d7xg5dewmmit5p3meqgu
-
+- url: https://github.com/KarypisLab/ParMETIS.git
+  key: git:8ee6a372ca703836f593e3c450ca903f04be14df
+  
 defaults:
   # lib/libmetis.so contains hard-coded path
   relocatable: false

@@ -1,6 +1,6 @@
 extends: [cmake_package]
 dependencies:
-  build: [mpi, petsc, parmetis, bzip2]
+  build: [mpi, petsc, bzip2]
 
 #changing git->zip b/c of ssl issues on hpcmp platforms
 
@@ -42,7 +42,7 @@ build_stages:
       -DBZIP2_INCLUDE_DIR:PATH=${BZIP2_DIR}/include
       -DBZIP2_LIBRARY_RELEASE:PATH=${BZIP2_DIR}/lib/libbz2.so
       -DZOLTAN_PREFIX:PATH=${PETSC_DIR}
-      -DPARMETIS_PREFIX:PATH=${PARMETIS_DIR}
+      -DPARMETIS_PREFIX:PATH=${PETSC_DIR}
       -DCMAKE_BUILD_TYPE:STRING=Release"
 
 - when: machine == 'CrayXE6' or machine == 'CrayXC30' or machine == 'CrayXC40'
@@ -67,8 +67,8 @@ build_stages:
       -DENABLE_SIMMETRIX:BOOL=OFF
       -DBZIP2_INCLUDE_DIR:PATH=/usr/include
       -DBZIP2_LIBRARY_RELEASE:PATH=/usr/lib64/libbz2.so
-      -DZOLTAN_PREFIX:PATH=${ZOLTAN_DIR}
-      -DPARMETIS_PREFIX:PATH=${PARMETIS_DIR}
+      -DZOLTAN_PREFIX:PATH=${PETSC_DIR}
+      -DPARMETIS_PREFIX:PATH=${PETSC_DIR}
       -DCMAKE_BUILD_TYPE:STRING=Release"
 
 - name: configure
