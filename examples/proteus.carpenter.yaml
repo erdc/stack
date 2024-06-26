@@ -9,7 +9,7 @@ extends:
 - file: debian.yaml
 
 parameters:
-  pyver: '3.12'
+  pyver: '3.11'
   python_site_packages_rel: 'lib/python3.12/site-packages'
   python_host_packages: '/usr/lib/python3.12/site-packages'
   HOST_MPI_DIR: /home/packages/compilers/intel/mpi/2021.5.1
@@ -35,7 +35,6 @@ parameters:
 
 packages:
   curl:
-    use: host-curl
   py2gmsh:
   future:
   cmake:
@@ -45,11 +44,13 @@ packages:
   openssl:
     use: host-openssl
   sqlite:
+  ncurses:
+    use: host-ncurses
   python:
     host: false
     link: shared
     build_with: |
-      bzip2, sqlite, openssl
+      bzip2, sqlite, openssl, ncurses
   blas:
     use: openblas
   lapack:
