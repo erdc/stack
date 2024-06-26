@@ -5,5 +5,5 @@ dependencies:
   run: []
 
 sources:
- - key: zip:vl57azuxl7rbp3kj27izpmtjapj3ipu4
-   url: https://pypi.python.org/packages/c3/8d/d924693a99c592b2ede575b7bffa5dbf95c9fe41e74e084d4d5a751564d0/pytz-2016.10.zip
+- key: tar.gz:pnh53pvzjiplus2vpwre6gp57hnvoums
+  url: https://files.pythonhosted.org/packages/69/4f/7bf883f12ad496ecc9514cd9e267b29a68b3e9629661a2bbc24f80eff168/pytz-2023.3.post1.tar.gz

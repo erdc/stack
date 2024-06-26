@@ -14,6 +14,10 @@ when version == '3.21.0':
   sources:
   - key: tar.gz:dygc7esrjrzpqdkkjuhgiondvoqm5wt2
     url: https://web.cels.anl.gov/projects/petsc/download/release-snapshots/petsc-3.21.0.tar.gz
+when version == '3.19.3':
+  sources:
+  - key: tar.gz:acbdtqawxbuwspwi5ajwrifxmocgfzth
+    url: https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.19.3.tar.gz
 when version == '3.17.2':
   sources:
   - key: tar.gz:emj52hfedpykzzugohvg7dkkx6iachwy

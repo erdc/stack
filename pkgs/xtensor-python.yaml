@@ -5,8 +5,8 @@ dependencies:
   run: [xtensor, xtl, mpi, pybind11, pybind11_cmake]
 
 sources:
-- key: tar.gz:5nsbkxdies7eohpm7e4sppxnvy3ek4km
-  url: https://github.com/xtensor-stack/xtensor-python/archive/0.26.1.tar.gz
+- key: tar.gz:idxadpjbhlvxx5spnwfdev7u7kmo2moe
+  url: https://github.com/xtensor-stack/xtensor-python/archive/refs/tags/0.27.0.tar.gz
 
 defaults:
   relocatable: true
