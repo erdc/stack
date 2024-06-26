@@ -1,8 +1,8 @@
 extends: [autotools_package]
 
 sources:
-- key: tar.gz:neysqpm2zb6fa47tbnrjbrghl4qwgk5u
-  url: https://ftp.gnu.org/pub/gnu/ncurses/ncurses-6.4.tar.gz
+- key: tar.gz:cnwzdpbgtknfpbpf7huybpdwvnlufd3a
+  url: https://ftp.gnu.org/pub/gnu/ncurses/ncurses-6.5.tar.gz
 
 defaults:
   relocatable: false

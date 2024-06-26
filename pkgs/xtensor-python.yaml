@@ -2,7 +2,7 @@ extends: [cmake_package]
 
 dependencies:
   build: [xtensor, xtl, mpi, pybind11, pybind11_cmake, numpy,python]
-  run: [xtensor, xtl, mpi, pybind11, pybind11_cmake]
+  run: [xtensor, xtl, mpi, pybind11, pybind11_cmake, numpy, python]
 
 sources:
 - key: tar.gz:idxadpjbhlvxx5spnwfdev7u7kmo2moe
@@ -24,4 +24,6 @@ build_stages:
   extra: [
   '-DCMAKE_C_COMPILER:STRING=${MPICC}',
   '-DCMAKE_CXX_COMPILER:STRING=${MPICXX}',
+  '-DNUMPY_INCLUDE_DIRS:PATH=${NUMPY_DIR}',
+  '-DPYTHON_EXECUTABLE:PATH=${PYTHON}'
   ]
