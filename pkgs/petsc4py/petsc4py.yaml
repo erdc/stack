@@ -48,6 +48,10 @@ build_stages:
 #      PATH=$PATH:$PETSC_DIR/bin \
 #      $PYTHON runtests.py)
 
+when version == '3.21.2':
+  sources:
+  - key: tar.gz:ntq6djcua7ndaddinhintk7bpnnqo5be
+    url: https://web.cels.anl.gov/projects/petsc/download/release-snapshots/petsc4py-3.21.2.tar.gz
 when version == '3.21.1':
   sources:
   - key: tar.gz:5kggv6ywkqiwpu47q7k7zlmyymwyk37i

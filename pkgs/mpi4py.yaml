@@ -5,5 +5,5 @@ dependencies:
   run: [mpi, numpy]
 
 sources:
-- key: tar.gz:ujpx4uq2yvyguttsqtmynxyanqtkfuj4
-  url: https://github.com/mpi4py/mpi4py/archive/refs/tags/3.1.5.tar.gz
+- key: tar.gz:ledsvkgfgr2ge3aufe7pm5m7lvsunbra
+  url: https://github.com/mpi4py/mpi4py/archive/refs/tags/3.1.6.tar.gz
