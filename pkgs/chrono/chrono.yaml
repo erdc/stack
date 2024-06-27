@@ -14,7 +14,7 @@ dependencies:
     - python
     - zlib
     - swig
-    - eigen
+    - petsc
 
 build_stages:
 - name: configure

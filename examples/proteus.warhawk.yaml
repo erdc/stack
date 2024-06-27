@@ -25,6 +25,7 @@ parameters:
   HOST_MPIF90: mpif90
   HOST_MPIEXEC: aprun
   HOST_PKG_CONFIG_EXECUTABLE: pkg-config
+  HOST_CMAKE: cmake
   PATH: |
     /opt/cray/pe/mpich/8.1.25/ofi/gnu/9.1/bin:/opt/cray/pe/mpich/8.1.25/bin:/opt/cray/pe/craype/2.7.20/bin:/opt/cray/pe/gcc/12.2.0/bin:/opt/cray/pe/pals/1.2.11/bin:/opt/cray/pe/cce/15.0.1/binutils/cross/x86_64-aarch64/bin:/p/app/Anaconda3/condabin:/usr/local/ossh/bin:/opt/cray/pe/cce/15.0.1/binutils/cross/x86_64-aarch64/bin:/p/app/Modules/4.7.1/bin:/opt/cray/pe/perftools/23.03.0/bin:/opt/cray/pe/papi/7.0.0.1/bin:/opt/cray/libfabric/1.12.1.2.2.0/bin:/opt/clmgr/sbin:/opt/clmgr/bin:/opt/sgi/sbin:/opt/sgi/bin:/usr/local/bin:/usr/bin:/bin:/opt/c3/bin:/usr/lib/mit/bin:/usr/lib/mit/sbin:/opt/pbs/bin:/sbin:/bin:/app/bin:/app/COTS/bin:/usr/local/krb5/bin:/app/BCT/bin:/p/app/local/bin:/usr/lib64/jvm/java-11-openjdk-11/bin:.:/opt/cray/pe/bin
   LD_LIBRARY_PATH: |
@@ -45,11 +46,10 @@ packages:
   pkg-config:
     use: host-pkg-config
   curl:
-    use: host-curl
   launcher:
   cmake:
+    use: host-cmake
   sqlite:
-    use: host-sqlite
   openssl:
     use: host-ssl
   python:
@@ -64,24 +64,23 @@ packages:
   mpi:
     use: host-mpi
   mpi4py:
-  nose:
   hdf5:
   petsc:
+    version: 3.21.2
     openblas: true
-    version: 3.21.1
     build_with: |
-      parmetis, cmake, blas
+      cmake, blas
     download: |
-      superlu, superlu_dist, hypre, blacs, scalapack, ptscotch, parmetis, metis, zoltan
+      superlu, superlu_dist, hypre, blacs, scalapack, mumps, zoltan, parmetis, metis, zoltan, eigen
     coptflags: -O2
     link: shared
     debug: false
   petsc4py:
     version: 3.21.2
-    with_conf: true
   tetgen:
   triangle:
   memory_profiler:
+  #scipy:
   h5py:
   pip:
   pybind11:
