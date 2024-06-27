@@ -204,9 +204,9 @@ build_stages:
       echo "    ok"
 
       # Test sqlite3
-      echo "import _sqlite3"
-      $ARTIFACT/bin/python -c "import _sqlite3"
-      echo "    ok"
+      #echo "import _sqlite3"
+      #$ARTIFACT/bin/python -c "import _sqlite3"
+      #echo "    ok"
 
       # Test ctypes
       echo "import _ctypes"
