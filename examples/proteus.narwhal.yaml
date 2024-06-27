@@ -25,6 +25,7 @@ parameters:
   HOST_MPIF90: /opt/cray/pe/mpich/8.1.21/ofi/gnu/9.1/bin/mpif90
   HOST_MPIEXEC: aprun
   HOST_PKG_CONFIG_EXECUTABLE: pkg-config
+  HOST_CMAKE: cmake
   PATH: |
     /p/app/emacs/27.2/bin:/p/app/Anaconda3/condabin:/p/app/mpscp-1.3a/bin:/opt/cray/pe/pals/1.2.12/bin:/opt/cray/pe/mpich/8.1.21/ofi/gnu/9.1/bin:/opt/cray/pe/mpich/8.1.21/bin:/opt/cray/pe/perftools/22.09.0/bin:/opt/cray/pe/papi/6.0.0.16/bin:/opt/cray/libfabric/1.12.1.2.2.1/bin:/opt/cray/pe/craype/2.7.19/bin:/opt/cray/pe/gcc/12.1.0/bin:/opt/clmgr/sbin:/opt/clmgr/bin:/opt/sgi/sbin:/opt/sgi/bin:/usr/bin:/bin:/opt/c3/bin:/opt/pbs/bin:/sbin:/bin:/opt/cray/pe/bin:/app/bin:/usr/local/bin:/app/COTS/bin:/usr/local/krb5/bin:/p/app/BCT/bin:/p/app/SLB
   LD_LIBRARY_PATH: |
@@ -41,48 +42,47 @@ packages:
   chrono:
   scorec:
   curl:
-    use: host-curl
   bzip2:
     use: host-bzip2
   pkg-config:
     use: host-pkg-config
-  sqlite:
-    use: host-sqlite
   launcher:
   cmake:
+    use: host-cmake
   openssl:
     use: host-openssl
+  sqlite:
   python:
     host: false
     link: shared
     build_with: |
-      bzip2, openssl
+      bzip2, sqlite, openssl, ncurses
   blas:
     use: openblas
   lapack:
     use: openblas-lapack
+  #daetk:
+  #  petscversion: 3.21.1
   mpi:
     use: host-mpi
   mpi4py:
   hdf5:
-  parmetis:
-    without_check: true
   petsc:
+    version: 3.21.2
     openblas: true
-    version: 3.21.1
     build_with: |
       cmake, blas
     download: |
-      superlu, superlu_dist, hypre, blacs, scalapack, ptscotch, zoltan, parmetis, metis
+      superlu, superlu_dist, hypre, blacs, scalapack, mumps, zoltan, parmetis, metis, zoltan, eigen
     coptflags: -O2
     link: shared
     debug: false
   petsc4py:
-    version: 3.21.1
-    with_conf: true
+    version: 3.21.2
   tetgen:
   triangle:
   memory_profiler:
+  #scipy:
   h5py:
   pip:
   pybind11:
