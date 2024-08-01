@@ -5,8 +5,8 @@ dependencies:
 #changing git->zip b/c of ssl issues on hpcmp platforms
 
 sources:
-- key: tar.gz:6snchj3oqsbanmn4hpkrgoooh5yiztrs
-  url: https://github.com/SCOREC/core/archive/refs/tags/v2.2.7.tar.gz
+- key: tar.gz:kilnbvnmamojgv5ftgdldpdpfs63vqbv
+  url: https://github.com/SCOREC/core/archive/refs/tags/v2.2.8.tar.gz
 
 defaults:
   relocatable: true

@@ -62,13 +62,13 @@ packages:
   lapack:
     use: openblas-lapack
   #daetk:
-  #  petscversion: 3.21.1
+  #  petscversion: 3.21.3
   mpi:
     use: host-mpi
   mpi4py:
   hdf5:
   petsc:
-    version: 3.21.2
+    version: 3.21.3
     openblas: true
     build_with: |
       cmake, blas
@@ -78,13 +78,12 @@ packages:
     link: shared
     debug: false
   petsc4py:
-    version: 3.21.2
+    version: 3.21.3
   tetgen:
   triangle:
   memory_profiler:
   #scipy:
   h5py:
-  pip:
   pybind11:
   xtensor:
   xtensor-python:
